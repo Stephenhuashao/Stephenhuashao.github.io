@@ -11,12 +11,12 @@
 <meta property="og:url" content="http://Stephenhuashao.github.io/2016-04-27-androidComponent.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
 <meta property="og:description" content="Android开发四大组件一、Activity详解二、Service详解三、Broadcast Receiver详解四、Content Provider详解五、intent的详解（额外加一个重要组件）">
-<meta property="og:image" content="http://Stephenhuashao.github.io/img/android-component/android-activity.jpg">
-<meta property="og:updated_time" content="2016-06-13T12:07:13.210Z">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/android-activity.jpg">
+<meta property="og:updated_time" content="2016-06-15T09:05:26.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android四大组件">
 <meta name="twitter:description" content="Android开发四大组件一、Activity详解二、Service详解三、Broadcast Receiver详解四、Content Provider详解五、intent的详解（额外加一个重要组件）">
-<meta name="twitter:image" content="http://Stephenhuashao.github.io/img/android-component/android-activity.jpg">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/android-activity.jpg">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -147,7 +147,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/答辩/" style="font-size: 10px;">答辩</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 15px;">自学android</a>
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 15px;">自学android</a> <a href="/tags/计划安排/" style="font-size: 10px;">计划安排</a> <a href="/tags/说说/" style="font-size: 10px;">说说</a>
                     </div>
                 </section>
                 
@@ -264,7 +264,7 @@
       
           
         <h2 id="Android开发四大组件"><a href="#Android开发四大组件" class="headerlink" title="Android开发四大组件"></a>Android开发四大组件</h2><h3 id="一、Activity详解"><a href="#一、Activity详解" class="headerlink" title="一、Activity详解"></a>一、Activity详解</h3><h3 id="二、Service详解"><a href="#二、Service详解" class="headerlink" title="二、Service详解"></a>二、Service详解</h3><h3 id="三、Broadcast-Receiver详解"><a href="#三、Broadcast-Receiver详解" class="headerlink" title="三、Broadcast Receiver详解"></a>三、Broadcast Receiver详解</h3><h3 id="四、Content-Provider详解"><a href="#四、Content-Provider详解" class="headerlink" title="四、Content Provider详解"></a>四、Content Provider详解</h3><h3 id="五、intent的详解（额外加一个重要组件）"><a href="#五、intent的详解（额外加一个重要组件）" class="headerlink" title="五、intent的详解（额外加一个重要组件）"></a>五、intent的详解（额外加一个重要组件）</h3><a id="more"></a>
-<h2 id="Activity详解"><a href="#Activity详解" class="headerlink" title="Activity详解"></a>Activity详解</h2><h3 id="Activity的启动顺序图解："><a href="#Activity的启动顺序图解：" class="headerlink" title="Activity的启动顺序图解："></a>Activity的启动顺序图解：</h3><p><img src="/img/android-component/android-activity.jpg" alt=" Activity启动顺序！"></p>
+<h2 id="Activity详解"><a href="#Activity详解" class="headerlink" title="Activity详解"></a>Activity详解</h2><h3 id="Activity的启动顺序图解："><a href="#Activity的启动顺序图解：" class="headerlink" title="Activity的启动顺序图解："></a>Activity的启动顺序图解：</h3><p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/android-activity.jpg" alt=" Activity启动顺序！"></p>
 <blockquote>
 <p>一个Activity的启动顺序：</p>
 <p>onCreate()——&gt;onStart()——&gt;onResume()</p>
@@ -285,14 +285,7 @@
 七、onDestroy ：当活动销毁的时候，触发该方法。和 onStop 方法一样，如果内存紧张，系统会直接结束这个活动而不会触发该方法。
 onSaveInstanceState ：系统调用该方法，允许活动保存之前的状态，比如说在一串字符串中的光标所处的位置等。 
 通常情况下，开发者不需要重写覆盖该方法，在默认的实现中，已经提供了自动保存活动所涉及到的用户界面组件的所有状态信息。
-</code></pre><h2 id="样式调整"><a href="#样式调整" class="headerlink" title="样式调整"></a>样式调整</h2><h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><pre><code>&lt;table&gt;: 表格
-&lt;thead&gt;: table header 表头区
-&lt;th&gt;: table headings 表头单元格内容
-&lt;tbody&gt;: table body 表格内容区
-&lt;tr&gt;: table row 表行
-&lt;td&gt;: table data 单元格内容
-</code></pre><h3 id="基本样式"><a href="#基本样式" class="headerlink" title="基本样式"></a>基本样式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>; <span class="comment">/*表格宽度*/</span></span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">65em</span>; <span class="comment">/*表格最大宽度，避免表格过宽*/</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*表格外边框设置*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">15px</span> auto; <span class="comment">/*外边距*/</span></span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse; <span class="comment">/*使用单一线条的边框*/</span></span><br><span class="line">    <span class="attribute">empty-cells</span>: show; <span class="comment">/*单元格无内容依旧绘制边框*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">th</span>,</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">35px</span>; <span class="comment">/*统一每一行的默认高度*/</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dedede</span>; <span class="comment">/*内部边框样式*/</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>; <span class="comment">/*内边距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>　　</p>
+</code></pre><p>　　</p>
 
       
     </div>
@@ -304,7 +297,7 @@ onSaveInstanceState ：系统调用该方法，允许活动保存之前的状态
         <p><span>本文标题:</span><a href="/2016-04-27-androidComponent.html">android四大组件</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
         <p><span>发布时间:</span>2016年04月27日 - 10时21分</p>
-        <p><span>最后更新:</span>2016年06月13日 - 20时07分</p>
+        <p><span>最后更新:</span>2016年06月15日 - 17时05分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016-04-27-androidComponent.html" title="android四大组件">http://Stephenhuashao.github.io/2016-04-27-androidComponent.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-04-27-androidComponent.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -342,7 +335,7 @@ onSaveInstanceState ：系统调用该方法，允许活动保存之前的状态
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android开发四大组件"><span class="toc-number">1.</span> <span class="toc-text">Android开发四大组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Activity详解"><span class="toc-number">1.1.</span> <span class="toc-text">一、Activity详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Service详解"><span class="toc-number">1.2.</span> <span class="toc-text">二、Service详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Broadcast-Receiver详解"><span class="toc-number">1.3.</span> <span class="toc-text">三、Broadcast Receiver详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Content-Provider详解"><span class="toc-number">1.4.</span> <span class="toc-text">四、Content Provider详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、intent的详解（额外加一个重要组件）"><span class="toc-number">1.5.</span> <span class="toc-text">五、intent的详解（额外加一个重要组件）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity详解"><span class="toc-number">2.</span> <span class="toc-text">Activity详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity的启动顺序图解："><span class="toc-number">2.1.</span> <span class="toc-text">Activity的启动顺序图解：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样式调整"><span class="toc-number">3.</span> <span class="toc-text">样式调整</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础概念"><span class="toc-number">3.1.</span> <span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本样式"><span class="toc-number">3.2.</span> <span class="toc-text">基本样式</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android开发四大组件"><span class="toc-number">1.</span> <span class="toc-text">Android开发四大组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Activity详解"><span class="toc-number">1.1.</span> <span class="toc-text">一、Activity详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Service详解"><span class="toc-number">1.2.</span> <span class="toc-text">二、Service详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Broadcast-Receiver详解"><span class="toc-number">1.3.</span> <span class="toc-text">三、Broadcast Receiver详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Content-Provider详解"><span class="toc-number">1.4.</span> <span class="toc-text">四、Content Provider详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、intent的详解（额外加一个重要组件）"><span class="toc-number">1.5.</span> <span class="toc-text">五、intent的详解（额外加一个重要组件）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity详解"><span class="toc-number">2.</span> <span class="toc-text">Activity详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity的启动顺序图解："><span class="toc-number">2.1.</span> <span class="toc-text">Activity的启动顺序图解：</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

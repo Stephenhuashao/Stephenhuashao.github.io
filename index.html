@@ -147,7 +147,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/答辩/" style="font-size: 10px;">答辩</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 15px;">自学android</a>
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 15px;">自学android</a> <a href="/tags/计划安排/" style="font-size: 10px;">计划安排</a> <a href="/tags/说说/" style="font-size: 10px;">说说</a>
                     </div>
                 </section>
                 
@@ -279,7 +279,7 @@
 <li>解压下载的xUtils源码包，从里面<code>library</code>–&gt;src–&gt;<code>com</code>把此目录下的导入自己的android项目中<h3 id="第三步：调用开源项目封装好的方法实现断点续传逻辑"><a href="#第三步：调用开源项目封装好的方法实现断点续传逻辑" class="headerlink" title="第三步：调用开源项目封装好的方法实现断点续传逻辑"></a>第三步：调用开源项目封装好的方法实现断点续传逻辑</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//[0]找到我们关心的控件</span></span><br><span class="line">ed_path = (EditText) findViewById(R.id.ed_path);</span><br><span class="line">pb= (ProgressBar) findViewById(R.id.progressBar1);</span><br><span class="line">Button btn = (Button) findViewById(R.id.btn);</span><br><span class="line">btn = (Button) findViewById(R.id.btn);</span><br><span class="line"><span class="comment">//点击按钮实现断点续传下载的逻辑</span></span><br><span class="line">btn.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line"><span class="comment">//[1]获取下载路径</span></span><br><span class="line">String path = ed_path.getText().toString().trim();</span><br><span class="line"><span class="comment">//[2]创建httputils对象</span></span><br><span class="line">HttpUtils http = <span class="keyword">new</span> HttpUtils();</span><br><span class="line"></span><br><span class="line"><span class="comment">//[3]实现断点下载逻辑</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line">  * url 下载路径</span><br><span class="line">  * target 下载文件的路径</span><br><span class="line">  * autoResume 是否支持断点续传 boolean类型</span><br><span class="line">  * callback 回调事件 </span><br><span class="line">  */</span></span><br><span class="line">http.download(path, <span class="string">"/mnt/sdcard/heihei.exe"</span>, <span class="keyword">true</span>, <span class="keyword">new</span> RequestCallBack&lt;File&gt;() &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//下载成功  注意下载成功与请求成功是有区别的</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(ResponseInfo&lt;File&gt; responseInfo)</span> </span>&#123;</span><br><span class="line">Toast.makeText(getApplicationContext(), <span class="string">"下载成功"</span>, <span class="number">1</span>).show();	</span><br><span class="line">&#125;</span><br><span class="line">				</span><br><span class="line"><span class="comment">/**</span><br><span class="line">  * 重写onLoading方法</span><br><span class="line">  * total参数  代表总进度</span><br><span class="line">  * current    代表当前进度</span><br><span class="line">  */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoading</span><span class="params">(<span class="keyword">long</span> total, <span class="keyword">long</span> current,</span><br><span class="line"><span class="keyword">boolean</span> isUploading)</span> </span>&#123;</span><br><span class="line">pb.setMax((<span class="keyword">int</span>) total); <span class="comment">//设置进度条的最大值</span></span><br><span class="line">pb.setProgress((<span class="keyword">int</span>) current); <span class="comment">//设置当前进度条的当前进度</span></span><br><span class="line">&#125;</span><br><span class="line">				</span><br><span class="line"><span class="comment">//下载失败的回调</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(HttpException error, String msg)</span> 	</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span>;	</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="/img/android-one/xutils.png" alt="开源项目的使用实现快速开发"></p>
+<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/xutils.jpg" alt="开源项目的使用实现快速开发"></p>
 
       
     </div>
@@ -341,7 +341,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><img src="/img/android-one/android.jpg" alt=" Android 开源项目分类汇总！"><br>
+              <p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/android.jpg" alt=" Android 开源项目分类汇总！"><br>
           
       
     </div>
@@ -465,7 +465,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><img src="/img/dinner-party/dinner.jpg" alt=" 来到公司第一次大家庭聚餐！"><br>
+              <p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/dinner.jpg" alt=" 来到公司第一次大家庭聚餐！"><br>
           
       
     </div>
@@ -540,10 +540,14 @@
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/生活情感/">生活情感</a>
+    </div>
+
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/答辩/">答辩</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计划安排/">计划安排</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/说说/">说说</a></li></ul>
     </div>
 
       
@@ -590,7 +594,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><img src="/img/love-life/love.jpg" alt=" 2014年本人还是个懵懂的大二学生第一次来到大家庭，2016年本人大四毕业第二次回归到大家庭！"><br>
+              <p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/love.jpg" alt=" 2014年本人还是个懵懂的大二学生第一次来到大家庭，2016年本人大四毕业第二次回归到大家庭！"><br>
           
       
     </div>
@@ -652,7 +656,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><img src="/img/window-mac/mac.png" alt=" 让自己爱上自己的电脑"><br>
+              <p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/mac.png" alt=" 让自己爱上自己的电脑"><br>
           
       
     </div>
@@ -714,7 +718,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p><img src="/img/if-you/if-you.jpg" alt=" 如果只做你力所能及的事，你就没有办法进步！"><br>
+              <p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/if-you.jpg" alt=" 如果只做你力所能及的事，你就没有办法进步！"><br>
           
       
     </div>
