@@ -2506,7 +2506,11 @@ color
   visibility: hidden;
 }
 .article img {
-  max-width: 100%;
+  max-width: 660px;
+  max-height: 660px;
+  border: none;
+  -webkit-box-shadow: 2px 2px 3px #aaa;
+  box-shadow: 2px 2px 3px #aaa;
 }
 @-webkit-keyframes cd-bounce-1 {
   0% {
