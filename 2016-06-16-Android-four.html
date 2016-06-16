@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>走进Android | Stephen HuaShao&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="菜鸟Android之路Android学习路线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="走进Android">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-06-16-Android-four.html">
+<meta property="og:site_name" content="Stephen HuaShao's Blog">
+<meta property="og:description" content="菜鸟Android之路Android学习路线">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/androidxuexiluxian.jpg">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/Android_system_architecture_thumb.jpg">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/jiegou.png">
+<meta property="og:updated_time" content="2016-06-16T10:03:01.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="走进Android">
+<meta name="twitter:description" content="菜鸟Android之路Android学习路线">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/androidxuexiluxian.jpg">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">王松</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">研发之路，要厚积而薄发</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/about">留言介绍</a></li>
+                        
+                            <li><a href="/tags">静心阅读</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Stephenhuashao" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 15px;">自学android</a> <a href="/tags/计划安排/" style="font-size: 10px;">计划安排</a> <a href="/tags/说说/" style="font-size: 10px;">说说</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luxiaoyou.com/">Xiaoyou Lu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://xblvip.cn/">浪里小白龙</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">当前是一枚实习生。本人纯编程技术迷、喜欢专研各种编程技术、迎接新的挑战，静下心，默默努力，总有一天会闪耀！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王松</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王松</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">研发之路，要厚积而薄发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/about">留言介绍</a></li>
+                
+                    <li><a href="/tags">静心阅读</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Stephenhuashao" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Android-four" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-06-16-Android-four.html" class="article-date">
+      <time datetime="2016-06-16T06:39:59.000Z" itemprop="datePublished">2016-06-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      走进Android
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="菜鸟Android之路"><a href="#菜鸟Android之路" class="headerlink" title="菜鸟Android之路"></a>菜鸟Android之路</h1><h2 id="Android学习路线"><a href="#Android学习路线" class="headerlink" title="Android学习路线"></a>Android学习路线</h2><p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/androidxuexiluxian.jpg" alt="Android学习路线"><br><a id="more"></a></p>
+<h2 id="自己为什么要学android"><a href="#自己为什么要学android" class="headerlink" title="自己为什么要学android"></a>自己为什么要学android</h2><blockquote>
+<p> 本人作为应届毕业生，自己进入社会前做过好多梦，可是呢，现实还是打败了无邪！！面对社会的压力和残酷的竞争力自己如何生成下去？？我自己对自己说：第一步，我要<code>先养活自己</code>，才能走好以后的路！<br> 开始接触手机端android那时感觉，做android开发的工资高、android前景广。可是自己在学校那时自学了，最后自己没有坚持走下去。因为开始接触新的东西，自己要付出很多努力和时间，主要是自己那时不懂的利用好网络资源、遇到问题不知道怎么去咨询解决，碰了很多壁和走了弯路！自己就去学了C/C++、JavaWeb，也接触过Python,大学生活自己过的一团遭，回想起来自己很<code>Loser</code><br> 现在2016年就不一样了，自己拾起Android,中间经历了好多，得到过好多人的指导、帮助，现在在android的路上自己还有一位很厉害的<code>智伟哥</code>指导带领我。自己也在默默努力加油，一直在android的路上……..</p>
+</blockquote>
+<h2 id="Android基础"><a href="#Android基础" class="headerlink" title="Android基础"></a>Android基础</h2><h3 id="Android操作系统介绍"><a href="#Android操作系统介绍" class="headerlink" title="Android操作系统介绍"></a>Android操作系统介绍</h3><pre><code>android系统是由安迪鲁宾团队开发的，最初用于数码相机，2005.08被google收购
+android名字是因为安迪鲁宾喜欢一个游戏的人物--大瓢虫
+android图标：上厕所的灵感--避免权种族歧视
+android应用范围：手机，平板，智能家居，穿戴设备。
+</code></pre><h3 id="Android系统架构—分层的架构"><a href="#Android系统架构—分层的架构" class="headerlink" title="Android系统架构—分层的架构"></a>Android系统架构—分层的架构</h3><pre><code>application :应用层 ； java
+application framework :应用框架层  ， java+ＪＮＩ
+libraries 和 dalvik ： 函数库和虚拟机层，  c/c++ 
+linux kernel : linux 内核驱动层， c
+</code></pre><p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/Android_system_architecture_thumb.jpg" alt="Android系统架构"></p>
+<h3 id="DDMS介绍"><a href="#DDMS介绍" class="headerlink" title="DDMS介绍"></a>DDMS介绍</h3><pre><code>ddms： dalvik debug manitor services        
+devices: 列出当前电脑所连接的所有android设备，及android设备运行的进程，结束一个进程，设置程序为debug模式，截屏。
+logcat: 会打印系统运行过程中所有日志信息。
+file explorer: 列出当前设备所有目录。 
+/data/app:安装的第三方apk都在此目录
+/system/app: 系统预装应用apk在此目录  
+/data/data:应用的私有目录，系统每安装一个新的应用程序，都会在此目录创建该应用包名的文件，用来存放该应用的私有数据，当应用卸载时，该包名的文件夹也会被删除。      
+/sdcard :外部存储目录，一般会链接指向到另一个目录，用来存放大数据。
+</code></pre><h3 id="android工程目录结构"><a href="#android工程目录结构" class="headerlink" title="android工程目录结构"></a>android工程目录结构</h3><pre><code>src文件夹：该文件夹是放项目的源代码的。
+gen文件夹：该文件夹下面有个R.java文件，R.java是在建立项目时自动生成的，这个文件是只读模式的，不能更改。R.java文件中定义了一个类——R，R类 中包含很多静态类，且静态类的名字都与res中的一个名字对应，即R类定义该项目所有资源的索引。
+Android 2.1文件夹：该文件夹下包含android.jar文件，这是一个Java 归档文件，其中包含构建应用程序所需的所有的Android SDK 库（如Views、Controls）和APIs。通过android.jar将自己的应用程序绑定到Android SDK和Android Emulator，这允许你使用所有Android的库和包，且使你的应用程序在适当的环境中调试。
+assets：包含应用系统需要使用到的诸如mp3、视频类的文件。
+res文件夹：放置应用 程序 用到的资源 文件。其包含(Drawable，layout,values等目录)。当这个目录下的文件发生变化时，src目录下面的R.java就会自动发生变化。
+res/drawable:放置应用到的图片资源。
+res/layout:放置一些与UI相应的布局文件，都是xml文件。
+res/values：放置字符串，颜色，数组等常量数据。
+default.properties：记录项目中所需要的环境信息，比如Android的版本等
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">This file is automatically generated by Android Tools.</span><br><span class="line"># Do not modify this file -- YOUR CHANGES WILL BE ERASED!</span><br><span class="line">#</span><br><span class="line"># This file must be checked in Version Control Systems.</span><br><span class="line">#</span><br><span class="line"># To customize properties used by the Ant build system use,</span><br><span class="line"># "build.properties", and override values to adapt the script to your</span><br><span class="line"># project structure.</span><br><span class="line"> </span><br><span class="line"># Indicates whether an apk should be generated for each density.</span><br><span class="line">split.density=false</span><br><span class="line"># Project target.</span><br><span class="line">target=android-7</span><br></pre></td></tr></table></figure>
+<ol>
+<li>AndroidManifest.xml：相当于应用的配置文件。在此文件里必须声明应用的名称，应用所用到的Activity,Service ,Reveiver等。<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line">&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"</span><br><span class="line">package="com.example.intentcallphone"</span><br><span class="line">android:versionCode="1"</span><br><span class="line">android:versionName="1.0" &gt;</span><br><span class="line">&lt;uses-sdk</span><br><span class="line">android:minSdkVersion="8"</span><br><span class="line">android:targetSdkVersion="21" /&gt;</span><br><span class="line">&lt;uses-permission android:name="android.permission.CALL_PHONE" /&gt;"</span><br><span class="line"></span><br><span class="line">&lt;!-- 代表当前应用 --&gt;</span><br><span class="line">&lt;application</span><br><span class="line">android:allowBackup="true"</span><br><span class="line">android:icon="@drawable/ic_launcher"</span><br><span class="line">android:label="@string/app_name"</span><br><span class="line">android:theme="@style/AppTheme" &gt;</span><br><span class="line">&lt;activity</span><br><span class="line">android:name=".MainActivity"</span><br><span class="line">android:label="@string/app_name" &gt;</span><br><span class="line">&lt;!-- main主入口 --&gt;</span><br><span class="line">&lt;!-- 意图过滤器 --&gt;</span><br><span class="line">&lt;intent-filter&gt;</span><br><span class="line">&lt;action android:name="android.intent.action.MAIN" /&gt;</span><br><span class="line">&lt;category android:name="android.intent.category.LAUNCHER" /&gt;</span><br><span class="line">&lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br><span class="line">&lt;/application&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/jiegou.png" alt="android工程目录结构"></p>
+<h3 id="四种方法写按钮点击事件"><a href="#四种方法写按钮点击事件" class="headerlink" title="四种方法写按钮点击事件"></a>四种方法写按钮点击事件</h3><ol>
+<li><p>直接通过id查找后，绑定匿名内部类作为事件监听类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Button loginButton = (Button) findViewById(R.id.tologin1);</span><br><span class="line"></span><br><span class="line">btn1.setOnclickListener(<span class="keyword">new</span> OnclickListener()&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"> <span class="comment">// 要执行的操作</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;);</span><br><span class="line">优缺点：好的是比较直观方便，不好的是，如果按钮多了，代码看起来比较乱。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现点击事件的接口，然后一个个按钮地去绑定，最后统一做处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActivityLogin1</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span></span><br><span class="line"></span><br><span class="line"><span class="title">btnLogin</span> </span>= (Button) findViewById(R.id.btnLogin);</span><br><span class="line">btnLogin.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">btnBack = (Button) findViewById(R.id.back);</span><br><span class="line">btnBack.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line"><span class="keyword">switch</span> (v.getId()) &#123;</span><br><span class="line"><span class="keyword">case</span> R.id.back:</span><br><span class="line"><span class="comment">//对应操作</span></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> R.id.btnLogin:</span><br><span class="line"><span class="comment">//对应操作</span></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">.......</span><br><span class="line">这种方法有点批量处理的味道。统一处理，可以让代码看起来更加结构化。</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自定义监听事件类，实现点击事件的接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Button btn1=(Button)findViewById(R.id.myButton1);</span><br><span class="line">Button btn2=(Button)findViewById(R.id.myButton2);</span><br><span class="line">btn1.setOnclickListener(<span class="keyword">new</span> Startclick());</span><br><span class="line">btn2.setOnclickListener(<span class="keyword">new</span> Stopclick());</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StartClick</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span></span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span>&#123;<span class="comment">//或直接跟上要执行的动作</span></span><br><span class="line"> <span class="keyword">switch</span>(v.getId())&#123;</span><br><span class="line"> <span class="keyword">case</span> R.id.myButton1:</span><br><span class="line"> <span class="comment">//要执行的动作</span></span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StopClick</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span></span>&#123;<span class="comment">////或直接跟上要执行的动作</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line"> <span class="keyword">switch</span>(v.getId())&#123;</span><br><span class="line"> <span class="keyword">case</span> R.id.myButton2:</span><br><span class="line"> <span class="comment">//要执行的动作</span></span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在xml布局里，设置onClick属性监听</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">android:id=<span class="string">"@+id/pay"</span></span><br><span class="line">android:layout_width=<span class="string">"fill_parent"</span></span><br><span class="line">android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">android:layout_margin=<span class="string">"10dp"</span></span><br><span class="line">android:onClick=<span class="string">"pay"</span></span><br><span class="line">android:text=<span class="string">"支付"</span></span><br><span class="line">tools:ignore=<span class="string">"HardcodedText"</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pay</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line"><span class="comment">//要执行的操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="存储到SD卡-获取SD的大小及可用空间"><a href="#存储到SD卡-获取SD的大小及可用空间" class="headerlink" title="存储到SD卡,获取SD的大小及可用空间"></a>存储到SD卡,获取SD的大小及可用空间</h3><ol>
+<li><p>一、权限问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二、硬性编码问题：通过 Environment可以获取sdcard的路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Environment.getExternalStorageDirectory().getPath();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>三、使用前需要判断sdcard状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))&#123;</span><br><span class="line">//sdcard状态是没有挂载的情况</span><br><span class="line">Toast.makeText(mContext, &quot;sdcard不存在或未挂载&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">return ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>四、需要判断sdcard剩余空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//判断sdcard存储空间是否满足文件的存储</span><br><span class="line">File sdcard_filedir = Environment.getExternalStorageDirectory();//得到sdcard的目录作为一个文件对象</span><br><span class="line">long usableSpace = sdcard_filedir.getUsableSpace();//获取文件目录对象剩余空间</span><br><span class="line">long totalSpace = sdcard_filedir.getTotalSpace();</span><br><span class="line">//将一个long类型的文件大小格式化成用户可以看懂的M，G字符串</span><br><span class="line">String usableSpace_str = Formatter.formatFileSize(mContext, usableSpace);</span><br><span class="line">tring totalSpace_str = Formatter.formatFileSize(mContext, totalSpace);</span><br><span class="line">if(usableSpace &lt; 1024 * 1024 * 200)&#123;//判断剩余空间是否小于200M</span><br><span class="line">Toast.makeText(mContext, &quot;sdcard剩余空间不足,无法满足下载；剩余空间为：&quot;+usableSpace_str, Toast.LENGTH_SHORT).show();</span><br><span class="line">return ;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/data/data: context.getFileDir().getPath();</span><br><span class="line">是一个应用程序的私有目录，只有当前应用程序有权限访问读写，其他应用无权限访问。一些安全性要求比较高的数据存放在该目录，一般用来存放size比较小的数据。</span><br><span class="line">/sdcard:  Enviroment.getExternalStorageDirectory().getPath();</span><br><span class="line">是一个外部存储目录，只用应用声明了&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;的一个权限，就可以访问读写sdcard目录；所以一般用来存放一些安全性不高的数据，文件size比较大的数据。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="SharedPreferences介绍-用来做数据存储"><a href="#SharedPreferences介绍-用来做数据存储" class="headerlink" title="SharedPreferences介绍  用来做数据存储"></a>SharedPreferences介绍  用来做数据存储</h3><blockquote>
+<p>sharedPreferences是通过xml文件来做数据存储的。<br>一般用来存放一些标记性的数据，一些设置信息。</p>
+</blockquote>
+<ol>
+<li><strong><strong>*</strong></strong>使用sharedPreferences存储数据<strong><strong>*</strong></strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.通过Context对象创建一个SharedPreference对象</span><br><span class="line">//name:sharedpreference文件的名称    mode:文件的操作模式</span><br><span class="line">SharedPreferences sharedPreferences = context.getSharedPreferences(&quot;userinfo.txt&quot;, Context.MODE_PRIVATE);</span><br><span class="line"></span><br><span class="line">2.通过sharedPreferences对象获取一个Editor对象</span><br><span class="line">Editor editor = sharedPreferences.edit();</span><br><span class="line"></span><br><span class="line">3.往Editor中添加数据</span><br><span class="line">editor.putString(&quot;username&quot;, username);</span><br><span class="line">editor.putString(&quot;password&quot;, password);</span><br><span class="line"></span><br><span class="line">4.提交Editor对象</span><br><span class="line">editor.commit();</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong><strong>*</strong></strong>使用sharedPreferences读取数据<strong><strong>*</strong></strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.通过Context对象创建一个SharedPreference对象</span><br><span class="line">SharedPreferences sharedPreferences = context.getSharedPreferences(&quot;userinfo.txt&quot;, Context.MODE_PRIVATE);</span><br><span class="line">				</span><br><span class="line">2.通过sharedPreference获取存放的数据</span><br><span class="line">//key:存放数据时的key   defValue: 默认值,根据业务需求来写</span><br><span class="line">String username = sharedPreferences.getString(&quot;username&quot;, &quot;&quot;);</span><br><span class="line">String password = sharedPreferences.getString(&quot;password&quot;, &quot;&quot;);</span><br><span class="line">				</span><br><span class="line">通过PreferenceManager可以获取一个默认的sharepreferences对象		</span><br><span class="line">SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="生成xml的2种方式"><a href="#生成xml的2种方式" class="headerlink" title="生成xml的2种方式"></a>生成xml的2种方式</h3><blockquote>
+<p>如要操作XML文档，首先需要将XML文档解析出来。解析XML文件有三种方式：DOM解析、SAX解析、PULL解析。</p>
+<ol>
+<li>DOM解析：是一种基于对象的API,它会将XML文件的所以内容以<code>文档书方式</code>放在内存中，然后允许使用DOM API遍历XML树、检索所需的数据，这样便能根据树的结构以<code>节点(标签)</code>形式进行操作<code>优缺点：较小的XML文件可以采用这种方式解析，但较大的文件不建议采用这种方式来解析</code></li>
+<li>SAX解析：逐渐扫描XML的文档，当遇到标签时出发解析处理器，采用<code>事件处理</code>的方式解析XML。它在读取文档的同时即可对XML进行处理，不必等到文档加载结束，相对快捷。<code>SAX解析不存在占用内存的问题，并且可以解析超大XML，但是，SAX解析只能用来读取XML中的数据，无法进行增删改</code></li>
+<li>PULL解析：这是一个开源的javascript项目，Android已经集成了PULL解析，因此,Android中最常用的解析方式就是：PULL解析。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">1.写布局</span><br><span class="line"></span><br><span class="line">2.业务逻辑</span><br><span class="line">a.备份</span><br><span class="line">  1.封装短信数据到list中</span><br><span class="line">  2.将list中的数据写到xml文件中。</span><br><span class="line">b.恢复</span><br><span class="line">  1.解析xml文件中短信数据，封装到list集合中</span><br><span class="line">  2.将解析数据打印。</span><br><span class="line"></span><br><span class="line">  XmlPullParser</span><br><span class="line"></span><br><span class="line">//使用XmlSerializer来序列化xml文件</span><br><span class="line">public static boolean backupSms_android(Context context)&#123;</span><br><span class="line">		</span><br><span class="line">try&#123;</span><br><span class="line">			</span><br><span class="line">//[0]获取短信数据</span><br><span class="line">ArrayList&lt;SmsBean&gt; allSms = SmsDao.getAllSms();</span><br><span class="line">//[1]通过Xml获取一个XmlSerializer对象</span><br><span class="line">XmlSerializer xs = Xml.newSerializer();</span><br><span class="line">//[2]设置XmlSerializer的一些参数，比如：设置xml写入到哪个文件中</span><br><span class="line">//os:xml文件写入流   encoding：流的编码</span><br><span class="line">xs.setOutput(context.openFileOutput(&quot;backupsms2.xml&quot;, Context.MODE_PRIVATE), &quot;utf-8&quot;);</span><br><span class="line">//[3]序列化一个xml的声明头</span><br><span class="line">//encoding:xml文件的编码  standalone:是否独立</span><br><span class="line">xs.startDocument(&quot;utf-8&quot;, true);</span><br><span class="line">//[4]序列化一个根节点的开始节点</span><br><span class="line">//namespace:命名空间  name： 标签的名称</span><br><span class="line">xs.startTag(null, &quot;Smss&quot;);</span><br><span class="line">//[5]循环遍历list集合序列化一条条短信</span><br><span class="line">			</span><br><span class="line">for (SmsBean smsBean : allSms) &#123;</span><br><span class="line">xs.startTag(null, &quot;Sms&quot;);</span><br><span class="line">//name:属性的名称  value：属性值</span><br><span class="line">xs.attribute(null, &quot;id&quot;, smsBean.id+&quot;&quot;);</span><br><span class="line">					</span><br><span class="line">xs.startTag(null, &quot;num&quot;);</span><br><span class="line">//写一个标签的内容</span><br><span class="line">xs.text(smsBean.num);</span><br><span class="line">xs.endTag(null, &quot;num&quot;);</span><br><span class="line">					</span><br><span class="line">xs.startTag(null, &quot;msg&quot;);</span><br><span class="line">xs.text(smsBean.msg);</span><br><span class="line">xs.endTag(null, &quot;msg&quot;);</span><br><span class="line">					</span><br><span class="line">xs.startTag(null, &quot;date&quot;);</span><br><span class="line">xs.text(smsBean.date);</span><br><span class="line">xs.endTag(null, &quot;date&quot;);</span><br><span class="line">					</span><br><span class="line">xs.endTag(null, &quot;Sms&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//[6]序列化一个根节点的结束节点</span><br><span class="line">				xs.endTag(null, &quot;Smss&quot;);</span><br><span class="line">//[7]将xml写入到文件中，完成xml的序列化</span><br><span class="line">xs.endDocument();</span><br><span class="line">return true;</span><br><span class="line"></span><br><span class="line">&#125;catch (Exception e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h3 id="使用pull解析xml格式的数据"><a href="#使用pull解析xml格式的数据" class="headerlink" title="使用pull解析xml格式的数据"></a>使用pull解析xml格式的数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">dom解析：基于全文加载的解析方式   sax解析：基于事件的逐行解析方式  pull解析：同sax</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	XmlPullParser</span><br><span class="line"></span><br><span class="line">//解析xml文件读取短信内容</span><br><span class="line">public static int restoreSms(Context context) &#123;</span><br><span class="line">ArrayList&lt;SmsBean&gt; arrayList = null;</span><br><span class="line">SmsBean smsBean = null;</span><br><span class="line">try&#123;</span><br><span class="line">//1.通过Xml获取一个XmlPullParser对象</span><br><span class="line">XmlPullParser xpp = Xml.newPullParser();</span><br><span class="line">//2.设置XmlPullParser对象的参数，需要解析的是哪个xml文件,设置一个文件读取流</span><br><span class="line">		</span><br><span class="line">//通过context获取一个资产管理者对象</span><br><span class="line">AssetManager assets = context.getAssets();</span><br><span class="line">//通过资产管理者对象能获取一个文件读取流</span><br><span class="line">InputStream inputStream = assets.open(&quot;backupsms.xml&quot;);</span><br><span class="line">xpp.setInput(inputStream,&quot;utf-8&quot;);</span><br><span class="line">//xpp.setInput(context.openFileInput(&quot;backupsms2.xml&quot;), &quot;utf-8&quot;);</span><br><span class="line">//3.获取当前xml行的事件类型</span><br><span class="line">int type = xpp.getEventType();</span><br><span class="line">//4.判断事件类型是否是文档结束的事件类型</span><br><span class="line">while(type != XmlPullParser.END_DOCUMENT)&#123;</span><br><span class="line">//5.如果不是，循环遍历解析每一行的数据。解析一行后，获取下一行的事件类型</span><br><span class="line"></span><br><span class="line">String currentTagName = xpp.getName();</span><br><span class="line">//判断当前行的事件类型是开始标签还是结束标签</span><br><span class="line">switch (type) &#123;</span><br><span class="line">case XmlPullParser.START_TAG:</span><br><span class="line">if(currentTagName.equals(&quot;Smss&quot;))&#123;</span><br><span class="line">//如果当前标签是Smss，需要初始化一个集合</span><br><span class="line">arrayList = new ArrayList&lt;SmsBean&gt;();</span><br><span class="line">&#125;else if(currentTagName.equals(&quot;Sms&quot;))&#123;</span><br><span class="line"></span><br><span class="line">smsBean = new SmsBean();</span><br><span class="line">smsBean.id = Integer.valueOf(xpp.getAttributeValue(null, &quot;id&quot;));</span><br><span class="line"></span><br><span class="line">&#125;else if(currentTagName.equals(&quot;num&quot;))&#123;</span><br><span class="line">smsBean.num =  xpp.nextText();</span><br><span class="line">&#125;else if(currentTagName.equals(&quot;msg&quot;))&#123;</span><br><span class="line">smsBean.msg =  xpp.nextText();</span><br><span class="line">&#125;else if(currentTagName.equals(&quot;date&quot;))&#123;</span><br><span class="line">smsBean.date =  xpp.nextText();</span><br><span class="line">&#125;</span><br><span class="line">break;</span><br><span class="line">case XmlPullParser.END_TAG:</span><br><span class="line">//当前结束标签是Sms的话，一条短信数据封装完成， 可以加入list中</span><br><span class="line">if(currentTagName.equals(&quot;Sms&quot;))&#123;</span><br><span class="line">arrayList.add(smsBean);</span><br><span class="line">&#125;</span><br><span class="line">break;</span><br><span class="line">default:</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type = xpp.next();//获取下一行的事件类型</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return arrayList.size();</span><br><span class="line"></span><br><span class="line">&#125;catch (Exception e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="先写到这，下班了！还有其他计划要完成……-明天再写-–Mark"><a href="#先写到这，下班了！还有其他计划要完成……-明天再写-–Mark" class="headerlink" title="先写到这，下班了！还有其他计划要完成……..明天再写    –Mark"></a>先写到这，下班了！还有其他计划要完成……..明天再写    –Mark</h1>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016-06-16-Android-four.html">走进Android</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
+        <p><span>发布时间:</span>2016年06月16日 - 14时39分</p>
+        <p><span>最后更新:</span>2016年06月16日 - 18时03分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016-06-16-Android-four.html" title="走进Android">http://Stephenhuashao.github.io/2016-06-16-Android-four.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-06-16-Android-four.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016-06-13-Android-two.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">断点续传下载</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#菜鸟Android之路"><span class="toc-number">1.</span> <span class="toc-text">菜鸟Android之路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android学习路线"><span class="toc-number">1.1.</span> <span class="toc-text">Android学习路线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自己为什么要学android"><span class="toc-number">1.2.</span> <span class="toc-text">自己为什么要学android</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android基础"><span class="toc-number">1.3.</span> <span class="toc-text">Android基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Android操作系统介绍"><span class="toc-number">1.3.1.</span> <span class="toc-text">Android操作系统介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android系统架构—分层的架构"><span class="toc-number">1.3.2.</span> <span class="toc-text">Android系统架构—分层的架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DDMS介绍"><span class="toc-number">1.3.3.</span> <span class="toc-text">DDMS介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#android工程目录结构"><span class="toc-number">1.3.4.</span> <span class="toc-text">android工程目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四种方法写按钮点击事件"><span class="toc-number">1.3.5.</span> <span class="toc-text">四种方法写按钮点击事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储到SD卡-获取SD的大小及可用空间"><span class="toc-number">1.3.6.</span> <span class="toc-text">存储到SD卡,获取SD的大小及可用空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SharedPreferences介绍-用来做数据存储"><span class="toc-number">1.3.7.</span> <span class="toc-text">SharedPreferences介绍  用来做数据存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成xml的2种方式"><span class="toc-number">1.3.8.</span> <span class="toc-text">生成xml的2种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用pull解析xml格式的数据"><span class="toc-number">1.3.9.</span> <span class="toc-text">使用pull解析xml格式的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#先写到这，下班了！还有其他计划要完成……-明天再写-–Mark"><span class="toc-number">2.</span> <span class="toc-text">先写到这，下班了！还有其他计划要完成……..明天再写    –Mark</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="/2016-06-16-Android-four.html" data-title="走进Android" data-url="http://Stephenhuashao.github.io/2016-06-16-Android-four.html"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wangsong520"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016-06-13-Android-two.html" title="下一篇: 断点续传下载">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-19-dinner-party.html">团队聚餐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-19-next-station.html">时间规划</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-18-share.html">团队大家庭</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-17-desktop.html">Windows7也可以想成苹果Mac清爽</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步！</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 王松
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank"></a><a href="https://github.com/luuman/hexo-theme-spfk" target="_blank"></a> 
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >才花大盗到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+</body>
+</html>
