@@ -147,7 +147,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 15px;">自学android</a>
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 20px;">自学android</a>
                     </div>
                 </section>
                 
@@ -254,7 +254,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>优秀推荐：<a href="https://github.com/DyncKathline">DyncKathline</a>、<a href="https://github.com/lizhangqu/CoreLink">lizhangqu</a></p>
+              <p><a href="https://github.com/wangsong520/Android-Open-sourcing-Note">优秀推荐</a>：<a href="https://github.com/DyncKathline">DyncKathline</a>、<a href="https://github.com/lizhangqu/CoreLink">lizhangqu</a></p>
 <blockquote>
 <p><code>本着开源的精神，无私奉献自己的代码</code>好的优秀博客添加也会陆续更新中….</p>
 <h2 id="Android-开发中的日常积累（一）"><a href="#Android-开发中的日常积累（一）" class="headerlink" title="Android 开发中的日常积累（一）"></a>Android 开发中的日常积累（一）</h2><h3 id="自定义View-动画"><a href="#自定义View-动画" class="headerlink" title="自定义View + 动画"></a>自定义View + 动画</h3><ul>
@@ -305,6 +305,77 @@
 
 
   
+    <article id="post-Android-three" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-06-16-Android-three.html" class="article-date">
+      <time datetime="2016-06-16T07:24:20.000Z" itemprop="datePublished">2016-06-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-06-16-Android-three.html">走进Android(中)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="菜鸟Android之路-中"><a href="#菜鸟Android之路-中" class="headerlink" title="菜鸟Android之路(中)"></a>菜鸟Android之路(中)</h1><h2 id="SQLite数据库"><a href="#SQLite数据库" class="headerlink" title="SQLite数据库"></a>SQLite数据库</h2><h3 id="Android下数据库创建"><a href="#Android下数据库创建" class="headerlink" title="Android下数据库创建"></a>Android下数据库创建</h3><blockquote>
+<p>什么情况下我们才用数据库做数据存储？ <code>大量数据结构相同的数据需要存储时。</code><br>并且在android中<code>SqliteOpenHelper类</code>，它是一个抽象类，该类用于创建数据库和数据库本版更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">创建数据库步骤：</span><br><span class="line">1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两个方法oncreate ,onupgrade</span><br><span class="line"></span><br><span class="line">构造方法中的参数介绍：</span><br><span class="line"></span><br><span class="line">//context :上下文   ， name：数据库文件的名称    factory：用来创建cursor对象，默认为null </span><br><span class="line">		</span><br><span class="line">//version:数据库的版本号，从1开始，如果发生改变，onUpgrade方法将会调用,4.0之后只能升不能将</span><br><span class="line">		super(context, &quot;info.db&quot;, null,1);</span><br><span class="line">		</span><br><span class="line">2.创建这个帮助类的一个对象，调用getReadableDatabase()方法，会帮助我们创建打开一个数据库</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">3.复写oncreate和onupgrdate方法：</span><br><span class="line">oncreate方法是数据库第一次创建的时候会被调用;  特别适合做表结构的初始化,需要执行sql语句；</span><br><span class="line">SQLiteDatabase db可以用来执行sql语句		</span><br><span class="line">onUpgrade数据库版本号发生改变时才会执行； 特别适合做表结构的修改</span><br></pre></td></tr></table></figure></p>
+<p>帮助类对象中的getWritableDatabase 和 getReadableDatabase都可以帮助我们获取一个数据库操作对象SqliteDatabase.<code>区别：</code></p>
+<ul>
+<li>getReadableDatabase:先尝试以读写方式打开数据库，如果磁盘空间满了，他会重新尝试以只读方式打开数据库。</li>
+<li>getWritableDatabase:直接以读写方式打开数据库，如果磁盘空间满了，就直接报错。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016-06-16-Android-three.html#more">花姑娘 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android-four" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -322,7 +393,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016-06-16-Android-four.html">走进Android</a>
+      <a class="article-title" href="/2016-06-16-Android-four.html">走进Android(上)</a>
     </h1>
   
 
@@ -332,7 +403,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="菜鸟Android之路"><a href="#菜鸟Android之路" class="headerlink" title="菜鸟Android之路"></a>菜鸟Android之路</h1><h2 id="自己为什么要学android"><a href="#自己为什么要学android" class="headerlink" title="自己为什么要学android"></a>自己为什么要学android</h2><blockquote>
+              <h1 id="菜鸟Android之路-上"><a href="#菜鸟Android之路-上" class="headerlink" title="菜鸟Android之路(上)"></a>菜鸟Android之路(上)</h1><h2 id="自己为什么要学android"><a href="#自己为什么要学android" class="headerlink" title="自己为什么要学android"></a>自己为什么要学android</h2><blockquote>
 <p> 本人作为应届毕业生，自己进入社会前做过好多梦，可是呢，现实还是打败了无邪！！面对社会的压力和残酷的竞争力自己如何生成下去？？我自己对自己说：第一步，我要<code>先养活自己</code>，才能走好以后的路！<br> 开始接触手机端android那时感觉，做android开发的工资高、android前景广。可是自己在学校那时自学了，最后自己没有坚持走下去。因为开始接触新的东西，自己要付出很多努力和时间，主要是自己那时不懂的利用好网络资源、遇到问题不知道怎么去咨询解决，碰了很多壁和走了弯路！自己就去学了C/C++、JavaWeb，也接触过Python,大学生活自己过的一团遭，回想起来自己很<code>Loser</code><br> 现在2016年就不一样了，自己拾起Android,中间经历了好多，得到过好多人的指导、帮助，现在在android的路上自己还有一位很厉害的<code>智伟哥</code>指导带领我。自己也在默默努力加油，一直在android的路上……..<br>
           
       
@@ -348,7 +419,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
     </div>
 
       
@@ -399,7 +470,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Android网络编程之断线续传"><a href="#Android网络编程之断线续传" class="headerlink" title="Android网络编程之断线续传"></a>Android网络编程之断线续传</h1><h2 id="xUtils简介"><a href="#xUtils简介" class="headerlink" title="xUtils简介"></a>xUtils简介</h2><ol>
+              <h1 id="Android网络编程之断线续传"><a href="#Android网络编程之断线续传" class="headerlink" title="Android网络编程之断线续传"></a>Android网络编程之断线续传</h1><h2 id="xUtils简介"><a href="#xUtils简介" class="headerlink" title="xUtils简介"></a>xUtils简介</h2><ol>
 <li>xUtils 包含了很多实用的android工具。</li>
 <li>xUtils 支持大文件上传，更全面的http请求协议支持(10种谓词)，拥有更加灵活的ORM，更多的事件注解支持且不受混淆影响…</li>
 </ol>
@@ -415,17 +486,7 @@
 <li>BitmapUtils模块</li>
 </ol>
 <h2 id="使用xUtils快速开发框架需要有以下权限："><a href="#使用xUtils快速开发框架需要有以下权限：" class="headerlink" title="使用xUtils快速开发框架需要有以下权限："></a>使用xUtils快速开发框架需要有以下权限：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="HttpUtils使用方法："><a href="#HttpUtils使用方法：" class="headerlink" title="HttpUtils使用方法："></a>HttpUtils使用方法：</h2><h3 id="使用HttpUtils下载文件："><a href="#使用HttpUtils下载文件：" class="headerlink" title="使用HttpUtils下载文件："></a>使用HttpUtils下载文件：</h3><ul>
-<li>支持断点续传，随时停止下载任务，开始任务<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">HttpUtils http = <span class="keyword">new</span> HttpUtils();</span><br><span class="line">HttpHandler handler = http.download(<span class="string">"http://apache.dataguru.cn/httpcomponents/httpclient/source/httpcomponents-client-4.2.5-src.zip"</span>,</span><br><span class="line"><span class="string">"/sdcard/httpcomponents-client-4.2.5-src.zip"</span>,</span><br><span class="line"><span class="keyword">true</span>, <span class="comment">// 如果目标文件存在，接着未完成的部分继续下载。服务器不支持RANGE时将从新下载。</span></span><br><span class="line"><span class="keyword">true</span>, <span class="comment">// 如果从请求返回信息中获取到文件名，下载完成后自动重命名。</span></span><br><span class="line"><span class="keyword">new</span> RequestCallBack&lt;File&gt;() &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">testTextView.setText(<span class="string">"conn..."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoading</span><span class="params">(<span class="keyword">long</span> total, <span class="keyword">long</span> current, <span class="keyword">boolean</span> isUploading)</span> </span>&#123;</span><br><span class="line">testTextView.setText(current + <span class="string">"/"</span> + total);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(ResponseInfo&lt;File&gt; responseInfo)</span> </span>&#123;</span><br><span class="line">testTextView.setText(<span class="string">"downloaded:"</span> + responseInfo.result.getPath());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(HttpException error, String msg)</span> </span>&#123;</span><br><span class="line">testTextView.setText(msg);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line">...</span><br><span class="line"><span class="comment">//调用cancel()方法停止下载</span></span><br><span class="line">handler.cancel();</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="xUtils断点续传的项目使用Demo："><a href="#xUtils断点续传的项目使用Demo：" class="headerlink" title="xUtils断点续传的项目使用Demo："></a>xUtils断点续传的项目使用Demo：</h2><h3 id="第一步：下载下载开源xUtils"><a href="#第一步：下载下载开源xUtils" class="headerlink" title="第一步：下载下载开源xUtils"></a>第一步：下载下载开源xUtils</h3><ul>
-<li>在github中搜索xUtils，找到对于语言java编写的开源项目<h3 id="第二步：开源xUtils源码包导入到android项目下"><a href="#第二步：开源xUtils源码包导入到android项目下" class="headerlink" title="第二步：开源xUtils源码包导入到android项目下"></a>第二步：开源xUtils源码包导入到android项目下</h3></li>
-<li>解压下载的xUtils源码包，从里面<code>library</code>–&gt;src–&gt;<code>com</code>把此目录下的导入自己的android项目中<h3 id="第三步：调用开源项目封装好的方法实现断点续传逻辑"><a href="#第三步：调用开源项目封装好的方法实现断点续传逻辑" class="headerlink" title="第三步：调用开源项目封装好的方法实现断点续传逻辑"></a>第三步：调用开源项目封装好的方法实现断点续传逻辑</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//[0]找到我们关心的控件</span></span><br><span class="line">ed_path = (EditText) findViewById(R.id.ed_path);</span><br><span class="line">pb= (ProgressBar) findViewById(R.id.progressBar1);</span><br><span class="line">Button btn = (Button) findViewById(R.id.btn);</span><br><span class="line">btn = (Button) findViewById(R.id.btn);</span><br><span class="line"><span class="comment">//点击按钮实现断点续传下载的逻辑</span></span><br><span class="line">btn.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line"><span class="comment">//[1]获取下载路径</span></span><br><span class="line">String path = ed_path.getText().toString().trim();</span><br><span class="line"><span class="comment">//[2]创建httputils对象</span></span><br><span class="line">HttpUtils http = <span class="keyword">new</span> HttpUtils();</span><br><span class="line"></span><br><span class="line"><span class="comment">//[3]实现断点下载逻辑</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line">  * url 下载路径</span><br><span class="line">  * target 下载文件的路径</span><br><span class="line">  * autoResume 是否支持断点续传 boolean类型</span><br><span class="line">  * callback 回调事件 </span><br><span class="line">  */</span></span><br><span class="line">http.download(path, <span class="string">"/mnt/sdcard/heihei.exe"</span>, <span class="keyword">true</span>, <span class="keyword">new</span> RequestCallBack&lt;File&gt;() &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//下载成功  注意下载成功与请求成功是有区别的</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(ResponseInfo&lt;File&gt; responseInfo)</span> </span>&#123;</span><br><span class="line">Toast.makeText(getApplicationContext(), <span class="string">"下载成功"</span>, <span class="number">1</span>).show();	</span><br><span class="line">&#125;</span><br><span class="line">				</span><br><span class="line"><span class="comment">/**</span><br><span class="line">  * 重写onLoading方法</span><br><span class="line">  * total参数  代表总进度</span><br><span class="line">  * current    代表当前进度</span><br><span class="line">  */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoading</span><span class="params">(<span class="keyword">long</span> total, <span class="keyword">long</span> current,</span><br><span class="line"><span class="keyword">boolean</span> isUploading)</span> </span>&#123;</span><br><span class="line">pb.setMax((<span class="keyword">int</span>) total); <span class="comment">//设置进度条的最大值</span></span><br><span class="line">pb.setProgress((<span class="keyword">int</span>) current); <span class="comment">//设置当前进度条的当前进度</span></span><br><span class="line">&#125;</span><br><span class="line">				</span><br><span class="line"><span class="comment">//下载失败的回调</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(HttpException error, String msg)</span> 	</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span>;	</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/xutils.jpg" alt="开源项目的使用实现快速开发"></p>
-
+          
       
     </div>
     
@@ -439,9 +500,13 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android开源项目之网络编程/">Android开源项目之网络编程</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android开源项目之网络编程/">Android开源项目之网络编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2016-06-13-Android-two.html#more">花姑娘 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -494,6 +559,10 @@
     <div class="article-info article-info-index">
       
       
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android开源项目/">Android开源项目</a>
+    </div>
+
 
       
     <div class="article-tag tagcloud">
