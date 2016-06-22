@@ -127,6 +127,8 @@
                         
                             <li><a href="/tags">静心阅读</a></li>
                         
+                            <li><a href="/instagram">光影之路</a></li>
+                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
@@ -206,6 +208,8 @@
                 
                     <li><a href="/tags">静心阅读</a></li>
                 
+                    <li><a href="/instagram">光影之路</a></li>
+                
                 <div class="clearfix"></div>
                 </ul>
             </nav>
@@ -226,6 +230,92 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Android-five" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-06-22-Android-five.html" class="article-date">
+      <time datetime="2016-06-22T02:15:58.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-06-22-Android-five.html">Android自定义控件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="android自定义控件"><a href="#android自定义控件" class="headerlink" title="android自定义控件"></a>android自定义控件</h2><blockquote>
+<p>为什么我们需要自定义控件呢？</p>
+</blockquote>
+<ul>
+<li>Android自身带的控件不能满足需求, 需要根据自己的需求定义控件.</li>
+<li>很多时候没有我们需要使用的控件，或者控件并不美观。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Android本身提供了很多控件比如我们常用的有</span><br><span class="line">  文本控件TextView和EditText；</span><br><span class="line">  按钮控件Button和ImageButton</span><br><span class="line">  状态开关按钮ToggleButton</span><br><span class="line">  单选复选按钮RadioButton和RadioGroup</span><br><span class="line">  单选按钮和复选按钮CheckBox</span><br><span class="line">  图片控件ImageView</span><br><span class="line">  时钟控件AnalogClock和DigitalClock</span><br><span class="line">  进度条ProgressBar和日期与时间选择控件DatePicker和TimePicker等。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Android本身提供的基本控件"><a href="#Android本身提供的基本控件" class="headerlink" title="Android本身提供的基本控件"></a>Android本身提供的基本控件</h2><h3 id="1-文本控件TextView-和EditText"><a href="#1-文本控件TextView-和EditText" class="headerlink" title="1  文本控件TextView 和EditText"></a>1  文本控件TextView 和EditText</h3><ul>
+<li>TextView 控件继承自 View 类。TextView控件的功能是向用户显示文本内容同时可选择性让用户编辑文本。其中TextView不允许编辑。</li>
+<li>EditText控件 EditText 控件继承自 TextView。EditText与TextView 最大的不同是 EditText是可以编辑的<h3 id="2-按钮控件Button-和-ImageButton"><a href="#2-按钮控件Button-和-ImageButton" class="headerlink" title="2  按钮控件Button 和 ImageButton"></a>2  按钮控件Button 和 ImageButton</h3></li>
+<li>Button控件继承自 TextView 类Button 的用法比较简单主要是为 Button 控件设置 View.OnClickListener.监听器并在监听器的实现代码中编写按钮按下事件的处理代码。</li>
+<li>ImageButton 控件 ImageButton 继承自 ImageView。ImageButton 与Button最大的区别是ImageButton没有text 属性既按钮中将显示图片而不是文本。 ImageButton 控件中设置显示图片可以通过android:src 属性也可以通过setImageResurce(int ) 方法来实现<h3 id="3-状态开关按钮ToggleButton"><a href="#3-状态开关按钮ToggleButton" class="headerlink" title="3  状态开关按钮ToggleButton"></a>3  状态开关按钮ToggleButton</h3></li>
+<li>CheckBox 和RadioButton 都只有选中和未选中两种状态,可以通过checked属性来设置.</li>
+<li>不同的是RadioButton 是单选按钮,需要编制到一个RadioGroup中同一时刻一个RadioGroup中只能有一个按钮处于选中状态.</li>
+<li>CheckBox和RadioButton 都是继承自 CompoundButton 中继承了一些成员.<h3 id="4-图片控件ImageView"><a href="#4-图片控件ImageView" class="headerlink" title="4  图片控件ImageView"></a>4  图片控件ImageView</h3></li>
+<li>ImageView 控件负责显示图片,其图片来源既可以是资源文件的id,也可以是Drawable对象或 Bitmap 对象,还可以是 Content Provider 的Uri.<h3 id="5-时钟控件AnalogClock-和-DigitalClock"><a href="#5-时钟控件AnalogClock-和-DigitalClock" class="headerlink" title="5  时钟控件AnalogClock 和 DigitalClock"></a>5  时钟控件AnalogClock 和 DigitalClock</h3></li>
+<li>AnalogClock继承自 ViewAnalogClock 控件显示模拟时钟只显示时针和分针</li>
+<li>DigeitalClock 继承自 TextView。DigetalClock 显示数字时钟可精确到秒。 时钟控件比较简单只需要在布局文件中声明控件即可。<h3 id="6-日期与时间选择控件DatePicker-和-TimePicker"><a href="#6-日期与时间选择控件DatePicker-和-TimePicker" class="headerlink" title="6  日期与时间选择控件DatePicker 和 TimePicker"></a>6  日期与时间选择控件DatePicker 和 TimePicker</h3></li>
+<li>DatePicker 继承自FrameLayout类日期选择控件的主要功能是向用户提供包含年、月、日的日期数据并允许用户对其进行选择。如果要捕获用户修改日期选择控件中数据的事件需要为DatePicker 添加 onDateChangedListener 监听器。</li>
+<li>TimePicker 同样继承自FrameLayout 类。时间选择控件向用户显示一天中的时间可以为24小时制可以为AM/PM 制并允许用户进行选择。如果要捕获用户修改时间数据的事件便需要为TimePicker 添加OnTimeChangedListener 监听器
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016-06-22-Android-five.html#more">花姑娘 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-next-station" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -838,68 +928,10 @@
 
 
   
-    <article id="post-if-you" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016-04-13-if-you.html" class="article-date">
-      <time datetime="2016-04-13T12:41:14.000Z" itemprop="datePublished">2016-04-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步！</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/if-you.jpg" alt=" 如果只做你力所能及的事，你就没有办法进步！"><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016-04-13-if-you.html#more">花姑娘 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android自定义控件 | Stephen HuaShao&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="android自定义控件
+为什么我们需要自定义控件呢？
+
+
+Android自身带的控件不能满足需求, 需要根据自己的需求定义控件.
+很多时候没有我们需要使用的控件，或者控件并不美观。 123456789Android本身提供了很多控件比如我们常用的有  文本控件TextView和EditText；  按钮控件Button和ImageButton  状态开关按钮ToggleButton  单选复选按">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android自定义控件">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-06-22-Android-five.html">
+<meta property="og:site_name" content="Stephen HuaShao's Blog">
+<meta property="og:description" content="android自定义控件
+为什么我们需要自定义控件呢？
+
+
+Android自身带的控件不能满足需求, 需要根据自己的需求定义控件.
+很多时候没有我们需要使用的控件，或者控件并不美观。 123456789Android本身提供了很多控件比如我们常用的有  文本控件TextView和EditText；  按钮控件Button和ImageButton  状态开关按钮ToggleButton  单选复选按">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%874.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%8712.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%879.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E4%BC%98%E9%85%B7%E8%8F%9C%E5%8D%95.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/33.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E4%BE%A7%E6%BB%91%E9%9D%A2%E6%9D%BF%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/444.png">
+<meta property="og:updated_time" content="2016-06-22T07:55:39.781Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android自定义控件">
+<meta name="twitter:description" content="android自定义控件
+为什么我们需要自定义控件呢？
+
+
+Android自身带的控件不能满足需求, 需要根据自己的需求定义控件.
+很多时候没有我们需要使用的控件，或者控件并不美观。 123456789Android本身提供了很多控件比如我们常用的有  文本控件TextView和EditText；  按钮控件Button和ImageButton  状态开关按钮ToggleButton  单选复选按">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%874.png">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">王松</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">研发之路，要厚积而薄发</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/about">留言介绍</a></li>
+                        
+                            <li><a href="/tags">静心阅读</a></li>
+                        
+                            <li><a href="/instagram">光影之路</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/Stephenhuashao" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 20px;">自学android</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luxiaoyou.com/">Xiaoyou Lu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://xblvip.cn/">浪里小白龙</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">当前是一枚实习生。本人纯编程技术迷、喜欢专研各种编程技术、迎接新的挑战，静下心，默默努力，总有一天会闪耀！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王松</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王松</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">研发之路，要厚积而薄发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/about">留言介绍</a></li>
+                
+                    <li><a href="/tags">静心阅读</a></li>
+                
+                    <li><a href="/instagram">光影之路</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/Stephenhuashao" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Android-five" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-06-22-Android-five.html" class="article-date">
+      <time datetime="2016-06-22T02:15:58.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android自定义控件
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="android自定义控件"><a href="#android自定义控件" class="headerlink" title="android自定义控件"></a>android自定义控件</h2><blockquote>
+<p>为什么我们需要自定义控件呢？</p>
+</blockquote>
+<ul>
+<li>Android自身带的控件不能满足需求, 需要根据自己的需求定义控件.</li>
+<li>很多时候没有我们需要使用的控件，或者控件并不美观。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Android本身提供了很多控件比如我们常用的有</span><br><span class="line">  文本控件TextView和EditText；</span><br><span class="line">  按钮控件Button和ImageButton</span><br><span class="line">  状态开关按钮ToggleButton</span><br><span class="line">  单选复选按钮RadioButton和RadioGroup</span><br><span class="line">  单选按钮和复选按钮CheckBox</span><br><span class="line">  图片控件ImageView</span><br><span class="line">  时钟控件AnalogClock和DigitalClock</span><br><span class="line">  进度条ProgressBar和日期与时间选择控件DatePicker和TimePicker等。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Android本身提供的基本控件"><a href="#Android本身提供的基本控件" class="headerlink" title="Android本身提供的基本控件"></a>Android本身提供的基本控件</h2><h3 id="1-文本控件TextView-和EditText"><a href="#1-文本控件TextView-和EditText" class="headerlink" title="1  文本控件TextView 和EditText"></a>1  文本控件TextView 和EditText</h3><ul>
+<li>TextView 控件继承自 View 类。TextView控件的功能是向用户显示文本内容同时可选择性让用户编辑文本。其中TextView不允许编辑。</li>
+<li>EditText控件 EditText 控件继承自 TextView。EditText与TextView 最大的不同是 EditText是可以编辑的<h3 id="2-按钮控件Button-和-ImageButton"><a href="#2-按钮控件Button-和-ImageButton" class="headerlink" title="2  按钮控件Button 和 ImageButton"></a>2  按钮控件Button 和 ImageButton</h3></li>
+<li>Button控件继承自 TextView 类Button 的用法比较简单主要是为 Button 控件设置 View.OnClickListener.监听器并在监听器的实现代码中编写按钮按下事件的处理代码。</li>
+<li>ImageButton 控件 ImageButton 继承自 ImageView。ImageButton 与Button最大的区别是ImageButton没有text 属性既按钮中将显示图片而不是文本。 ImageButton 控件中设置显示图片可以通过android:src 属性也可以通过setImageResurce(int ) 方法来实现<h3 id="3-状态开关按钮ToggleButton"><a href="#3-状态开关按钮ToggleButton" class="headerlink" title="3  状态开关按钮ToggleButton"></a>3  状态开关按钮ToggleButton</h3></li>
+<li>CheckBox 和RadioButton 都只有选中和未选中两种状态,可以通过checked属性来设置.</li>
+<li>不同的是RadioButton 是单选按钮,需要编制到一个RadioGroup中同一时刻一个RadioGroup中只能有一个按钮处于选中状态.</li>
+<li>CheckBox和RadioButton 都是继承自 CompoundButton 中继承了一些成员.<h3 id="4-图片控件ImageView"><a href="#4-图片控件ImageView" class="headerlink" title="4  图片控件ImageView"></a>4  图片控件ImageView</h3></li>
+<li>ImageView 控件负责显示图片,其图片来源既可以是资源文件的id,也可以是Drawable对象或 Bitmap 对象,还可以是 Content Provider 的Uri.<h3 id="5-时钟控件AnalogClock-和-DigitalClock"><a href="#5-时钟控件AnalogClock-和-DigitalClock" class="headerlink" title="5  时钟控件AnalogClock 和 DigitalClock"></a>5  时钟控件AnalogClock 和 DigitalClock</h3></li>
+<li>AnalogClock继承自 ViewAnalogClock 控件显示模拟时钟只显示时针和分针</li>
+<li>DigeitalClock 继承自 TextView。DigetalClock 显示数字时钟可精确到秒。 时钟控件比较简单只需要在布局文件中声明控件即可。<h3 id="6-日期与时间选择控件DatePicker-和-TimePicker"><a href="#6-日期与时间选择控件DatePicker-和-TimePicker" class="headerlink" title="6  日期与时间选择控件DatePicker 和 TimePicker"></a>6  日期与时间选择控件DatePicker 和 TimePicker</h3></li>
+<li>DatePicker 继承自FrameLayout类日期选择控件的主要功能是向用户提供包含年、月、日的日期数据并允许用户对其进行选择。如果要捕获用户修改日期选择控件中数据的事件需要为DatePicker 添加 onDateChangedListener 监听器。</li>
+<li>TimePicker 同样继承自FrameLayout 类。时间选择控件向用户显示一天中的时间可以为24小时制可以为AM/PM 制并允许用户进行选择。如果要捕获用户修改时间数据的事件便需要为TimePicker 添加OnTimeChangedListener 监听器<a id="more"></a>
+</li>
+</ul>
+<h3 id="怎么自定义空间呢？"><a href="#怎么自定义空间呢？" class="headerlink" title="怎么自定义空间呢？"></a>怎么自定义空间呢？</h3><blockquote>
+<p>原理：<code>继承已有控件实现自定义控件</code></p>
+<ol>
+<li>通过对android本身提供的控件的代码进行研究,android中控件都是继承view类来实现,通过重写ondraw方法来绘制我们所需要的控件.通过这个我们得到两点提示:</li>
+</ol>
+<ul>
+<li>我们可以在已有的控件的基础上,通过重写相关方法来实现我们的需求.</li>
+<li>继承view类或viewgroup类,来绘制我们所需要的控件.一般来讲,通过继承已有的控件,来自定义控件要简单一点.</li>
+</ul>
+</blockquote>
+<ol>
+<li>组合已有控件实现自定义控件<br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%874.png" alt="组合已有控件实现自定义控件"></li>
+<li>完全自定义控件实现需求<br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%8712.png" alt="完全自定义控件实现需求"></li>
+<li>继承已有控件实现自定义控件<br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%879.png" alt="继承已有控件实现自定义控件"></li>
+</ol>
+<h2 id="自定义控件可以分为三大类型"><a href="#自定义控件可以分为三大类型" class="headerlink" title="自定义控件可以分为三大类型"></a>自定义控件可以分为三大类型</h2><h3 id="1-组合已有的控件实现"><a href="#1-组合已有的控件实现" class="headerlink" title="1. 组合已有的控件实现"></a>1. 组合已有的控件实现</h3><ol>
+<li><p>优酷菜单</p>
+<ul>
+<li>在xml布局里摆放好.</li>
+<li>给指定控件添加点击事件. </li>
+<li>根据业务逻辑,执行动画(旋转动画: 补间动画). </li>
+<li>菜单按钮的截获.<br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E4%BC%98%E9%85%B7%E8%8F%9C%E5%8D%95.png" alt=""></li>
+</ul>
+</li>
+<li><p>轮播图广告</p>
+<ul>
+<li>让图片滑动起来(ViewPager).</li>
+<li>让图片和文字,指示器对应起来.</li>
+<li>让轮播器无限循环</li>
+</ul>
+</li>
+<li><p>轮播器自动轮询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">向右无限循环  </span><br><span class="line">	0 -&gt; 4	newPosition = position % 5  </span><br><span class="line">	5 -&gt; 0  </span><br><span class="line">	6 -&gt; 1  </span><br><span class="line">	7 -&gt; 2  </span><br><span class="line">	8 -&gt; 3  </span><br><span class="line">	9 -&gt; 4  </span><br><span class="line">	10 -&gt; 0  </span><br><span class="line">向左无限循环  </span><br><span class="line">设置到中间某个位置.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下拉选择框</p>
+<ul>
+<li>Button或ImageButton等自带按钮功能的控件会抢夺所在Layout的焦点.导致其他区域点击不生效.在所在layout声明一个属性</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:descendantFocusability=&quot;blocksDescendants&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>popupwindow获取焦点, 外部可点击 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 设置点击外部区域, 自动隐藏</span><br><span class="line">popupWindow.setOutsideTouchable(true); // 外部可触摸</span><br><span class="line">popupWindow.setBackgroundDrawable(new BitmapDrawable()); // 设置空的背景, 响应点击事件		</span><br><span class="line">popupWindow.setFocusable(true); //设置可获取焦点</span><br></pre></td></tr></table></figure>
+<pre><code>ListView初始化
+PopupWindow初始化
+</code></pre><h3 id="2-完全自定义控件-继承View-ViewGroup"><a href="#2-完全自定义控件-继承View-ViewGroup" class="headerlink" title="2. 完全自定义控件.(继承View, ViewGroup)"></a>2. 完全自定义控件.(继承View, ViewGroup)</h3><ul>
+<li>自定义开关  (View)</li>
+</ul>
+<blockquote>
+<ol>
+<li>写个类继承View, OK</li>
+<li>拷贝包含包名的全路径到xml中, OK</li>
+<li>界面中找到该控件, 设置初始信息, OK</li>
+<li>根据需求绘制界面内容,OK</li>
+<li>响应用户的触摸事件,OK</li>
+<li>创建一个状态更新监听.OK</li>
+<li>自定义属性.OK</li>
+</ol>
+</blockquote>
+<ul>
+<li>侧滑面板(ViewGroup)</li>
+</ul>
+<blockquote>
+<ol>
+<li>在xml布局里摆放内容.<br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/33.png" alt="侧滑面板页面布局"></li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextView</span><br><span class="line"> style=&quot;@style/style_bt_text&quot;</span><br><span class="line"> android:drawableLeft=&quot;@drawable/tab_news&quot;</span><br><span class="line"> android:text=&quot;新闻&quot; /&gt;</span><br><span class="line">        </span><br><span class="line">&lt;TextView</span><br><span class="line"> style=&quot;@style/style_bt_text&quot;</span><br><span class="line"> android:drawableLeft=&quot;@drawable/tab_read&quot;</span><br><span class="line"> android:text=&quot;订阅&quot; /&gt;</span><br><span class="line">        </span><br><span class="line">&lt;TextView</span><br><span class="line"> style=&quot;@style/style_bt_text&quot;</span><br><span class="line"> android:drawableLeft=&quot;@drawable/tab_local&quot;</span><br><span class="line"> android:text=&quot;本地&quot; /&gt;</span><br><span class="line">        </span><br><span class="line">&lt;TextView</span><br><span class="line"> style=&quot;@style/style_bt_text&quot;</span><br><span class="line"> android:drawableLeft=&quot;@drawable/tab_ties&quot;</span><br><span class="line"> android:text=&quot;跟帖&quot; /&gt;</span><br><span class="line">        </span><br><span class="line">&lt;TextView</span><br><span class="line"> style=&quot;@style/style_bt_text&quot;</span><br><span class="line"> android:drawableLeft=&quot;@drawable/tab_pics&quot;</span><br><span class="line"> android:text=&quot;图片&quot; /&gt;</span><br><span class="line">        </span><br><span class="line">&lt;TextView</span><br><span class="line"> style=&quot;@style/style_bt_text&quot;</span><br><span class="line"> android:drawableLeft=&quot;@drawable/tab_ugc&quot;</span><br><span class="line"> android:text=&quot;话题&quot; /&gt;</span><br><span class="line">        </span><br><span class="line">&lt;TextView</span><br><span class="line"> style=&quot;@style/style_bt_text&quot;</span><br><span class="line"> android:drawableLeft=&quot;@drawable/tab_vote&quot;</span><br><span class="line"> android:text=&quot;投票&quot; /&gt;</span><br><span class="line">&lt;TextView</span><br><span class="line"> style=&quot;@style/style_bt_text&quot;</span><br><span class="line"> android:drawableLeft=&quot;@drawable/tab_focus&quot;</span><br><span class="line"> android:text=&quot;聚合阅读&quot; /&gt;        </span><br><span class="line">&lt;/LinearLayout&gt;</span><br><span class="line">&lt;/ScrollView&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>在自定义ViewGroup里, 进行measure测量, layout布局</li>
+<li>响应用户的触摸事件<br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6.png" alt="触摸事件的传递机制"></li>
+<li>int scrollX = (int) (downX - moveX);</li>
+<li>getScrollX()获取当前滚动到的位置</li>
+<li>平滑动画<br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E4%BE%A7%E6%BB%91%E9%9D%A2%E6%9D%BF%E6%88%AA%E5%9B%BE.png" alt="侧滑面板"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//1. 开始模拟数据</span><br><span class="line"></span><br><span class="line"> scroller.startScroll(startX, 0, dx, 0, duration);</span><br><span class="line"> invalidate();// 重绘界面 -&gt; drawChild() -&gt; computeScroll();</span><br><span class="line"></span><br><span class="line">//2. 在computeScroll中不断获取模拟的数值</span><br><span class="line"></span><br><span class="line"> @Override</span><br><span class="line"> public void computeScroll() &#123;</span><br><span class="line"> super.computeScroll();</span><br><span class="line"> if(scroller.computeScrollOffset())&#123;</span><br><span class="line">// true, 动画还没有结束</span><br><span class="line">// 获取当前模拟的数据, 也就是要滚动到的位置</span><br><span class="line"> int currX = scroller.getCurrX(); </span><br><span class="line"> scrollTo(currX, 0); // 滚过去</span><br><span class="line">				</span><br><span class="line"> invalidate(); // 重绘界面</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h3 id="3-继承已有的控件实现-扩展已有的功能"><a href="#3-继承已有的控件实现-扩展已有的功能" class="headerlink" title="3. 继承已有的控件实现(扩展已有的功能)"></a>3. 继承已有的控件实现(扩展已有的功能)</h3><ul>
+<li>包含下拉刷新功能的ListView</li>
+</ul>
+<blockquote>
+<ol>
+<li>添加了自定义的头布局<br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/444.png" alt="自定义的头布局"></li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;FrameLayout</span><br><span class="line">        android:layout_margin=&quot;5dp&quot;</span><br><span class="line">        android:layout_width=&quot;50dp&quot;</span><br><span class="line">        android:layout_height=&quot;50dp&quot; &gt;</span><br><span class="line"></span><br><span class="line">        &lt;ImageView</span><br><span class="line">            android:id=&quot;@+id/iv_arrow&quot;</span><br><span class="line">            android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:layout_gravity=&quot;center&quot;</span><br><span class="line">            android:src=&quot;@drawable/common_listview_headview_red_arrow&quot; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;ProgressBar</span><br><span class="line">            android:id=&quot;@+id/pb&quot;</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;match_parent&quot;</span><br><span class="line">            android:indeterminateDrawable=&quot;@drawable/shape_progress&quot;</span><br><span class="line">            android:visibility=&quot;invisible&quot; /&gt;</span><br><span class="line">    &lt;/FrameLayout&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>默认让头布局隐藏setPadding.设置 -自身的高度</li>
+<li>ListView下拉的时候, 修改paddingTop, 让头布局显示出来</li>
+<li><p>触摸动态修改头布局, 根据paddingTop.  </p>
+<ul>
+<li>paddingTop = 0 完全显示</li>
+<li>paddingTop &lt; 不完全显示 -64(自身高度)完全隐藏</li>
+<li>paddingTop &gt; 0 顶部空白</li>
+</ul>
+</li>
+<li><p>松手之后根据当前的paddingTop决定是否执行刷新</p>
+<ul>
+<li>paddingTop &lt; 0 不完全显示, 恢复</li>
+<li>paddingTop &gt;= 0 完全显示, 执行正在刷新…</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 根据状态更新头布局内容</span><br><span class="line"> */</span><br><span class="line">private void updateHeader() &#123;</span><br><span class="line">	switch (currentState) &#123;</span><br><span class="line">	case PULL_TO_REFRESH: // 切换回下拉刷新</span><br><span class="line">	// 做动画, 改标题</span><br><span class="line">	mArrowView.startAnimation(rotateDownAnim);</span><br><span class="line">	mTitleText.setText(&quot;下拉刷新&quot;);</span><br><span class="line">		break;</span><br><span class="line">	case RELEASE_REFRESH: // 切换成释放刷新</span><br><span class="line">	// 做动画, 改标题</span><br><span class="line">	mArrowView.startAnimation(rotateUpAnim);</span><br><span class="line">	mTitleText.setText(&quot;释放刷新&quot;);		</span><br><span class="line">		break;</span><br><span class="line">	case REFRESHING: // 刷新中...</span><br><span class="line">	mArrowView.clearAnimation();</span><br><span class="line">	mArrowView.setVisibility(View.INVISIBLE);</span><br><span class="line">	pb.setVisibility(View.VISIBLE);</span><br><span class="line">	mTitleText.setText(&quot;正在刷新中...&quot;);</span><br><span class="line">			</span><br><span class="line">if(mListener != null)&#123;</span><br><span class="line">    mListener.onRefresh(); // 通知调用者, 让其到网络加载更多数据.</span><br><span class="line">&#125;			</span><br><span class="line">		break;</span><br><span class="line">		default:</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016-06-22-Android-five.html">Android自定义控件</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
+        <p><span>发布时间:</span>2016年06月22日 - 10时15分</p>
+        <p><span>最后更新:</span>2016年06月22日 - 15时55分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016-06-22-Android-five.html" title="Android自定义控件">http://Stephenhuashao.github.io/2016-06-22-Android-five.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-06-22-Android-five.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016-06-17-next-station.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">优秀博客</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#android自定义控件"><span class="toc-number">1.</span> <span class="toc-text">android自定义控件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android本身提供的基本控件"><span class="toc-number">2.</span> <span class="toc-text">Android本身提供的基本控件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-文本控件TextView-和EditText"><span class="toc-number">2.1.</span> <span class="toc-text">1  文本控件TextView 和EditText</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-按钮控件Button-和-ImageButton"><span class="toc-number">2.2.</span> <span class="toc-text">2  按钮控件Button 和 ImageButton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-状态开关按钮ToggleButton"><span class="toc-number">2.3.</span> <span class="toc-text">3  状态开关按钮ToggleButton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-图片控件ImageView"><span class="toc-number">2.4.</span> <span class="toc-text">4  图片控件ImageView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-时钟控件AnalogClock-和-DigitalClock"><span class="toc-number">2.5.</span> <span class="toc-text">5  时钟控件AnalogClock 和 DigitalClock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-日期与时间选择控件DatePicker-和-TimePicker"><span class="toc-number">2.6.</span> <span class="toc-text">6  日期与时间选择控件DatePicker 和 TimePicker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么自定义空间呢？"><span class="toc-number">2.7.</span> <span class="toc-text">怎么自定义空间呢？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义控件可以分为三大类型"><span class="toc-number">3.</span> <span class="toc-text">自定义控件可以分为三大类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-组合已有的控件实现"><span class="toc-number">3.1.</span> <span class="toc-text">1. 组合已有的控件实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-完全自定义控件-继承View-ViewGroup"><span class="toc-number">3.2.</span> <span class="toc-text">2. 完全自定义控件.(继承View, ViewGroup)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-继承已有的控件实现-扩展已有的功能"><span class="toc-number">3.3.</span> <span class="toc-text">3. 继承已有的控件实现(扩展已有的功能)</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="/2016-06-22-Android-five.html" data-title="Android自定义控件" data-url="http://Stephenhuashao.github.io/2016-06-22-Android-five.html"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wangsong520"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016-06-17-next-station.html" title="下一篇: 优秀博客">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-19-dinner-party.html">团队聚餐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-18-share.html">团队大家庭</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-17-desktop.html">Windows7也可以想成苹果Mac清爽</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步！</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 王松
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank"></a><a href="https://github.com/luuman/hexo-theme-spfk" target="_blank"></a> 
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >才花大盗到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+</body>
+</html>
