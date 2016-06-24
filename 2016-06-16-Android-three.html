@@ -6,20 +6,20 @@
   <title>走进Android(中) | Stephen HuaShao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="菜鸟Android之路(中)SQLite数据库Android下数据库创建
-什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。并且在android中SqliteOpenHelper类，它是一个抽象类，该类用于创建数据库和数据库本版更新1234567891011121314151617创建数据库步骤：1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两">
+什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。并且在android中SqliteOpenHelper类，它是一个抽象类，该类用于创建数据库和数据库本版更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="走进Android(中)">
 <meta property="og:url" content="http://Stephenhuashao.github.io/2016-06-16-Android-three.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
 <meta property="og:description" content="菜鸟Android之路(中)SQLite数据库Android下数据库创建
-什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。并且在android中SqliteOpenHelper类，它是一个抽象类，该类用于创建数据库和数据库本版更新1234567891011121314151617创建数据库步骤：1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两">
+什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。并且在android中SqliteOpenHelper类，它是一个抽象类，该类用于创建数据库和数据库本版更新">
 <meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/handler.png">
 <meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/rumendaojingtong.jpg">
-<meta property="og:updated_time" content="2016-06-17T08:48:54.899Z">
+<meta property="og:updated_time" content="2016-06-24T09:19:34.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="走进Android(中)">
 <meta name="twitter:description" content="菜鸟Android之路(中)SQLite数据库Android下数据库创建
-什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。并且在android中SqliteOpenHelper类，它是一个抽象类，该类用于创建数据库和数据库本版更新1234567891011121314151617创建数据库步骤：1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两">
+什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。并且在android中SqliteOpenHelper类，它是一个抽象类，该类用于创建数据库和数据库本版更新">
 <meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/handler.png">
   
   
@@ -276,15 +276,14 @@
       
           
         <h1 id="菜鸟Android之路-中"><a href="#菜鸟Android之路-中" class="headerlink" title="菜鸟Android之路(中)"></a>菜鸟Android之路(中)</h1><h2 id="SQLite数据库"><a href="#SQLite数据库" class="headerlink" title="SQLite数据库"></a>SQLite数据库</h2><h3 id="Android下数据库创建"><a href="#Android下数据库创建" class="headerlink" title="Android下数据库创建"></a>Android下数据库创建</h3><blockquote>
-<p>什么情况下我们才用数据库做数据存储？ <code>大量数据结构相同的数据需要存储时。</code><br>并且在android中<code>SqliteOpenHelper类</code>，它是一个抽象类，该类用于创建数据库和数据库本版更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">创建数据库步骤：</span><br><span class="line">1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两个方法oncreate ,onupgrade</span><br><span class="line"></span><br><span class="line">构造方法中的参数介绍：</span><br><span class="line"></span><br><span class="line">//context :上下文   ， name：数据库文件的名称    factory：用来创建cursor对象，默认为null </span><br><span class="line">		</span><br><span class="line">//version:数据库的版本号，从1开始，如果发生改变，onUpgrade方法将会调用,4.0之后只能升不能将</span><br><span class="line">		super(context, &quot;info.db&quot;, null,1);</span><br><span class="line">		</span><br><span class="line">2.创建这个帮助类的一个对象，调用getReadableDatabase()方法，会帮助我们创建打开一个数据库</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">3.复写oncreate和onupgrdate方法：</span><br><span class="line">oncreate方法是数据库第一次创建的时候会被调用;  特别适合做表结构的初始化,需要执行sql语句；</span><br><span class="line">SQLiteDatabase db可以用来执行sql语句		</span><br><span class="line">onUpgrade数据库版本号发生改变时才会执行； 特别适合做表结构的修改</span><br></pre></td></tr></table></figure></p>
+<p>什么情况下我们才用数据库做数据存储？ <code>大量数据结构相同的数据需要存储时。</code><br>并且在android中<code>SqliteOpenHelper类</code>，它是一个抽象类，该类用于创建数据库和数据库本版更新<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">创建数据库步骤：</span><br><span class="line">1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两个方法oncreate ,onupgrade</span><br><span class="line"></span><br><span class="line">构造方法中的参数介绍：</span><br><span class="line"></span><br><span class="line">//context :上下文   ， name：数据库文件的名称    factory：用来创建cursor对象，默认为null </span><br><span class="line">		</span><br><span class="line">//version:数据库的版本号，从1开始，如果发生改变，onUpgrade方法将会调用,4.0之后只能升不能将</span><br><span class="line">		super(context, &quot;info.db&quot;, null,1);</span><br><span class="line">		</span><br><span class="line">2.创建这个帮助类的一个对象，调用getReadableDatabase()方法，会帮助我们创建打开一个数据库</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">3.复写oncreate和onupgrdate方法：</span><br><span class="line">oncreate方法是数据库第一次创建的时候会被调用;  特别适合做表结构的初始化,需要执行sql语句；</span><br><span class="line">SQLiteDatabase db可以用来执行sql语句		</span><br><span class="line">onUpgrade数据库版本号发生改变时才会执行； 特别适合做表结构的修改</span><br></pre></td></tr></table></figure></p>
 <p>帮助类对象中的getWritableDatabase 和 getReadableDatabase都可以帮助我们获取一个数据库操作对象SqliteDatabase.<code>区别：</code></p>
 <ul>
 <li>getReadableDatabase:先尝试以读写方式打开数据库，如果磁盘空间满了，他会重新尝试以只读方式打开数据库。</li>
-<li>getWritableDatabase:直接以读写方式打开数据库，如果磁盘空间满了，就直接报错。<a id="more"></a>
-<h3 id="Android下数据库第一种方式增删改查"><a href="#Android下数据库第一种方式增删改查" class="headerlink" title="Android下数据库第一种方式增删改查"></a>Android下数据库第一种方式增删改查</h3></li>
+<li>getWritableDatabase:直接以读写方式打开数据库，如果磁盘空间满了，就直接报错。</li>
 </ul>
 </blockquote>
-<pre><code>1.创建一个帮助类的对象，调用getReadableDatabase方法，返回一个SqliteDatebase对象
+<h3 id="Android下数据库第一种方式增删改查"><a href="#Android下数据库第一种方式增删改查" class="headerlink" title="Android下数据库第一种方式增删改查"></a>Android下数据库第一种方式增删改查</h3><pre><code>1.创建一个帮助类的对象，调用getReadableDatabase方法，返回一个SqliteDatebase对象
 
 2.使用SqliteDatebase对象调用execSql()做增删改,调用rawQuery方法做查询。
 </code></pre><blockquote>
@@ -343,7 +342,7 @@ EditText Button TextView ImageView Checkbox 五大布局。
         <p><span>本文标题:</span><a href="/2016-06-16-Android-three.html">走进Android(中)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
         <p><span>发布时间:</span>2016年06月16日 - 15时24分</p>
-        <p><span>最后更新:</span>2016年06月17日 - 16时48分</p>
+        <p><span>最后更新:</span>2016年06月24日 - 17时19分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016-06-16-Android-three.html" title="走进Android(中)">http://Stephenhuashao.github.io/2016-06-16-Android-three.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-06-16-Android-three.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

@@ -330,22 +330,7 @@
 </blockquote>
 <ul>
 <li>Android自身带的控件不能满足需求, 需要根据自己的需求定义控件.</li>
-<li>很多时候没有我们需要使用的控件，或者控件并不美观。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Android本身提供了很多控件比如我们常用的有</span><br><span class="line">  文本控件TextView和EditText；</span><br><span class="line">  按钮控件Button和ImageButton</span><br><span class="line">  状态开关按钮ToggleButton</span><br><span class="line">  单选复选按钮RadioButton和RadioGroup</span><br><span class="line">  单选按钮和复选按钮CheckBox</span><br><span class="line">  图片控件ImageView</span><br><span class="line">  时钟控件AnalogClock和DigitalClock</span><br><span class="line">  进度条ProgressBar和日期与时间选择控件DatePicker和TimePicker等。</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Android本身提供的基本控件"><a href="#Android本身提供的基本控件" class="headerlink" title="Android本身提供的基本控件"></a>Android本身提供的基本控件</h2><h3 id="1-文本控件TextView-和EditText"><a href="#1-文本控件TextView-和EditText" class="headerlink" title="1  文本控件TextView 和EditText"></a>1  文本控件TextView 和EditText</h3><ul>
-<li>TextView 控件继承自 View 类。TextView控件的功能是向用户显示文本内容同时可选择性让用户编辑文本。其中TextView不允许编辑。</li>
-<li>EditText控件 EditText 控件继承自 TextView。EditText与TextView 最大的不同是 EditText是可以编辑的<h3 id="2-按钮控件Button-和-ImageButton"><a href="#2-按钮控件Button-和-ImageButton" class="headerlink" title="2  按钮控件Button 和 ImageButton"></a>2  按钮控件Button 和 ImageButton</h3></li>
-<li>Button控件继承自 TextView 类Button 的用法比较简单主要是为 Button 控件设置 View.OnClickListener.监听器并在监听器的实现代码中编写按钮按下事件的处理代码。</li>
-<li>ImageButton 控件 ImageButton 继承自 ImageView。ImageButton 与Button最大的区别是ImageButton没有text 属性既按钮中将显示图片而不是文本。 ImageButton 控件中设置显示图片可以通过android:src 属性也可以通过setImageResurce(int ) 方法来实现<h3 id="3-状态开关按钮ToggleButton"><a href="#3-状态开关按钮ToggleButton" class="headerlink" title="3  状态开关按钮ToggleButton"></a>3  状态开关按钮ToggleButton</h3></li>
-<li>CheckBox 和RadioButton 都只有选中和未选中两种状态,可以通过checked属性来设置.</li>
-<li>不同的是RadioButton 是单选按钮,需要编制到一个RadioGroup中同一时刻一个RadioGroup中只能有一个按钮处于选中状态.</li>
-<li>CheckBox和RadioButton 都是继承自 CompoundButton 中继承了一些成员.<h3 id="4-图片控件ImageView"><a href="#4-图片控件ImageView" class="headerlink" title="4  图片控件ImageView"></a>4  图片控件ImageView</h3></li>
-<li>ImageView 控件负责显示图片,其图片来源既可以是资源文件的id,也可以是Drawable对象或 Bitmap 对象,还可以是 Content Provider 的Uri.<h3 id="5-时钟控件AnalogClock-和-DigitalClock"><a href="#5-时钟控件AnalogClock-和-DigitalClock" class="headerlink" title="5  时钟控件AnalogClock 和 DigitalClock"></a>5  时钟控件AnalogClock 和 DigitalClock</h3></li>
-<li>AnalogClock继承自 ViewAnalogClock 控件显示模拟时钟只显示时针和分针</li>
-<li>DigeitalClock 继承自 TextView。DigetalClock 显示数字时钟可精确到秒。 时钟控件比较简单只需要在布局文件中声明控件即可。<h3 id="6-日期与时间选择控件DatePicker-和-TimePicker"><a href="#6-日期与时间选择控件DatePicker-和-TimePicker" class="headerlink" title="6  日期与时间选择控件DatePicker 和 TimePicker"></a>6  日期与时间选择控件DatePicker 和 TimePicker</h3></li>
-<li>DatePicker 继承自FrameLayout类日期选择控件的主要功能是向用户提供包含年、月、日的日期数据并允许用户对其进行选择。如果要捕获用户修改日期选择控件中数据的事件需要为DatePicker 添加 onDateChangedListener 监听器。</li>
-<li>TimePicker 同样继承自FrameLayout 类。时间选择控件向用户显示一天中的时间可以为24小时制可以为AM/PM 制并允许用户进行选择。如果要捕获用户修改时间数据的事件便需要为TimePicker 添加OnTimeChangedListener 监听器
+<li>很多时候没有我们需要使用的控件，或者控件并不美观。
           
       
     </div>
@@ -416,14 +401,7 @@
 <p><code>本着开源的精神，无私奉献自己的代码</code>好的优秀博客添加也会陆续更新中….</p>
 <h2 id="Android-开发中的日常积累（一）"><a href="#Android-开发中的日常积累（一）" class="headerlink" title="Android 开发中的日常积累（一）"></a>Android 开发中的日常积累（一）</h2><h3 id="自定义View-动画"><a href="#自定义View-动画" class="headerlink" title="自定义View + 动画"></a>自定义View + 动画</h3><ul>
 <li><a href="http://blog.csdn.net/bigconvience/article/details/26697645"> 图解Android View的scrollTo(),scrollBy(),getScrollX(), getScrollY() </a></li>
-<li><a href="http://www.cnblogs.com/mengdd/p/3301256.html">属性动画详细原理</a></li>
-<li><a href="http://blog.csdn.net/xplee0576/article/details/24242383">源码角度分析View的scrollBy()和scrollTo()的参数正负问题</a></li>
-<li><a href="http://www.cnblogs.com/lqstayreal/p/4500219.html">ViewDragHelper详解</a></li>
-<li><a href="http://www.cnblogs.com/zhengbeibei/archive/2013/05/07/3065999.html">Android View坐标getLeft, getRight, getTop, getBottom</a></li>
-<li><a href="http://blog.csdn.net/lmj623565791/article/details/38067475">Android 属性动画（Property Animation） 完全解析 （上）</a></li>
-<li><a href="http://www.admin10000.com/document/4926.html">Android动画机制全解析</a></li>
-<li><a href="www.cnblogs.com/over140/archive/2010/12/16/1907528.html">android 中文 api （64） —— Scroller</a></li>
-<li><a href="http://a.codekk.com/detail/Android/Trinea/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20View%20%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92">公共技术点之 View 事件传递</a>
+<li><a href="http://www.cnblogs.com/mengdd/p/3301256.html">属性动画详细原理</a>
           
       
     </div>
@@ -490,11 +468,7 @@
       
           
               <h1 id="菜鸟Android之路-中"><a href="#菜鸟Android之路-中" class="headerlink" title="菜鸟Android之路(中)"></a>菜鸟Android之路(中)</h1><h2 id="SQLite数据库"><a href="#SQLite数据库" class="headerlink" title="SQLite数据库"></a>SQLite数据库</h2><h3 id="Android下数据库创建"><a href="#Android下数据库创建" class="headerlink" title="Android下数据库创建"></a>Android下数据库创建</h3><blockquote>
-<p>什么情况下我们才用数据库做数据存储？ <code>大量数据结构相同的数据需要存储时。</code><br>并且在android中<code>SqliteOpenHelper类</code>，它是一个抽象类，该类用于创建数据库和数据库本版更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">创建数据库步骤：</span><br><span class="line">1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两个方法oncreate ,onupgrade</span><br><span class="line"></span><br><span class="line">构造方法中的参数介绍：</span><br><span class="line"></span><br><span class="line">//context :上下文   ， name：数据库文件的名称    factory：用来创建cursor对象，默认为null </span><br><span class="line">		</span><br><span class="line">//version:数据库的版本号，从1开始，如果发生改变，onUpgrade方法将会调用,4.0之后只能升不能将</span><br><span class="line">		super(context, &quot;info.db&quot;, null,1);</span><br><span class="line">		</span><br><span class="line">2.创建这个帮助类的一个对象，调用getReadableDatabase()方法，会帮助我们创建打开一个数据库</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">3.复写oncreate和onupgrdate方法：</span><br><span class="line">oncreate方法是数据库第一次创建的时候会被调用;  特别适合做表结构的初始化,需要执行sql语句；</span><br><span class="line">SQLiteDatabase db可以用来执行sql语句		</span><br><span class="line">onUpgrade数据库版本号发生改变时才会执行； 特别适合做表结构的修改</span><br></pre></td></tr></table></figure></p>
-<p>帮助类对象中的getWritableDatabase 和 getReadableDatabase都可以帮助我们获取一个数据库操作对象SqliteDatabase.<code>区别：</code></p>
-<ul>
-<li>getReadableDatabase:先尝试以读写方式打开数据库，如果磁盘空间满了，他会重新尝试以只读方式打开数据库。</li>
-<li>getWritableDatabase:直接以读写方式打开数据库，如果磁盘空间满了，就直接报错。
+<p>什么情况下我们才用数据库做数据存储？ <code>大量数据结构相同的数据需要存储时。</code><br>并且在android中<code>SqliteOpenHelper类</code>，它是一个抽象类，该类用于创建数据库和数据库本版更新<br>
           
       
     </div>
@@ -561,7 +535,7 @@
       
           
               <h1 id="菜鸟Android之路-上"><a href="#菜鸟Android之路-上" class="headerlink" title="菜鸟Android之路(上)"></a>菜鸟Android之路(上)</h1><h2 id="自己为什么要学android"><a href="#自己为什么要学android" class="headerlink" title="自己为什么要学android"></a>自己为什么要学android</h2><blockquote>
-<p> 本人作为应届毕业生，自己进入社会前做过好多梦，可是呢，现实还是打败了无邪！！面对社会的压力和残酷的竞争力自己如何生成下去？？我自己对自己说：第一步，我要<code>先养活自己</code>，才能走好以后的路！<br> 开始接触手机端android那时感觉，做android开发的工资高、android前景广。可是自己在学校那时自学了，最后自己没有坚持走下去。因为开始接触新的东西，自己要付出很多努力和时间，主要是自己那时不懂的利用好网络资源、遇到问题不知道怎么去咨询解决，碰了很多壁和走了弯路！自己就去学了C/C++、JavaWeb，也接触过Python,大学生活自己过的一团遭，回想起来自己很<code>Loser</code><br> 现在2016年就不一样了，自己拾起Android,中间经历了好多，得到过好多人的指导、帮助，现在在android的路上自己还有一位很厉害的<code>智伟哥</code>指导带领我。自己也在默默努力加油，一直在android的路上……..<br>
+<p> 本人作为应届毕业生，自己进入社会前做过好多梦，可是呢，现实还是打败了无邪！！面对社会的压力和残酷的竞争力自己如何生成下去？？我自己对自己说：第一步，我要<code>先养活自己</code>，才能走好以后的路！<br>
           
       
     </div>
@@ -629,20 +603,7 @@
           
               <h1 id="Android网络编程之断线续传"><a href="#Android网络编程之断线续传" class="headerlink" title="Android网络编程之断线续传"></a>Android网络编程之断线续传</h1><h2 id="xUtils简介"><a href="#xUtils简介" class="headerlink" title="xUtils简介"></a>xUtils简介</h2><ol>
 <li>xUtils 包含了很多实用的android工具。</li>
-<li>xUtils 支持大文件上传，更全面的http请求协议支持(10种谓词)，拥有更加灵活的ORM，更多的事件注解支持且不受混淆影响…</li>
-</ol>
-<h2 id="目前xUtils主要有四大模块："><a href="#目前xUtils主要有四大模块：" class="headerlink" title="目前xUtils主要有四大模块："></a>目前xUtils主要有四大模块：</h2><ol>
-<li>DbUtils模块</li>
-<li>ViewUtils模块:  <ul>
-<li>android中的ioc框架，完全注解方式就可以进行UI，资源和事件绑定；</li>
-<li>完全注解方式就可以进行UI绑定和事件绑定。</li>
-<li>无需findViewById和setClickListener等。</li>
-</ul>
-</li>
-<li>HttpUtils模块：这是断点续传要用到的。</li>
-<li>BitmapUtils模块</li>
-</ol>
-<h2 id="使用xUtils快速开发框架需要有以下权限："><a href="#使用xUtils快速开发框架需要有以下权限：" class="headerlink" title="使用xUtils快速开发框架需要有以下权限："></a>使用xUtils快速开发框架需要有以下权限：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<li>xUtils 支持大文件上传，更全面的http请求协议支持(10种谓词)，拥有更加灵活的ORM，更多的事件注解支持且不受混淆影响…
           
       
     </div>
@@ -774,7 +735,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2 id="Android开发四大组件"><a href="#Android开发四大组件" class="headerlink" title="Android开发四大组件"></a>Android开发四大组件</h2><h3 id="一、Activity详解"><a href="#一、Activity详解" class="headerlink" title="一、Activity详解"></a>一、Activity详解</h3><h3 id="二、Service详解"><a href="#二、Service详解" class="headerlink" title="二、Service详解"></a>二、Service详解</h3><h3 id="三、Broadcast-Receiver详解"><a href="#三、Broadcast-Receiver详解" class="headerlink" title="三、Broadcast Receiver详解"></a>三、Broadcast Receiver详解</h3><h3 id="四、Content-Provider详解"><a href="#四、Content-Provider详解" class="headerlink" title="四、Content Provider详解"></a>四、Content Provider详解</h3><h3 id="五、intent的详解（额外加一个重要组件）"><a href="#五、intent的详解（额外加一个重要组件）" class="headerlink" title="五、intent的详解（额外加一个重要组件）"></a>五、intent的详解（额外加一个重要组件）</h3>
+              <h2 id="Android开发四大组件"><a href="#Android开发四大组件" class="headerlink" title="Android开发四大组件"></a>Android开发四大组件</h2><h3 id="一、Activity详解"><a href="#一、Activity详解" class="headerlink" title="一、Activity详解"></a>一、Activity详解</h3><h3 id="二、Service详解"><a href="#二、Service详解" class="headerlink" title="二、Service详解"></a>二、Service详解</h3>
           
       
     </div>
