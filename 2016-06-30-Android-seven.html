@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android 自定义RadioButton实现 | Stephen HuaShao&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="由于使用小米系统MIUI运行是RadioButton样式跟google Android API自定义的不一样，则我们可以定义任何想要的东东。没有做不到，只有想不到
+
+Android 自定义RadioButton 
+Android 自定义RadioButton 实现文字上下左右方向的图片大小设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 自定义RadioButton实现">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-06-30-Android-seven.html">
+<meta property="og:site_name" content="Stephen HuaShao's Blog">
+<meta property="og:description" content="由于使用小米系统MIUI运行是RadioButton样式跟google Android API自定义的不一样，则我们可以定义任何想要的东东。没有做不到，只有想不到
+
+Android 自定义RadioButton 
+Android 自定义RadioButton 实现文字上下左右方向的图片大小设置">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/Android%20API.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/UI.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/RadioGroup1.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/RadioGroup2.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/miui.png">
+<meta property="og:updated_time" content="2016-06-30T08:23:14.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 自定义RadioButton实现">
+<meta name="twitter:description" content="由于使用小米系统MIUI运行是RadioButton样式跟google Android API自定义的不一样，则我们可以定义任何想要的东东。没有做不到，只有想不到
+
+Android 自定义RadioButton 
+Android 自定义RadioButton 实现文字上下左右方向的图片大小设置">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/Android%20API.png">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">王松</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">研发之路，要厚积而薄发</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/works">毕业回忆</a></li>
+                        
+                            <li><a href="/about">留言介绍</a></li>
+                        
+                            <li><a href="/tags">武功秘籍</a></li>
+                        
+                            <li><a href="/instagram">大话江湖</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wangsong520" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 20px;">自学android</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luxiaoyou.com/">Xiaoyou Lu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://xblvip.cn/">浪里小白龙</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">当前是一枚实习生。本人纯编程技术迷、喜欢专研各种编程技术、迎接新的挑战，静下心，默默努力，总有一天会闪耀！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王松</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王松</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">研发之路，要厚积而薄发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/works">毕业回忆</a></li>
+                
+                    <li><a href="/about">留言介绍</a></li>
+                
+                    <li><a href="/tags">武功秘籍</a></li>
+                
+                    <li><a href="/instagram">大话江湖</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangsong520" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Android-seven" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-06-30-Android-seven.html" class="article-date">
+      <time datetime="2016-06-30T06:13:17.000Z" itemprop="datePublished">2016-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android 自定义RadioButton实现
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>由于使用<code>小米系统MIUI运行是RadioButton样式跟google Android API自定义的不一样</code>，则我们可以定义任何想要的东东。<code>没有做不到，只有想不到</code></p>
+<ul>
+<li>Android 自定义RadioButton </li>
+<li>Android 自定义RadioButton 实现文字上下左右方向的图片大小设置<a id="more"></a>
+<h3 id="单选项框RadioGroup"><a href="#单选项框RadioGroup" class="headerlink" title="单选项框RadioGroup"></a>单选项框RadioGroup</h3><img src="http://7xvdgk.com1.z0.glb.clouddn.com/Android%20API.png" alt="API"></li>
+</ul>
+<blockquote>
+<p>单选按钮是一种双状态的按钮，可以选择或不选中。在单选按钮没有被选中时，用户能够按下或点击来选中它。但是，与复选框相反，用户一旦选中就不能够取消选中（译者注：可以通过代码来控制，界面上点击的效果是一旦选中之后就不能取消选中了）。</p>
+<p>多个单选按钮通常与RadioGroup同时使用。当一个单选组（RadioGroup）包含几个单选按钮时，选中其中一个的同时将取消其它选中的单选按钮</p>
+</blockquote>
+<ul>
+<li>RadioGroup 的组事件.RadioGroup 可将各自不同的RadioButton ,设限于同一个Radio 按钮组,同一个RadioGroup 组里的按钮,只能做出单一选择(单选题).</li>
+</ul>
+<h3 id="通过Demo来了解—RPcalc"><a href="#通过Demo来了解—RPcalc" class="headerlink" title="通过Demo来了解—RPcalc"></a>通过Demo来了解—RPcalc</h3><p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/UI.png" alt="UI布局"></p>
+<blockquote>
+<p><code>activity_main.xml</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;EditText     </span><br><span class="line">        android:id=&quot;@+id/et_name&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:hint=&quot;请输入姓名&quot; /&gt;</span><br><span class="line">&lt;!--建立一个RadioGroup --&gt;</span><br><span class="line">&lt;RadioGroup</span><br><span class="line">        android:id=&quot;@+id/rg_group&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:orientation=&quot;horizontal&quot; &gt;</span><br><span class="line">&lt;!--第一个RadioButton --&gt;</span><br><span class="line">&lt;RadioButton</span><br><span class="line">        android:id=&quot;@+id/rb_male&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginLeft=&quot;25dp&quot;</span><br><span class="line">        android:layout_weight=&quot;2&quot;</span><br><span class="line">        android:text=&quot;男&quot; /&gt;</span><br><span class="line">&lt;!--第二个RadioButton --&gt;</span><br><span class="line">&lt;RadioButton</span><br><span class="line">        android:id=&quot;@+id/rb_female&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginLeft=&quot;25dp&quot;</span><br><span class="line">        android:layout_weight=&quot;2&quot;</span><br><span class="line">        android:text=&quot;女&quot; /&gt;</span><br><span class="line">&lt;!--第三个RadioButton --&gt;</span><br><span class="line">&lt;RadioButton</span><br><span class="line">        android:id=&quot;@+id/rb_other&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_marginLeft=&quot;25dp&quot;</span><br><span class="line">        android:layout_weight=&quot;2&quot; </span><br><span class="line">        android:text=&quot;人妖&quot; /&gt;</span><br><span class="line">&lt;/RadioGroup&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>大致的UI布局，就是用到这些控件</li>
+</ul>
+<blockquote>
+<p><code>MainActivity.java</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends ActionBarActivity &#123;</span><br><span class="line"></span><br><span class="line">private EditText et_name;</span><br><span class="line">private RadioGroup rg_group;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">  super.onCreate(savedInstanceState);</span><br><span class="line">  setContentView(R.layout.activity_main);</span><br><span class="line">		</span><br><span class="line">&lt;!--找到我们关心的控件 --&gt;</span><br><span class="line">et_name = (EditText) findViewById(R.id.et_name);</span><br><span class="line">rg_group = (RadioGroup) findViewById(R.id.rg_group);</span><br><span class="line">		</span><br><span class="line">Button btn = (Button) findViewById(R.id.btn);</span><br><span class="line">&lt;!--设置按钮点击事件--点击按钮，获取数据，跳转到ResultActivity页面 --&gt;</span><br><span class="line">btn.setOnClickListener(new OnClickListener() &#123;</span><br><span class="line">			</span><br><span class="line">@Override</span><br><span class="line">public void onClick(View v) &#123;</span><br><span class="line">&lt;!--获取用户名 --&gt;</span><br><span class="line">String name = et_name.getText().toString().trim();</span><br><span class="line">			</span><br><span class="line">&lt;!--判断用户名为空 --&gt;</span><br><span class="line">if (TextUtils.isEmpty(name)) &#123;</span><br><span class="line">   Toast.makeText(getApplicationContext(), &quot;用户名不能为空&quot;, Toast.LENGTH_LONG).show();</span><br><span class="line">   return;</span><br><span class="line">&#125;</span><br><span class="line">			</span><br><span class="line">&lt;!--判断选中的性别--&gt;</span><br><span class="line">int checkedRadioButtonId = rg_group.getCheckedRadioButtonId();</span><br><span class="line">			</span><br><span class="line">&lt;!--判断具体选中的性别 --&gt;</span><br><span class="line">	int sex =0; //定义一个变量默认值为0 作用就是做一个标识</span><br><span class="line">switch (checkedRadioButtonId) &#123;</span><br><span class="line"> case R.id.rb_male: //选中的是男</span><br><span class="line">   sex =1;</span><br><span class="line">   break;</span><br><span class="line"> case R.id.rb_female: //选中的是女</span><br><span class="line">   sex =2;</span><br><span class="line">   break;</span><br><span class="line"> case R.id.rb_other: //选中的是人妖</span><br><span class="line">   sex =3;</span><br><span class="line">   break;</span><br><span class="line">&#125;</span><br><span class="line">			</span><br><span class="line">&lt;!--判断性别 --&gt;</span><br><span class="line">if (sex ==0) &#123;</span><br><span class="line">Toast.makeText(getApplicationContext(), &quot;请选性别&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">return;</span><br><span class="line">&#125;</span><br><span class="line">			</span><br><span class="line">&lt;!--跳转到ResultActivity--使用显示意图--&gt;</span><br><span class="line">Intent intent = new Intent(MainActivity.this, ResultActiviy.class);</span><br><span class="line">			</span><br><span class="line">&lt;!--要把name和sex传递到结果页面  putExtra(里面可以传递各种类型) --&gt;</span><br><span class="line">intent.putExtra(&quot;name&quot;, name);</span><br><span class="line">intent.putExtra(&quot;sex&quot;, sex);</span><br><span class="line">			</span><br><span class="line">&lt;!--开启Activity --&gt;</span><br><span class="line">startActivity(intent);					</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/RadioGroup1.png" alt="效果图"></p>
+<h3 id="奇怪的事情就发生了—在小米系统下的就变化了"><a href="#奇怪的事情就发生了—在小米系统下的就变化了" class="headerlink" title="奇怪的事情就发生了—在小米系统下的就变化了"></a>奇怪的事情就发生了—在小米系统下的就变化了</h3><p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/RadioGroup2.png" alt="效果图"></p>
+<ul>
+<li>这可能是跟小米系统基于Android的MIUI系统有关，可是如果面临这种情况怎么办呢</li>
+</ul>
+<h2 id="两种方法思路"><a href="#两种方法思路" class="headerlink" title="两种方法思路"></a>两种方法思路</h2><h3 id="一、Android-自定义RadioButton-实现文字上下左右方向的图片大小设置"><a href="#一、Android-自定义RadioButton-实现文字上下左右方向的图片大小设置" class="headerlink" title="一、Android 自定义RadioButton 实现文字上下左右方向的图片大小设置"></a>一、Android 自定义RadioButton 实现文字上下左右方向的图片大小设置</h3><blockquote>
+<p><code>Button与Textview 我们只是把自定义的图片资源放在Textview的左边，并把Button设置为null</code>来实现</p>
+<p>2.设置drawable图像显示在文字的上下左右的位置，如果不想设置，则传递null参数。drawable图片的边界是其自身固定的边界范围。</p>
+<p>3.left, top, right, bottom是对于文字上下左右方向的图片大小设置</p>
+</blockquote>
+<ol>
+<li>常见方法是：在代码中动态设置图片大小。然后设置在布局上。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span style=&quot;font-size:18px;&quot;&gt;</span><br><span class="line">mRadioButton.setCompoundDrawables(left, top, right, bottom);</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>参数类型都是Drawable，分别是左，上，右，下四个方向要显示的Drawable图片我们查看setCompoundDrawables(left, top, right, bottom)方法：用次方法之前，需要用Drawable.setBounds()方法来为Drawable图片设置边界，即要显示的大小。</p>
+</blockquote>
+<ol>
+<li>另一种常见方法是:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span style=&quot;font-size:18px;&quot;&gt;</span><br><span class="line">setCompoundDrawablesWithIntrinsicBounds(drawableLeft, drawableTop, drawableRight, drawableBottom);</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>进入源码查看该方法的具体实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;span style=&quot;font-size:18px;&quot;&gt;public void setCompoundDrawablesWithIntrinsicBounds(Drawable left, Drawable top,</span><br><span class="line">Drawable right, Drawable bottom) &#123;</span><br><span class="line"> </span><br><span class="line">        if (left != null) &#123;</span><br><span class="line">            left.setBounds(0, 0, left.getIntrinsicWidth(), left.getIntrinsicHeight());</span><br><span class="line">        &#125;</span><br><span class="line">        if (right != null) &#123;</span><br><span class="line">            right.setBounds(0, 0, right.getIntrinsicWidth(), right.getIntrinsicHeight());</span><br><span class="line">        &#125;</span><br><span class="line">        if (top != null) &#123;</span><br><span class="line">            top.setBounds(0, 0, top.getIntrinsicWidth(), top.getIntrinsicHeight());</span><br><span class="line">        &#125;</span><br><span class="line">        if (bottom != null) &#123;</span><br><span class="line">            bottom.setBounds(0, 0, bottom.getIntrinsicWidth(), bottom.getIntrinsicHeight());</span><br><span class="line">        &#125;</span><br><span class="line">        setCompoundDrawables(left, top, right, bottom);</span><br><span class="line">&#125;&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>在Demo中应用是这样的–MainActivity.java<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">et_name = (EditText) findViewById(R.id.et_name);</span><br><span class="line">rg_group = (RadioGroup) findViewById(R.id.rg_group);</span><br><span class="line">						</span><br><span class="line">Drawable ds = getResources().getDrawable(R.layout.item);</span><br><span class="line">setCompoundDrawablesWithIntrinsicBounds(rb_female,ds);</span><br><span class="line"></span><br><span class="line">//自定义setCompoundDrawablesWithIntrinsicBounds 替换RadioButton图片</span><br><span class="line">public void setCompoundDrawablesWithIntrinsicBounds(RadioButton rb, Drawable left) &#123;</span><br><span class="line"> </span><br><span class="line">if (left != null) &#123;</span><br><span class="line">   left.setBounds(0, 0, left.getIntrinsicWidth(), left.getIntrinsicHeight());</span><br><span class="line">&#125;</span><br><span class="line">rb.setCompoundDrawables(left, null, null, null);  //位置是相对应文字来决定的</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>原来这个方法，同样调用了setCompoundDrawables(left, top, right, bottom)方法，并在调用之前，给传入的图片设置了边界范围，即图片自身的大小。再看这个方法的注释：设置drawable图像显示在文字的上下左右的位置，如果不想设置，则传递null参数。drawable图片的边界是其自身固定的边界范围。</p>
+</blockquote>
+<h3 id="二、Android-自定义RadioButton"><a href="#二、Android-自定义RadioButton" class="headerlink" title="二、Android 自定义RadioButton"></a>二、Android 自定义RadioButton</h3><blockquote>
+<p><code>这个是把自定义的替换掉系统自带的，加载自己的</code>来实现</p>
+</blockquote>
+<ol>
+<li>第一步，自定义RadioButton图片Drawable—item.xml</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;    </span><br><span class="line">   &lt;item android:state_checked=&quot;false&quot; android:drawable=&quot;@drawable/dx_checkbox_off&quot; /&gt;</span><br><span class="line">   &lt;item android:state_checked=&quot;true&quot; android:drawable=&quot;@drawable/dx_checkbox_on&quot; /&gt;      </span><br><span class="line">&lt;/selector&gt;</span><br></pre></td></tr></table></figure>
+<p>2.第二步，MainActivity.xml中添加下面代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">RadioButton rb_female = (RadioButton) findViewById(R.id.rb_female);</span><br><span class="line">RadioButton rb_male = (RadioButton) findViewById(R.id.rb_male);</span><br><span class="line">RadioButton rb_other = (RadioButton) findViewById(R.id.rb_other);</span><br><span class="line">		</span><br><span class="line">//这个是把自定义的替换掉系统自带的，加载自己的</span><br><span class="line">rb_male.setButtonDrawable(R.layout.item);</span><br><span class="line">rb_female.setButtonDrawable(R.layout.item);</span><br><span class="line">rb_other.setButtonDrawable(R.layout.item);</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/miui.png" alt="效果图"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
+        <p><span>发布时间:</span>2016年06月30日 - 14时13分</p>
+        <p><span>最后更新:</span>2016年06月30日 - 16时23分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016-06-30-Android-seven.html" title="Android 自定义RadioButton实现">http://Stephenhuashao.github.io/2016-06-30-Android-seven.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-06-30-Android-seven.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016-06-24-Android-six.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">反编译Android APK及防止APK程序被反编译</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#单选项框RadioGroup"><span class="toc-number">1.</span> <span class="toc-text">单选项框RadioGroup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过Demo来了解—RPcalc"><span class="toc-number">2.</span> <span class="toc-text">通过Demo来了解—RPcalc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#奇怪的事情就发生了—在小米系统下的就变化了"><span class="toc-number">3.</span> <span class="toc-text">奇怪的事情就发生了—在小米系统下的就变化了</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两种方法思路"><span class="toc-number"></span> <span class="toc-text">两种方法思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Android-自定义RadioButton-实现文字上下左右方向的图片大小设置"><span class="toc-number">1.</span> <span class="toc-text">一、Android 自定义RadioButton 实现文字上下左右方向的图片大小设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Android-自定义RadioButton"><span class="toc-number">2.</span> <span class="toc-text">二、Android 自定义RadioButton</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="/2016-06-30-Android-seven.html" data-title="Android 自定义RadioButton实现" data-url="http://Stephenhuashao.github.io/2016-06-30-Android-seven.html"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wangsong520"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016-06-24-Android-six.html" title="下一篇: 反编译Android APK及防止APK程序被反编译">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-24-Android-six.html">反编译Android APK及防止APK程序被反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-19-dinner-party.html">团队聚餐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-18-share.html">团队大家庭</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-17-desktop.html">Windows7也可以想成苹果Mac清爽</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 王松
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank"></a><a href="https://github.com/luuman/hexo-theme-spfk" target="_blank"></a> 
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >才花大盗到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+  
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259651128'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259651128%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+</body>
+</html>
