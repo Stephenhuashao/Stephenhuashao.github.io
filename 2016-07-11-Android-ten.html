@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>android 实现多图片滑动 | Stephen HuaShao&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="遇到以下知识点的详见
+ViewPager+PhotoView实现图片轮播和手势缩放功能
+PhotoView 图片浏览缩放控件
+从SDCard路径获取所有的图片资源
+通过清除按钮来进行android 删除SD卡或者手机的缓存图片和目录
+通过清除按钮来进行来更新viewpager更新数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android 实现多图片滑动">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-07-11-Android-ten.html">
+<meta property="og:site_name" content="Stephen HuaShao's Blog">
+<meta property="og:description" content="遇到以下知识点的详见
+ViewPager+PhotoView实现图片轮播和手势缩放功能
+PhotoView 图片浏览缩放控件
+从SDCard路径获取所有的图片资源
+通过清除按钮来进行android 删除SD卡或者手机的缓存图片和目录
+通过清除按钮来进行来更新viewpager更新数据">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9D%9A%E6%8C%81.PNG">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/demo1.gif">
+<meta property="og:updated_time" content="2016-07-11T15:43:43.066Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android 实现多图片滑动">
+<meta name="twitter:description" content="遇到以下知识点的详见
+ViewPager+PhotoView实现图片轮播和手势缩放功能
+PhotoView 图片浏览缩放控件
+从SDCard路径获取所有的图片资源
+通过清除按钮来进行android 删除SD卡或者手机的缓存图片和目录
+通过清除按钮来进行来更新viewpager更新数据">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9D%9A%E6%8C%81.PNG">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">王松</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">研发之路，要厚积而薄发</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="http://Stephenhuashao.coding.me/Home">博客首页</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言介绍</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wangsong520" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android单图手势缩放功能/" style="font-size: 10px;">Android单图手势缩放功能</a> <a href="/tags/Android多图实现图片轮播/" style="font-size: 10px;">Android多图实现图片轮播</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Android控件布局属性全解/" style="font-size: 10px;">Android控件布局属性全解</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学android/" style="font-size: 16.67px;">自学android</a> <a href="/tags/自学android进阶之旅/" style="font-size: 13.33px;">自学android进阶之旅</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luxiaoyou.com/">Xiaoyou Lu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://xblvip.cn/">浪里小白龙</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">当前是一枚实习生。本人纯编程技术迷、喜欢专研各种编程技术、迎接新的挑战，静下心，默默努力，总有一天会闪耀！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王松</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王松</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">研发之路，要厚积而薄发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="http://Stephenhuashao.coding.me/Home">博客首页</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言介绍</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangsong520" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Android-ten" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-07-11-Android-ten.html" class="article-date">
+      <time datetime="2016-07-11T13:08:46.000Z" itemprop="datePublished">2016-07-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android 实现多图片滑动
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android多图实现图片轮播/">Android多图实现图片轮播</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android进阶之旅/">自学android进阶之旅</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h3><ul>
+<li>ViewPager+PhotoView实现图片轮播和手势缩放功能</li>
+<li>PhotoView 图片浏览缩放控件</li>
+<li>从SDCard路径获取所有的图片资源</li>
+<li>通过<code>清除按钮</code>来进行<code>android 删除SD卡或者手机的缓存图片和目录</code></li>
+<li>通过<code>清除按钮</code>来进行来更新<code>viewpager更新数据</code><a id="more"></a>
+</li>
+</ul>
+<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9D%9A%E6%8C%81.PNG" alt="坚持"></p>
+<h2 id="运用的控件"><a href="#运用的控件" class="headerlink" title="运用的控件"></a>运用的控件</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">控件的使用</th>
+<th style="text-align:right">功能的实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PhotoView</td>
+<td style="text-align:right">图片浏览缩放控件</td>
+</tr>
+<tr>
+<td style="text-align:left">ViewPager</td>
+<td style="text-align:right">左右切换当前的view</td>
+</tr>
+<tr>
+<td style="text-align:left">ViewPager+PhotoView</td>
+<td style="text-align:right">实现图片轮播和手势缩放功能</td>
+</tr>
+</tbody>
+</table>
+<h2 id="PhotoView-图片浏览缩放控件"><a href="#PhotoView-图片浏览缩放控件" class="headerlink" title="PhotoView 图片浏览缩放控件"></a>PhotoView 图片浏览缩放控件</h2><p>和普通的ImageView一样的使用方法</p>
+<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/demo1.gif" alt="效果图"></p>
+<p><a href="https://github.com/bm-x/PhotoView" target="_blank" rel="external">PhotoView</a>将Info.java和PhotoView.java两个文件拷贝到你的项目中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">支持单点/多点触摸，即时缩放图片；</span><br><span class="line">支持平滑滚动；</span><br><span class="line">在滑动父控件下能够运行良好；（例如：ViewPager）</span><br><span class="line">当用户的触点改变是可以触发通知</span><br></pre></td></tr></table></figure>
+<p>1.xml添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.bm.library.PhotoView</span></span><br><span class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/img"</span></span><br><span class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span><br><span class="line">    <span class="attr">android:scaleType</span>=<span class="string">"centerInside"</span></span><br><span class="line">    <span class="attr">android:src</span>=<span class="string">"@drawable/bitmap1"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>2.java代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">PhotoView photoView = (PhotoView) findViewById(R.id.img);</span><br><span class="line"><span class="comment">// 启用图片缩放功能</span></span><br><span class="line">photoView.enable();</span><br><span class="line"><span class="comment">// 禁用图片缩放功能 (默认为禁用，会跟普通的ImageView一样，缩放功能需手动调用enable()启用)</span></span><br><span class="line">photoView.disenable();</span><br><span class="line"><span class="comment">// 获取图片信息</span></span><br><span class="line">Info info = photoView.getInfo();</span><br><span class="line"><span class="comment">// 从普通的ImageView中获取Info</span></span><br><span class="line">Info info = PhotoView.getImageViewInfo(ImageView);</span><br><span class="line"><span class="comment">// 从一张图片信息变化到现在的图片，用于图片点击后放大浏览，具体使用可以参照demo的使用</span></span><br><span class="line">photoView.animaFrom(info);</span><br><span class="line"><span class="comment">// 从现在的图片变化到所给定的图片信息，用于图片放大后点击缩小到原来的位置，具体使用可以参照demo的使用</span></span><br><span class="line">photoView.animaTo(info,<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           <span class="comment">//动画完成监听</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br><span class="line"><span class="comment">// 获取/设置 动画持续时间</span></span><br><span class="line">photoView.setAnimaDuring(<span class="keyword">int</span> during);</span><br><span class="line"><span class="keyword">int</span> d = photoView.getAnimaDuring();</span><br><span class="line"><span class="comment">// 获取/设置 最大缩放倍数</span></span><br><span class="line">photoView.setMaxScale(<span class="keyword">float</span> maxScale);</span><br><span class="line"><span class="keyword">float</span> maxScale = photoView.getMaxScale();</span><br><span class="line"><span class="comment">// 设置动画的插入器</span></span><br><span class="line">photoView.setInterpolator(Interpolator interpolator);</span><br></pre></td></tr></table></figure></p>
+<h2 id="ViewPager-PhotoView实现图片轮播和手势缩放功能"><a href="#ViewPager-PhotoView实现图片轮播和手势缩放功能" class="headerlink" title="ViewPager+PhotoView实现图片轮播和手势缩放功能"></a>ViewPager+PhotoView实现图片轮播和手势缩放功能</h2><h3 id="1-创建一个类PhotoView，然后复制下面代码放到这个类中。"><a href="#1-创建一个类PhotoView，然后复制下面代码放到这个类中。" class="headerlink" title="1.创建一个类PhotoView，然后复制下面代码放到这个类中。"></a>1.创建一个类PhotoView，然后复制下面代码放到这个类中。</h3><ul>
+<li>PhotoView.java封装好好多方法和需要传入的参数（这个必须导入项目中）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br></pre></td><td class="code"><pre><span class="line">package com.xixiangfu.photoview;</span><br><span class="line"></span><br><span class="line">import uk.co.senab.photoview.IPhotoView;</span><br><span class="line">import uk.co.senab.photoview.PhotoViewAttacher;</span><br><span class="line">import uk.co.senab.photoview.PhotoViewAttacher.OnMatrixChangedListener;</span><br><span class="line">import uk.co.senab.photoview.PhotoViewAttacher.OnPhotoTapListener;</span><br><span class="line">import uk.co.senab.photoview.PhotoViewAttacher.OnViewTapListener;</span><br><span class="line">import android.content.Context;</span><br><span class="line">import android.graphics.Bitmap;</span><br><span class="line">import android.graphics.Matrix;</span><br><span class="line">import android.graphics.RectF;</span><br><span class="line">import android.graphics.drawable.Drawable;</span><br><span class="line">import android.net.Uri;</span><br><span class="line">import android.util.AttributeSet;</span><br><span class="line">import android.view.GestureDetector.OnDoubleTapListener;</span><br><span class="line">import android.view.View.OnLongClickListener;</span><br><span class="line">import android.widget.ImageView;</span><br><span class="line">import android.widget.ImageView.ScaleType;</span><br><span class="line"></span><br><span class="line">public class PhotoView extends ImageView implements IPhotoView &#123;</span><br><span class="line"></span><br><span class="line">    private final PhotoViewAttacher mAttacher;</span><br><span class="line">    private ScaleType mPendingScaleType;</span><br><span class="line"></span><br><span class="line">    public PhotoView(Context context) &#123;</span><br><span class="line">        this(context, null);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public PhotoView(Context context, AttributeSet attrs, int defStyle) &#123;</span><br><span class="line">        super(context, attrs, defStyle);</span><br><span class="line">        super.setScaleType(ScaleType.MATRIX);</span><br><span class="line">        mAttacher = new PhotoViewAttacher(this);</span><br><span class="line">        if (null != mPendingScaleType) &#123;</span><br><span class="line">            setScaleType(mPendingScaleType);</span><br><span class="line">            mPendingScaleType = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public PhotoView(Context context, AttributeSet attrs) &#123;</span><br><span class="line">        this(context, attrs, 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean canZoom() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.canZoom();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Matrix getDisplayMatrix() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getDrawMatrix();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public RectF getDisplayRect() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getDisplayRect();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public IPhotoView getIPhotoViewImplementation() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public float getMaxScale() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return getMaximumScale();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public float getMaximumScale() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getMaximumScale();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public float getMediumScale() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getMediumScale();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public float getMidScale() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return getMediumScale();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public float getMinScale() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return getMinimumScale();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public float getMinimumScale() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getMinimumScale();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public OnPhotoTapListener getOnPhotoTapListener() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getOnPhotoTapListener();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public OnViewTapListener getOnViewTapListener() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getOnViewTapListener();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public float getScale() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getScale();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Bitmap getVisibleRectangleBitmap() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.getVisibleRectangleBitmap();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setAllowParentInterceptOnEdge(boolean allow) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setAllowParentInterceptOnEdge(allow);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean setDisplayMatrix(Matrix finalMatrix) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        return mAttacher.setDisplayMatrix(finalMatrix);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setMaxScale(float maxScale) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setMaxScale(maxScale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setMaximumScale(float maximumScale) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setMaximumScale(maximumScale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setMediumScale(float mediumScale) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setMediumScale(mediumScale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setMidScale(float midScale) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setMidScale(midScale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setMinScale(float minScale) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setMinScale(minScale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setMinimumScale(float minimumScale) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setMinimumScale(minimumScale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setImageResource(int resId) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        super.setImageResource((resId));</span><br><span class="line">        if (null != mAttacher) &#123;</span><br><span class="line">            mAttacher.update();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setImageURI(Uri uri) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        super.setImageURI(uri);</span><br><span class="line">        if (null != mAttacher) &#123;</span><br><span class="line">            mAttacher.update();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setImageDrawable(Drawable drawable) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        super.setImageDrawable(drawable);</span><br><span class="line">        if(null !=mAttacher)&#123;</span><br><span class="line">            mAttacher.update();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setImageBitmap(Bitmap bm) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        super.setImageBitmap(bm);</span><br><span class="line">        if(null !=mAttacher)&#123;</span><br><span class="line">            mAttacher.update();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setOnDoubleTapListener(</span><br><span class="line">            OnDoubleTapListener newOnDoubleTapListener) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setOnDoubleTapListener(newOnDoubleTapListener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setOnMatrixChangeListener(OnMatrixChangedListener listener) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setOnMatrixChangeListener(listener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setOnPhotoTapListener(OnPhotoTapListener listener) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setOnPhotoTapListener(listener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setOnLongClickListener(OnLongClickListener listener) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setOnLongClickListener(listener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setOnViewTapListener(OnViewTapListener listener) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setOnViewTapListener(listener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setPhotoViewRotation(float rotationDegrees) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setRotationTo(rotationDegrees);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setRotationBy(float rotationDegrees) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setRotationBy(rotationDegrees);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setRotationTo(float rotationDegrees) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setRotationTo(rotationDegrees);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setScale(float scale) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setScale(scale);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setScale(float scale, boolean animate) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setScale(scale, animate);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setScale(float scale, float focalX, float focalY,</span><br><span class="line">            boolean animate) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setScale(scale, focalX, focalY, animate);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setZoomTransitionDuration(int milliseconds) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setZoomTransitionDuration(milliseconds);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setScaleType(ScaleType scaleType) &#123;</span><br><span class="line">        if (null != mAttacher) &#123;</span><br><span class="line">            mAttacher.setScaleType(scaleType);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            mPendingScaleType = scaleType;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void setZoomable(boolean zoomable) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.setZoomable(zoomable);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onDetachedFromWindow() &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        mAttacher.cleanup();</span><br><span class="line">        super.onDetachedFromWindow();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-创建类HackyViewPager继承ViewPager"><a href="#2-创建类HackyViewPager继承ViewPager" class="headerlink" title="2.创建类HackyViewPager继承ViewPager"></a>2.创建类HackyViewPager继承ViewPager</h3><ul>
+<li>创建类HackyViewPager</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package com.xixiangfu.photoview;</span><br><span class="line"></span><br><span class="line">import android.content.Context;</span><br><span class="line">import android.support.v4.view.ViewPager;</span><br><span class="line">import android.util.AttributeSet;</span><br><span class="line">import android.view.MotionEvent;</span><br><span class="line"></span><br><span class="line">/** </span><br><span class="line"> * </span><br><span class="line"> * 自定义viewPager解决和photoView滑动的冲突事件  </span><br><span class="line"> * </span><br><span class="line"> */  </span><br><span class="line">public class HackyViewPager extends ViewPager &#123;</span><br><span class="line"></span><br><span class="line">	public HackyViewPager(Context context) &#123;</span><br><span class="line">		super(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public HackyViewPager(Context context, AttributeSet attrs) &#123;</span><br><span class="line">        super(context, attrs);</span><br><span class="line">        // TODO Auto-generated constructor stub</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">	public boolean onInterceptTouchEvent(MotionEvent ev) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			return super.onInterceptTouchEvent(ev);</span><br><span class="line">		&#125; catch (IllegalArgumentException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-在显示界面的布局文件中添加一个自定义的HackyViewPager"><a href="#3-在显示界面的布局文件中添加一个自定义的HackyViewPager" class="headerlink" title="3.在显示界面的布局文件中添加一个自定义的HackyViewPager"></a>3.在显示界面的布局文件中添加一个自定义的HackyViewPager</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;com.jxtii.esafe.sdk.activity.HackyViewPager</span><br><span class="line">        android:id=&quot;@+id/viewPager&quot;</span><br><span class="line">        android:layout_below=&quot;@id/top_title_bar&quot;</span><br><span class="line">       android:layout_width=&quot;match_parent&quot;</span><br><span class="line">       android:layout_height=&quot;match_parent&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="4-在activity中写代码，创建一个数据源，我这里用的是SDCard本地图片，建立了一个数组，将图片Id添加进去。"><a href="#4-在activity中写代码，创建一个数据源，我这里用的是SDCard本地图片，建立了一个数组，将图片Id添加进去。" class="headerlink" title="4.在activity中写代码，创建一个数据源，我这里用的是SDCard本地图片，建立了一个数组，将图片Id添加进去。"></a>4.在activity中写代码，创建一个数据源，我这里用的是SDCard本地图片，建立了一个数组，将图片Id添加进去。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 创建数据源，这里采用本地数据源</span><br><span class="line">private String[] photoId = &#123; &quot;icon_001.jpg&quot;, &quot;icon_002.jpg&quot;, &quot;icon_003.jpg&quot; &#125;;</span><br><span class="line"></span><br><span class="line">String pathString = Environment.getExternalStorageDirectory().getPath()+&quot;/&quot;+ photoId[position];</span><br><span class="line"></span><br><span class="line">bitmap = BitmapFactory.decodeFile(pathString);// 获取图片资源</span><br></pre></td></tr></table></figure>
+<h3 id="5-初始化自定义的HackyViewPager，然后给其设置PagerAdapter适配器。在onCreate中给viewPager设置adapter-如下"><a href="#5-初始化自定义的HackyViewPager，然后给其设置PagerAdapter适配器。在onCreate中给viewPager设置adapter-如下" class="headerlink" title="5.初始化自定义的HackyViewPager，然后给其设置PagerAdapter适配器。在onCreate中给viewPager设置adapter.如下"></a>5.初始化自定义的HackyViewPager，然后给其设置PagerAdapter适配器。在onCreate中给viewPager设置adapter.如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setVies();// 初始化控件</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 初始化控件</span><br><span class="line"> */</span><br><span class="line">private void setVies() &#123;</span><br><span class="line">viewPager = (ViewPager) findViewById(R.id.viewPager);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个适配器需要自定义，所有photoView的创建和图片设置都在这里完成操作<br><code>要重写1.  instantiateItem（）方法，2.  destroyItem（）方法 3. isViewFromObject（）方法</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 自定义pagerAdapter</span><br><span class="line"> */</span><br><span class="line">public class MyAdapter extends PagerAdapter &#123;</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	//获取当前窗体界面数</span><br><span class="line">	public int getCount() &#123;</span><br><span class="line">		return photoId.length;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	//初始化position位置的界面</span><br><span class="line">	public View instantiateItem(ViewGroup container, int position) &#123;</span><br><span class="line">		PhotoView photoView = new PhotoView(container.getContext());</span><br><span class="line">		container.addView(photoView, LayoutParams.MATCH_PARENT,</span><br><span class="line">				LayoutParams.MATCH_PARENT);</span><br><span class="line">		String pathString = Environment.getExternalStorageDirectory().getPath()+&quot;/&quot;+ photoId[position];</span><br><span class="line">		bitmap = BitmapFactory.decodeFile(pathString);// 获取图片资源</span><br><span class="line">		photoView.setImageBitmap(bitmap);</span><br><span class="line">		photoView.setScaleType(ScaleType.FIT_XY);// 设置图片显示为充满全屏</span><br><span class="line">		return photoView;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//销毁position位置的界面</span><br><span class="line">	@Override</span><br><span class="line">	public void destroyItem(ViewGroup container, int position, Object object) &#123;</span><br><span class="line">		container.removeView((View) object);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//判断是否由对象生成界面</span><br><span class="line">	@Override</span><br><span class="line">	public boolean isViewFromObject(View view, Object object) &#123;</span><br><span class="line">		return view == object;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-给viewPager添加监听"><a href="#6-给viewPager添加监听" class="headerlink" title="6.给viewPager添加监听"></a>6.给viewPager添加监听</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">viewPager.setOnPageChangeListener(this);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// 给viewPager设置adapter，将每个图片设置到每个页面当中</span><br><span class="line">myAdapter = new MyAdapter();</span><br><span class="line">viewPager.setAdapter(myAdapter);</span><br><span class="line">// 给viewPager设置监听</span><br><span class="line">viewPager.setOnPageChangeListener(new OnPageChangeListener() &#123;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void onPageSelected(int arg0) &#123;</span><br><span class="line">int childCount = viewPager.getChildCount();// viewPager得到页面的数量</span><br><span class="line"></span><br><span class="line">// 遍历当前所有加载过的PhotoView，恢复所有图片的默认状态</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; childCount; i++) &#123;</span><br><span class="line">View childAt = viewPager.getChildAt(i);</span><br><span class="line">try &#123;</span><br><span class="line">if (childAt != null &amp;&amp; childAt instanceof PhotoView) &#123;</span><br><span class="line">PhotoView photoView = (PhotoView) childAt;// 得到viewPager里面的页面</span><br><span class="line">PhotoViewAttacher mAttacher = new PhotoViewAttacher(</span><br><span class="line">photoView);// 把得到的photoView放到这个负责变形的类当中</span><br><span class="line">// mAttacher.getDisplayMatrix().reset();//得到这个页面的显示状态，然后重置为默认状态</span><br><span class="line">mAttacher.setScaleType(ScaleType.FIT_XY);// 设置充满全屏</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (Exception e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">public void onPageScrolled(int arg0, float arg1, int arg2) &#123;</span><br><span class="line">	// TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">@Override</span><br><span class="line">public void onPageScrollStateChanged(int arg0) &#123;</span><br><span class="line">// TODO Auto-generated method stub</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016-07-11-Android-ten.html">android 实现多图片滑动</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
+        <p><span>发布时间:</span>2016年07月11日 - 21时08分</p>
+        <p><span>最后更新:</span>2016年07月11日 - 23时43分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016-07-11-Android-ten.html" title="android 实现多图片滑动">http://Stephenhuashao.github.io/2016-07-11-Android-ten.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-07-11-Android-ten.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016-07-08-Android-nine.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android控件布局属性、标签属性总结全解</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#遇到以下知识点的详见"><span class="toc-number">1.</span> <span class="toc-text">遇到以下知识点的详见</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运用的控件"><span class="toc-number"></span> <span class="toc-text">运用的控件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PhotoView-图片浏览缩放控件"><span class="toc-number"></span> <span class="toc-text">PhotoView 图片浏览缩放控件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ViewPager-PhotoView实现图片轮播和手势缩放功能"><span class="toc-number"></span> <span class="toc-text">ViewPager+PhotoView实现图片轮播和手势缩放功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-创建一个类PhotoView，然后复制下面代码放到这个类中。"><span class="toc-number">1.</span> <span class="toc-text">1.创建一个类PhotoView，然后复制下面代码放到这个类中。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-创建类HackyViewPager继承ViewPager"><span class="toc-number">2.</span> <span class="toc-text">2.创建类HackyViewPager继承ViewPager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在显示界面的布局文件中添加一个自定义的HackyViewPager"><span class="toc-number">3.</span> <span class="toc-text">3.在显示界面的布局文件中添加一个自定义的HackyViewPager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-在activity中写代码，创建一个数据源，我这里用的是SDCard本地图片，建立了一个数组，将图片Id添加进去。"><span class="toc-number">4.</span> <span class="toc-text">4.在activity中写代码，创建一个数据源，我这里用的是SDCard本地图片，建立了一个数组，将图片Id添加进去。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-初始化自定义的HackyViewPager，然后给其设置PagerAdapter适配器。在onCreate中给viewPager设置adapter-如下"><span class="toc-number">5.</span> <span class="toc-text">5.初始化自定义的HackyViewPager，然后给其设置PagerAdapter适配器。在onCreate中给viewPager设置adapter.如下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-给viewPager添加监听"><span class="toc-number">6.</span> <span class="toc-text">6.给viewPager添加监听</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="/2016-07-11-Android-ten.html" data-title="android 实现多图片滑动" data-url="http://Stephenhuashao.github.io/2016-07-11-Android-ten.html"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wangsong520"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016-07-08-Android-nine.html" title="下一篇: Android控件布局属性、标签属性总结全解">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016-07-11-Android-ten.html">android 实现多图片滑动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-08-Android-nine.html">Android控件布局属性、标签属性总结全解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-07-Android-eight.html">android 图片放大缩小、拖动、居中。居中适配屏幕大小实现(单图)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-24-Android-six.html">反编译Android APK及防止APK程序被反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-19-dinner-party.html">团队聚餐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-18-share.html">团队大家庭</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-17-desktop.html">Windows7也可以想成苹果Mac清爽</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 王松
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank"></a><a href="https://github.com/luuman/hexo-theme-spfk" target="_blank"></a> 
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >才花大盗到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+  
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259651128'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259651128%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+</body>
+</html>
