@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java基础个人理解整理笔记源码(2) | Stephen HuaShao&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java基础个人理解
+java语法整理
+java基础知识梳理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础个人理解整理笔记源码(2)">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-07-14-javatwo.html">
+<meta property="og:site_name" content="Stephen HuaShao's Blog">
+<meta property="og:description" content="Java基础个人理解
+java语法整理
+java基础知识梳理">
+<meta property="og:updated_time" content="2016-07-14T10:51:10.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基础个人理解整理笔记源码(2)">
+<meta name="twitter:description" content="Java基础个人理解
+java语法整理
+java基础知识梳理">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">王松</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">研发之路，要厚积而薄发</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="http://Stephenhuashao.coding.me/Home">博客首页</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言介绍</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wangsong520" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android单图手势缩放功能/" style="font-size: 10px;">Android单图手势缩放功能</a> <a href="/tags/Android多图实现图片轮播/" style="font-size: 12.5px;">Android多图实现图片轮播</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Android控件布局属性全解/" style="font-size: 10px;">Android控件布局属性全解</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/java基础/" style="font-size: 12.5px;">java基础</a> <a href="/tags/window/" style="font-size: 10px;">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 10px;">兄弟姐妹</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/成长/" style="font-size: 10px;">成长</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/聚餐/" style="font-size: 10px;">聚餐</a> <a href="/tags/自学Java基础个人理解整理/" style="font-size: 12.5px;">自学Java基础个人理解整理</a> <a href="/tags/自学android/" style="font-size: 17.5px;">自学android</a> <a href="/tags/自学android进阶之旅/" style="font-size: 15px;">自学android进阶之旅</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luxiaoyou.com/">Xiaoyou Lu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://xblvip.cn/">浪里小白龙</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">当前是一枚实习生。本人纯编程技术迷、喜欢专研各种编程技术、迎接新的挑战，静下心，默默努力，总有一天会闪耀！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王松</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王松</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">研发之路，要厚积而薄发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="http://Stephenhuashao.coding.me/Home">博客首页</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言介绍</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangsong520" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-javatwo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-07-14-javatwo.html" class="article-date">
+      <time datetime="2016-07-14T00:55:45.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基础个人理解整理笔记源码(2)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java基础/">java基础</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java基础/">java基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学Java基础个人理解整理/">自学Java基础个人理解整理</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="Java基础个人理解"><a href="#Java基础个人理解" class="headerlink" title="Java基础个人理解"></a>Java基础个人理解</h2><ul>
+<li>java语法整理</li>
+<li>java基础知识梳理<a id="more"></a>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h3 id="1-1函数"><a href="#1-1函数" class="headerlink" title="1.1函数"></a>1.1函数</h3></li>
+<li>(1)函数就是定义在类中的具有特定功能的一段独立小程序。函数也称为方法。</li>
+<li>(2)函数的格式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 函数名(参数类型 形式参数1，参数类型 形式参数2，…) &#123;</span><br><span class="line">执行语句;</span><br><span class="line">return 返回值;</span><br><span class="line">&#125;            //形式参数：就是一种形式，没有去指定具体的。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>形象举例：厨师必须具备炒菜的方法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Demo&#123;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">炒菜（瘦肉精猪肉，烂白菜，地沟油，苏丹红）//瘦肉精猪肉，烂白菜，地沟油，苏丹红指定了具体实际的，则是实际参数（调用炒菜方法时给出具体的参数）</span><br><span class="line"></span><br><span class="line">一盘菜 炒菜（肉，菜，油，调料）｛ //肉，菜，油，调料没有至具体的什么肉，什么菜，什么油，则是形式参数</span><br><span class="line"> 执行炒菜的动作；</span><br><span class="line"> return 一盘菜；</span><br><span class="line"> ｝</span><br><span class="line">｝</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static int add(int a,int b)//a = 3,b =5</span><br><span class="line">   A：修饰符 后面会重点讲。public static</span><br><span class="line">   B：返回值类型 这个特定的功能完成后，需要返回一个结果。这个地方就是返回结果的类型。</span><br><span class="line">   C：函数名 为了方便使用这个函数，给它起个名字。这个名字要符合标识符命名规则。</span><br><span class="line">   D：参数类型 形式参数的数据类型</span><br><span class="line">	 **：形式参数 自定义的接收方</span><br><span class="line">	 **：实际参数 发出方add(3,5)</span><br><span class="line">   E：执行语句 那么这个语句是由多条语句组成。</span><br><span class="line">   F：return 这个功能执行完以后，需要有一个返回值，那么这个值有关键字return带回。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>(3)函数的特点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A：一般函数只有被调用后，才执行。</span><br><span class="line">B：void 表示没有返回。在这个函数的结尾可以不写return。</span><br><span class="line">**其实jvm会自动的结尾处加上return;**</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>(4)如果定义自己的函数 两个明确</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A：明确该功能的结果 其实就是该功能的返回类型。</span><br><span class="line">B：明确该功能的参数 其实就是明确该功能中是否需要未知内容(形式参数)参与运算。</span><br><span class="line">	明确未知内容的类型和个数。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>(5)函数的重载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A：函数名相同，参数列表不同。（而且只看参数列表）	</span><br><span class="line">	**参数类型不同。int add(int i)void add(double d)</span><br><span class="line">	**参数个数不同。add(int a,int b);add(int a,int b,int c)</span><br><span class="line">	**参数顺序不同  print(String name, int age)	//参数顺序不同的重载是可以存在的,但是没有什么实际意义</span><br><span class="line"> print(int age,String name)</span><br><span class="line">B：特点：与返回值类型无关，只看参数列表。</span><br><span class="line">C：好处：便于阅读，优化程序设计。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="2-1数组"><a href="#2-1数组" class="headerlink" title="2.1数组"></a>2.1数组</h3><ul>
+<li>(1)同一种类型数据的集合。其实数组就是一个容器。int[] arr = new int[5];</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">只要是容器，就得重点掌握。</span><br><span class="line">数组也是引用数据类型</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(2)数组的好处</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = new int[5];//这是个数组，开辟了5个空间。左边：int数组的数据类型</span><br><span class="line">                                                                          []代表数组，几个[]就代表几维数组。arr是数组名，可以任意取，只要符合标识符的命名规则。右边: new 是创建数组的关键字（也是创建对象的关键字）int 要与前面的数据类型一致 [5] 代表数组的长度（有几个元素长度就是几）</span><br><span class="line">arr[3] = 10;</span><br><span class="line"></span><br><span class="line">A：可以自动给数组中的元素从0开始编号(下标志也叫索引)，方便操作这些元素。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(3)数组的定义格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A：当不明确数组中的元素时</span><br><span class="line">**举例 int[] arr = new int[3];//动态初始化：就是创建时没有给里面赋任何的值，创建后在给里面赋值。</span><br><span class="line">	   arr[0] = 3;</span><br><span class="line">B：当明确数组中的元素时</span><br><span class="line">**举例 int[] arr = new int[]&#123;1,2,3,4,5&#125;;//静态初始化</span><br><span class="line">int[] arr = &#123;1,2,3,4,5&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(4)什么时候使用数组？</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A：当要操作的同种数据类型的数据是多个的时候，你就得想着先把这些数据用数组</span><br><span class="line">进行存储。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(5)内存图</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">A：栈 （先进栈后出，后进栈先出）</span><br><span class="line">例子： 1.  class Demo&#123;</span><br><span class="line">           public static void main()&#123;</span><br><span class="line">            int[] arr= new int[5];          </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">----栈里的栈帧要进栈-main（）里面有 int[] arr；new出来的都在堆里(使用new一次则在堆里开辟一个实体，在使用new一次，则开辟第二个实体)。---</span><br><span class="line">                     </span><br><span class="line">2. class Demo&#123;</span><br><span class="line">   public static void main()&#123;</span><br><span class="line">   int[] arr1= new int[5];  //栈里的栈帧要进栈-main（）里面有 int[] arr1；new出来的都在堆里创建出对应实体有地址值，实体要分配5块空间。把地址值赋值给左边int[] arr1，并且它可以找到对应的实体啦。</span><br><span class="line">   int[] arr2= arr1;   //把arr1里面的地址值赋值给arr2，则它也能访问堆里面的实体。</span><br><span class="line">   arr1=null;//当arr1=null的时候是没有垃圾产生的。因为arr2还在指向这块实体        </span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125;</span><br><span class="line">                            </span><br><span class="line">3. class Demo&#123;</span><br><span class="line">   public static void main()&#123;</span><br><span class="line">   int[] arr1= new int[3]; //栈里的栈帧要进栈-main（）里面有 int[] arr1；new出来的都在堆里创建出对应实体有地址值，实体要分配3块空间。把地址值赋值给左边int[] arr1，并且它可以找到对应的实体啦。</span><br><span class="line">                                </span><br><span class="line">   int[] arr2= new int[3]; //栈里的栈帧要进栈-main（）里面有 int[] arr2；new出来的都在堆里创建出对应实体有地址值，实体要分配3块空间。把地址值赋值给左边int[] arr2，并且它可以找到对应的实体啦。</span><br><span class="line">   arr1[0]=75;</span><br><span class="line">   arr2[1]=83;</span><br><span class="line">   arr2 = null; //会产生垃圾</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"> 只要是new就会在内存中开辟新的实体。 </span><br><span class="line"></span><br><span class="line">**存储的是局部变量(在函数中定义的变量)。</span><br><span class="line">**变量被使用完后，立即自动释放。</span><br><span class="line"></span><br><span class="line">B：堆 </span><br><span class="line">**存储的是实体(数组和对象)。</span><br><span class="line">**实体：new出来的东西，可以存放很多数据的东西。</span><br><span class="line">***class定义一个类。</span><br><span class="line">**堆内存数据的特点</span><br><span class="line">   ***每个实体都有内存地址</span><br><span class="line">   ***堆内存中的变量都有默认初始化值</span><br><span class="line">		 ****int --&gt; 0</span><br><span class="line">		 ****double --&gt; 0.0</span><br><span class="line">		 ****boolean --&gt; false</span><br><span class="line">		 ****char --&gt; &apos;\（转义字符）u0000&apos; 空字符，unicode编码。 </span><br><span class="line">		 ***当实体不在被使用的时候，会在jvm空闲的时候，</span><br><span class="line">通过java垃圾回收机制使其自动释放。</span><br><span class="line"></span><br><span class="line">C：方法区 后面讲。</span><br><span class="line">D：本地方法区 调用是Windows系统底层资源，我们也不用考虑。</span><br><span class="line">E：寄存器 和CPU相关。我们不用考虑。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 函数名(参数类型 形式参数1，参数类型 形式参数2，…) &#123;</span><br><span class="line">执行语句;</span><br><span class="line">return 返回值;</span><br><span class="line">&#125;            //形式参数：就是一种形式，没有去指定具体的。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(6)操作数组最常见的问题</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> Exception(异常)：它指出了合理的应用程序想要捕获的条件。</span><br><span class="line">  常见的RuntimeExcepiton有：IllegalArgumentException、IllegalStateException、NullPointerException、IndexOutOfBoundsException</span><br><span class="line">A：当你访问到数组中的最后一个元素时，还想继续访问，这个时候，会发生角标越界异常。</span><br><span class="line">	**ArrayIndexOutOfBoundsException 数组越界错误</span><br><span class="line">	**举例 int[] arr = new int[3];</span><br><span class="line">			       System.out.println(arr[3]);</span><br><span class="line">B：当数组不在指向某个实体时，你还继续访问，就会发生空指针异常。</span><br><span class="line">	**NullPointerException</span><br><span class="line">	**举例 int[] arr = new int[3];</span><br><span class="line">			 arr = null;</span><br><span class="line">			 System.out.println(arr[1]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 函数名(参数类型 形式参数1，参数类型 形式参数2，…) &#123;</span><br><span class="line">执行语句;</span><br><span class="line">return 返回值;</span><br><span class="line">&#125;            //形式参数：就是一种形式，没有去指定具体的。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(7)常见的数组的操作</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 函数名(参数类型 形式参数1，参数类型 形式参数2，…) &#123;</span><br><span class="line">执行语句;</span><br><span class="line">return 返回值;</span><br><span class="line">&#125;            //形式参数：就是一种形式，没有去指定具体的。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br></pre></td><td class="code"><pre><span class="line">记住：对数组的操作，一定要从角标入手。</span><br><span class="line"></span><br><span class="line">A：遍历操作 （数组已经存储了值之后要对它进行遍历，数组是个容器，容器存值之后我们要拿出来看一看，这就叫遍历）最好从索引出发。</span><br><span class="line"> </span><br><span class="line">   **数组的属性：length 数组的长度。</span><br><span class="line">   **格式：数组名.length  代表数组中存储的个数 列如：arr.length</span><br><span class="line">		for (int x=0;x &lt; arr.length ;x++ )</span><br><span class="line">		System.out.println(&quot;arr[&quot;+x+&quot;]=&quot;+ arr[x]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Demo3 &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">//静态初始化</span><br><span class="line">//int[] arr1 = &#123;1,2,3,4,5&#125;;		</span><br><span class="line">//&#123;1,2,3,4,5&#125;不可以当作参数传递,并且声明和创建要在一行。如 int[] arr1 = &#123;1,2,3,4,5&#125;;</span><br><span class="line"></span><br><span class="line">//int[] arr2 = new int[]&#123;1,2,3,4,5&#125;;	//可以当作参数传递,可以先声明再创建</span><br><span class="line">//print(&#123;1,2,3,4,5&#125;);</span><br><span class="line"></span><br><span class="line">int[] arr2;                 《=====》int[] arr2 = new int[]&#123;1,2,3,4,5&#125;;</span><br><span class="line">arr2 = new int[]&#123;1,2,3,4,5&#125;; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void print(int[] arr) &#123;</span><br><span class="line">for(int x = 0; x &lt; arr.length; x++) &#123;</span><br><span class="line">	System.out.println(arr[x]);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">B：获取最值    （举例：比武招亲同样的一个道理）</span><br><span class="line">(class Demo4 &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">int[] arr = &#123;-2,-5,-7,-4,-3,-1,-6&#125;;</span><br><span class="line">int max = getMax(arr);</span><br><span class="line">System.out.println(max);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	/* 用函数时，函数应该有两个明确：</span><br><span class="line">	1,明确返回值类型 int</span><br><span class="line">	2,明确参数列表 int[] arr</span><br><span class="line">	*/</span><br><span class="line"></span><br><span class="line">	/*public static int getMax (int[] arr) &#123; // 定义一个getMax函数</span><br><span class="line">		int max = arr[0]; //先记住数组中的第一个人，再去遍历其他人（不包括本人）</span><br><span class="line">                 //0的角标对应的值赋值给max</span><br><span class="line">		for (int x = 1;x &lt; arr.length ;x++ ) &#123;</span><br><span class="line">			if(max &lt; arr[x]) &#123;</span><br><span class="line">				max = arr[x];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		return max;</span><br><span class="line">	&#125;*/</span><br><span class="line">	 </span><br><span class="line">	public static int getMax (int[] arr) &#123;</span><br><span class="line">		int max = 0;//这是把0角标赋值给max</span><br><span class="line"></span><br><span class="line">		for (int x = 1;x &lt; arr.length ;x++ ) &#123;</span><br><span class="line">			if(arr[max] &lt; arr[x]) &#123;</span><br><span class="line">				max = x;//找最大值的角标就可以</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		return arr[max]; //通过索引值返回</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">) </span><br><span class="line">			**获取最大值</span><br><span class="line">			public static void main(String[] args) &#123;</span><br><span class="line">				int[] arr = &#123;3,2,1,4,5,6&#125;;</span><br><span class="line">				int x = getMax(arr);</span><br><span class="line">				System.out.println(x);</span><br><span class="line">			&#125;</span><br><span class="line">			public static int getMax(int[] arr)&#123;</span><br><span class="line">				int max = arr[0];</span><br><span class="line">				</span><br><span class="line">				//x从1开始，因为第一个数不用跟自己比</span><br><span class="line">				for(int x=1; x&lt;arr.length; x++) &#123;</span><br><span class="line">					if(arr[x]&gt;max) &#123;</span><br><span class="line">						max = arr[x];</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				return max;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			**获取最小值</span><br><span class="line">			public static int getMin(int[] arr) &#123;</span><br><span class="line">				int min = arr[0];</span><br><span class="line">				</span><br><span class="line">				//i从1开始，因为第一个数不用跟自己比</span><br><span class="line">				for(int i=1; i&lt;arr.length; i++) &#123;</span><br><span class="line">					if(arr[i]&lt;min)&#123;</span><br><span class="line">						min = arr[i];</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				return min;</span><br><span class="line">			&#125;</span><br><span class="line">		C：排序  数据结构的5大排序：1.冒泡排序、2.选择排序、3.插入法、4.归并排序、                                              5.快数排序</span><br><span class="line">			**选择排序 </span><br><span class="line">			原理：如果拿0角标上的元素依次和后面的元素进行比较，</span><br><span class="line">	                      第一次内循环结束后，最小值出现在了0角标位置。</span><br><span class="line">             第一次：   arr[0]与arr[1-5]比了五次  </span><br><span class="line">	     第二次：   arr[1]与arr[2-5]比了四次           </span><br><span class="line">	     第三次：   arr[2]与arr[3-5]比了三次            </span><br><span class="line">	     第四次：   arr[3]与arr[4-5]比了二次            </span><br><span class="line">	     第五次：   arr[4]与arr[5]比了一次           </span><br><span class="line">	     规则就是：	你就想想我们是如何打星星  打印倒立的小星星使用的就是for的嵌套循环。</span><br><span class="line">			****</span><br><span class="line">			***</span><br><span class="line">			**</span><br><span class="line">			*</span><br><span class="line">			arr[x]与arr[y]比较</span><br><span class="line">			数组长度是6</span><br><span class="line">			for (int x = 0;x &lt; arr.length - 1;x++)&#123;</span><br><span class="line">				for (int y = x + 1;y &lt; arr.length;y++)&#123;</span><br><span class="line">					if (arr[x] &gt; arr[y])&#123;</span><br><span class="line">						int temp = arr[x];</span><br><span class="line">						arr[x] = arr[y];</span><br><span class="line">						arr[y] = temp;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;              </span><br><span class="line">                       </span><br><span class="line">                      </span><br><span class="line">                         class Demo5 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] arr = &#123;66,55,44,33,22,11&#125;;</span><br><span class="line">		selectSort(arr);</span><br><span class="line">		print(arr);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/*</span><br><span class="line">	1,明确返回值类型,void 对原数组进行操作就可以所以，返回值为void</span><br><span class="line">	2,明确参数列表,int[] arr</span><br><span class="line">	第一次:arr[0]分别与arr[1-5]比较,比较了5次</span><br><span class="line">	第二次:arr[1]分别与arr[2-5]比较,比较4次</span><br><span class="line">	第三次:arr[2]分别与arr[3-5]比较,比较3次</span><br><span class="line">	第四次:arr[3]分别与arr[4-5]比较,比较2次</span><br><span class="line">	第五次:arr[4]与arr[5]比较比较1次</span><br><span class="line"></span><br><span class="line">	*/</span><br><span class="line">	public static void selectSort(int[] arr) &#123;// &#123;66,55,44,33,22,11&#125;;实体6个数，可是我们角标从0开始到5则是6次</span><br><span class="line">		for (int x = 0;x &lt; arr.length - 1 ; x++) &#123; </span><br><span class="line">			for (int y = x + 1 ;y &lt; arr.length ;y++ ) &#123;</span><br><span class="line">				if (arr[x] &gt; arr[y]) &#123;</span><br><span class="line">					int temp = arr[x];//x,y交 换位置</span><br><span class="line">					arr[x] = arr[y];</span><br><span class="line">					arr[y] = temp;</span><br><span class="line">				&#125; //排序法</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/*</span><br><span class="line">	1,明确返回值类型void</span><br><span class="line">	2,参数列表int[] arr</span><br><span class="line">	*/</span><br><span class="line">        //对排序的数组进行打印</span><br><span class="line">	public static void print(int[] arr) &#123;  // 传进数组地址，然后对数组进行遍历。</span><br><span class="line">		for (int x = 0;x &lt; arr.length ;x++ ) &#123;</span><br><span class="line">			System.out.print(arr[x] + &quot; &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			**冒泡排序</span><br><span class="line">			原理：两个相邻元素进行比较，第一次比较完以后，最大值出现在了最大角标处。</span><br><span class="line">			第一次:arr[0]与arr[1],arr[1]与arr[2],arr[2]与arr[3],arr[3]与arr[4],arr[4]与arr[5],比了五次</span><br><span class="line">			第二次:arr[0]与arr[1],arr[1]与arr[2],arr[2]与arr[3],arr[3]与arr[4]比了四次</span><br><span class="line">			第三次:arr[0]与arr[1],arr[1]与arr[2],arr[2]与arr[3]比了三次</span><br><span class="line">			第四次:arr[0]与arr[1],arr[1]与arr[2]比了二次</span><br><span class="line">			第五次:arr[0]与arr[1]比了一次</span><br><span class="line">			for (int x = 0;x &lt; arr.length - 1; x++)&#123;</span><br><span class="line">				//-1防止角标越界</span><br><span class="line">				//-x为了提高效率</span><br><span class="line">				for (int y = 0;y &lt; arr.length - 1 - x;y++)&#123;//6</span><br><span class="line">					if (arr[y] &gt; arr[y+1])&#123;</span><br><span class="line">						int temp = arr[y];</span><br><span class="line">						arr[y] = arr[y+1];</span><br><span class="line">						arr[y+1] = temp;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		D：传递参数</span><br><span class="line">			**调用的时候，传递是基本类型的值的时候，形参改变对实参没有任何影响。</span><br><span class="line">			**调用的时候，传递是引用类型的地址的时候，形参改变对实参有直接影响。</span><br></pre></td></tr></table></figure>
+<p><strong>冒泡和99</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public static void maopao(int[] num) &#123;</span><br><span class="line">  for (int i = 0; i &lt; num.length; i++) &#123;</span><br><span class="line">      for (int j = 0; j &lt; num.length - 1; j++) &#123;</span><br><span class="line">            if (num[j] &gt; num[j + 1]) &#123;</span><br><span class="line">                 int tem = num[j];</span><br><span class="line">                 num[j] = num[j + 1];</span><br><span class="line">                 num[j + 1] = tem;</span><br><span class="line">               &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">//99 乘法</span><br><span class="line">  for (int i = 1; i &lt;= 9; i++) &#123;</span><br><span class="line">   for (int j = 1; j &lt;= i; j++) &#123;</span><br><span class="line">    System.out.print(i + &quot;*&quot; + j + &quot;=&quot; + i * j + &quot; | &quot;);</span><br><span class="line">    &#125;</span><br><span class="line"> System.out.println();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016-07-14-javatwo.html">Java基础个人理解整理笔记源码(2)</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
+        <p><span>发布时间:</span>2016年07月14日 - 08时55分</p>
+        <p><span>最后更新:</span>2016年07月14日 - 18时51分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016-07-14-javatwo.html" title="Java基础个人理解整理笔记源码(2)">http://Stephenhuashao.github.io/2016-07-14-javatwo.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-07-14-javatwo.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016-07-13-java.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础个人理解整理笔记源码(1)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java基础个人理解"><span class="toc-number">1.</span> <span class="toc-text">Java基础个人理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-number">2.</span> <span class="toc-text">1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1函数"><span class="toc-number">2.1.</span> <span class="toc-text">1.1函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-number">3.</span> <span class="toc-text">2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1数组"><span class="toc-number">3.1.</span> <span class="toc-text">2.1数组</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016-07-13-java.html" title="下一篇: Java基础个人理解整理笔记源码(1)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016-07-14-javatwo.html">Java基础个人理解整理笔记源码(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-13-java.html">Java基础个人理解整理笔记源码(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-12-Android-eleven.html">android 实现多图片滑动(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-11-Android-ten.html">android 实现多图片滑动(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-08-Android-nine.html">Android控件布局属性、标签属性总结全解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-07-Android-eight.html">android 图片放大缩小、拖动、居中。居中适配屏幕大小实现(单图)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-24-Android-six.html">反编译Android APK及防止APK程序被反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-19-dinner-party.html">团队聚餐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-18-share.html">团队大家庭</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-17-desktop.html">Windows7也可以想成苹果Mac清爽</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 王松
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank"></a><a href="https://github.com/luuman/hexo-theme-spfk" target="_blank"></a> 
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >才花大盗到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+  
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259651128'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259651128%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+</body>
+</html>
