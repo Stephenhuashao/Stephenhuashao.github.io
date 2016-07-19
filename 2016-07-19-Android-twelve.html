@@ -3,18 +3,48 @@
 <head>
   <meta charset="utf-8">
   
-  <title>标签 | Stephen HuaShao&#39;s Blog</title>
+  <title>网格视图GridView功能和用法理解 | Stephen HuaShao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="难者不会，会者不难;世上无难事只怕有心人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://Stephenhuashao.github.io/tags/index.html">
+  <meta name="description" content="网格视图GridViewGridView和ListView的唯一区别
+
+
+GridView
+ListView
+
+
+
+
+ListView只显示一列
+GridView可以显示多列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网格视图GridView功能和用法理解">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
-<meta property="og:description" content="难者不会，会者不难;世上无难事只怕有心人">
-<meta property="og:updated_time" content="2016-06-22T02:10:36.887Z">
+<meta property="og:description" content="网格视图GridViewGridView和ListView的唯一区别
+
+
+GridView
+ListView
+
+
+
+
+ListView只显示一列
+GridView可以显示多列">
+<meta property="og:updated_time" content="2016-07-19T02:09:51.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="难者不会，会者不难;世上无难事只怕有心人">
+<meta name="twitter:title" content="网格视图GridView功能和用法理解">
+<meta name="twitter:description" content="网格视图GridViewGridView和ListView的唯一区别
+
+
+GridView
+ListView
+
+
+
+
+ListView只显示一列
+GridView可以显示多列">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -37,7 +67,7 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -223,11 +253,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-twelve" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2016-06-13T10:35:48.000Z" itemprop="datePublished">2016-06-13</time>
+      <a href="/2016-07-19-Android-twelve.html" class="article-date">
+      <time datetime="2016-07-19T00:47:16.000Z" itemprop="datePublished">2016-07-19</time>
 </a>
     </div>
   
@@ -240,7 +270,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      标签
+      网格视图GridView功能和用法理解
     </h1>
   
 
@@ -248,8 +278,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -257,120 +295,145 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta {
-        display: none;
-    }
-    #container .article .article-title {
-        padding-right: 0;
-    }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .article-title {
-        font-size: 1.6em
-    }
-    .article-meta {
-        display: none;
-    }
-    .article-entry hr {
-        margin: 0;
-    }
-    #container .article-info-post.article-info {
-      display: none;
-      }
-    #container .article .article-title {
-    padding: 0;
-    }
-</style>
-
-
-    <!-- Tag Cloud Page -->
-    <hr>
-    <br>
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java基础/">java基础</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/优秀博客/">优秀博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/术业专攻/">术业专攻</a><span class="category-list-count">12</span></li></ul>
-
-    <p class="count"></p>
-
-    <div class="tags">
-        <a href="/tags/Android/" style="font-size: 35px; color: #000">Android</a> <a href="/tags/Android单图手势缩放功能/" style="font-size: 16px; color: #808080">Android单图手势缩放功能</a> <a href="/tags/Android多图实现图片轮播/" style="font-size: 19.8px; color: #666">Android多图实现图片轮播</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 16px; color: #808080">Android开源项目之网络编程</a> <a href="/tags/Android控件布局属性全解/" style="font-size: 16px; color: #808080">Android控件布局属性全解</a> <a href="/tags/Github/" style="font-size: 16px; color: #808080">Github</a> <a href="/tags/Hexo/" style="font-size: 16px; color: #808080">Hexo</a> <a href="/tags/Mac/" style="font-size: 16px; color: #808080">Mac</a> <a href="/tags/Node-js/" style="font-size: 16px; color: #808080">Node.js</a> <a href="/tags/java/" style="font-size: 23.6px; color: #4d4d4d">java</a> <a href="/tags/java基础/" style="font-size: 23.6px; color: #4d4d4d">java基础</a> <a href="/tags/window/" style="font-size: 16px; color: #808080">window</a> <a href="/tags/兄弟姐妹/" style="font-size: 16px; color: #808080">兄弟姐妹</a> <a href="/tags/博客/" style="font-size: 16px; color: #808080">博客</a> <a href="/tags/成长/" style="font-size: 16px; color: #808080">成长</a> <a href="/tags/笔记/" style="font-size: 16px; color: #808080">笔记</a> <a href="/tags/聚餐/" style="font-size: 16px; color: #808080">聚餐</a> <a href="/tags/自学Java基础个人理解整理/" style="font-size: 23.6px; color: #4d4d4d">自学Java基础个人理解整理</a> <a href="/tags/自学android/" style="font-size: 31.2px; color: #1a1a1a">自学android</a> <a href="/tags/自学android进阶之旅/" style="font-size: 27.4px; color: #333">自学android进阶之旅</a>
-    </div>
-    <style>
-        .category-list li{
-            display: inline-block;
-            margin: 0 1em .5em 0;
-            padding: 4px;
-            border: 1px solid lightgray;
-            font-size: 1.2em;
-        }
-        .category-list a {
-            color: gray;
-        }
-        .category-list-item:hover a {
-            color: gray;
-            text-decoration: none;
-        }
-        .category-list-count {
-            margin-left: 2px;
-            font-size: .9em;
-        }
-        .article-entry ul li:before{
-            display: none;
-        }
-        .article-inner  {
-            text-align: center;
-        }
-        .tags {
-            max-width: 40em;
-            margin: 2em auto;
-            margin-top: 0em;
-        }
-        .tags a {
-            margin-right: 1em;
-            line-height: 65px;
-            border-bottom: 1px solid gray;
-            white-space: nowrap;
-        }
-        .tags a:hover {
-            border-bottom: 2px solid black;
-            text-decoration: none;
-            font-style: italic;
-        }
-        #count > span {
-            margin: auto .2em;
-            font-weight: bold;
-        }
-    </style>
-
-    <!-- Count tags and categories -->
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <p id="count">
-            已有<span><script>document.write($(".category-list-item").length)</script></span>个分类，
-            共计<span><script>document.write($(".tags > a").length)</script></span>个标签。
-    </p>
-    <script>
-        $('#count').appendTo('.count');
-    </script>
-
-
-          
-        
+        <h2 id="网格视图GridView"><a href="#网格视图GridView" class="headerlink" title="网格视图GridView"></a>网格视图GridView</h2><h4 id="GridView和ListView的唯一区别"><a href="#GridView和ListView的唯一区别" class="headerlink" title="GridView和ListView的唯一区别"></a>GridView和ListView的唯一区别</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">GridView</th>
+<th style="text-align:right">ListView</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ListView只显示一列</td>
+<td style="text-align:right">GridView可以显示多列</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GridView用于在界面上按行、列分布的方式来显示多个组件。</span><br><span class="line">GridView和ListView有共同的父类：AbsListView，</span><br><span class="line">因此GridView和ListView具有很高的相似性，它们都是列表项。</span><br><span class="line">GridView和ListView的唯一区别在于：ListView只显示一列，而GridView可以显示多列。从这个角度来看，ListView相当于一种特殊的GridView，如果让GridView只显示一列，那么该GridView就变成了ListView。</span><br><span class="line"></span><br><span class="line">与ListView类似的是，GridView也需要通过Adapter来提供显示的数据：我们可以采用之前介绍的4种方式的任意一种来创建Adapter。不管使用哪种方式，GridView和ListView的用法是基本一致的。</span><br></pre></td></tr></table></figure>
+<h4 id="GridView常用的XML属性"><a href="#GridView常用的XML属性" class="headerlink" title="GridView常用的XML属性"></a>GridView常用的XML属性</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">XML属性</th>
+<th>相关方法</th>
+<th style="text-align:right">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">android:columnWidth</td>
+<td>setColumnWidth(int)</td>
+<td style="text-align:right">设置列的宽度</td>
+</tr>
+<tr>
+<td style="text-align:left">android:gravity</td>
+<td>setGravity(int)</td>
+<td style="text-align:right">组件对齐方式</td>
+</tr>
+<tr>
+<td style="text-align:left">android:horizontalSpacing</td>
+<td>setHorizontalSpacing(int)</td>
+<td style="text-align:right">水平方向每个单元格的间距</td>
+</tr>
+<tr>
+<td style="text-align:left">android:verticalSpacing</td>
+<td>setVerticalSpacing(int)</td>
+<td style="text-align:right">垂直方向每个单元格的间距</td>
+</tr>
+<tr>
+<td style="text-align:left">android:numColumns</td>
+<td>setNumColumns(int)</td>
+<td style="text-align:right">设置列数</td>
+</tr>
+<tr>
+<td style="text-align:left">android:stretchMode</td>
+<td>setStretchMode(int)</td>
+<td style="text-align:right">设置拉伸模式</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:stretchMode：设置拉伸模式，</span><br><span class="line">可选值如下： none：不拉伸；</span><br><span class="line">spacingWidth：拉伸元素间的间隔空隙 </span><br><span class="line">columnWidth：仅仅拉伸表格元素自身 </span><br><span class="line">spacingWidthUniform：既拉元素间距又拉伸他们之间的间隔空袭</span><br></pre></td></tr></table></figure>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
+        <p><span>发布时间:</span>2016年07月19日 - 08时47分</p>
+        <p><span>最后更新:</span>2016年07月19日 - 10时09分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016-07-19-Android-twelve.html" title="网格视图GridView功能和用法理解">http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016-07-15-javathree.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础个人理解整理笔记源码(3)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#网格视图GridView"><span class="toc-number">1.</span> <span class="toc-text">网格视图GridView</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GridView和ListView的唯一区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">GridView和ListView的唯一区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GridView常用的XML属性"><span class="toc-number">1.0.2.</span> <span class="toc-text">GridView常用的XML属性</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
 
 
 
@@ -388,7 +451,62 @@
 
 
 
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="/2016-07-19-Android-twelve.html" data-title="网格视图GridView功能和用法理解" data-url="http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wangsong520"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
 
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016-07-15-javathree.html" title="下一篇: Java基础个人理解整理笔记源码(3)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-15-javathree.html">Java基础个人理解整理笔记源码(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-14-javatwo.html">Java基础个人理解整理笔记源码(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-13-java.html">Java基础个人理解整理笔记源码(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-12-Android-eleven.html">android 实现多图片滑动(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-11-Android-ten.html">android 实现多图片滑动(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-08-Android-nine.html">Android控件布局属性、标签属性总结全解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-07-Android-eight.html">android 图片放大缩小、拖动、居中。居中适配屏幕大小实现(单图)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-24-Android-six.html">反编译Android APK及防止APK程序被反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-19-dinner-party.html">团队聚餐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-18-share.html">团队大家庭</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-17-desktop.html">Windows7也可以想成苹果Mac清爽</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
 
