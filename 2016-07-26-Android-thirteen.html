@@ -3,22 +3,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android开源项目分类汇总 | Stephen HuaShao&#39;s Blog</title>
+  <title>图片列----GridView的运用 | Stephen HuaShao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android 开源项目分类汇总">
+  <meta name="description" content="遇到以下知识点的详见
+GridView布局
+gridview_item布局
+遍历手机中的所有的图片，展示在GridView上
+优化GridView
+ListView 重写Adapter方法getView的性能优化问题
+从SDCard中一个文件夹中读取图片，展示在GridView上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android开源项目分类汇总">
-<meta property="og:url" content="http://Stephenhuashao.github.io/2016-06-13-Android-one.html">
+<meta property="og:title" content="图片列----GridView的运用">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-07-26-Android-thirteen.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
-<meta property="og:description" content="Android 开源项目分类汇总">
-<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/android.jpg">
-<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/android-Ultra-Pull-to-Refresh.gif">
-<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/screenshot.gif">
-<meta property="og:updated_time" content="2016-06-23T03:32:14.246Z">
+<meta property="og:description" content="遇到以下知识点的详见
+GridView布局
+gridview_item布局
+遍历手机中的所有的图片，展示在GridView上
+优化GridView
+ListView 重写Adapter方法getView的性能优化问题
+从SDCard中一个文件夹中读取图片，展示在GridView上">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%87%E5%88%97.jpg">
+<meta property="og:updated_time" content="2016-07-26T11:41:46.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android开源项目分类汇总">
-<meta name="twitter:description" content="Android 开源项目分类汇总">
-<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/android.jpg">
+<meta name="twitter:title" content="图片列----GridView的运用">
+<meta name="twitter:description" content="遇到以下知识点的详见
+GridView布局
+gridview_item布局
+遍历手机中的所有的图片，展示在GridView上
+优化GridView
+ListView 重写Adapter方法getView的性能优化问题
+从SDCard中一个文件夹中读取图片，展示在GridView上">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%87%E5%88%97.jpg">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -227,11 +243,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Android-one" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-thirteen" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-06-13-Android-one.html" class="article-date">
-      <time datetime="2016-06-13T06:34:00.000Z" itemprop="datePublished">2016-06-13</time>
+      <a href="/2016-07-26-Android-thirteen.html" class="article-date">
+      <time datetime="2016-07-26T09:08:49.000Z" itemprop="datePublished">2016-07-26</time>
 </a>
     </div>
   
@@ -244,7 +260,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android开源项目分类汇总
+      图片列----GridView的运用
     </h1>
   
 
@@ -253,13 +269,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android开源项目/">Android开源项目</a>
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GridView/">GridView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -269,49 +285,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://github.com/wangsong520/Android-Open-Project" target="_blank" rel="external">Android 开源项目分类汇总</a><br><a id="more"></a></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a><img src="http://7xvdgk.com1.z0.glb.clouddn.com/android.jpg" alt=" Android 开源项目分类汇总！"></h1><h2 id="第一部分-个性化控件-View"><a href="#第一部分-个性化控件-View" class="headerlink" title="第一部分 个性化控件(View)"></a>第一部分 个性化控件(View)</h2><blockquote>
-<p>主要介绍那些不错个性化的 View，包括 ListView、ActionBar、Menu、ViewPager、Gallery、GridView、ImageView、ProgressBar、TextView、ScrollView、TimeView、TipView、FlipView、ColorPickView、GraphView、UI Style 等等。</p>
-</blockquote>
-<h2 id="一、ListView"><a href="#一、ListView" class="headerlink" title="一、ListView"></a>一、ListView</h2><h3 id="1-android-pulltorefresh"><a href="#1-android-pulltorefresh" class="headerlink" title="1.android-pulltorefresh"></a>1.android-pulltorefresh</h3><blockquote>
-<p>一个强大的拉动刷新开源项目，支持各种控件下拉刷新，<code>ListView</code>、<code>ViewPager</code>、<code>WebView</code>、<code>ExpandableListView</code>、<code>GridView</code>、<code>ScrollView</code>、<code>Horizontal</code> <code>ScrollView</code>、<code>Fragment</code>上下左右拉动刷新，比下面 johannilsson 那个只支持 ListView 的强大的多。并且它实现的下拉刷新 ListView 在 item 不足一屏情况下也不会显示刷新提示，体验更好。<br><a href="https://github.com/chrisbanes/Android-PullToRefresh" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<h3 id="2-android-pulltorefresh-listview"><a href="#2-android-pulltorefresh-listview" class="headerlink" title="2.android-pulltorefresh-listview"></a>2.android-pulltorefresh-listview</h3><blockquote>
-<p>下拉刷新 ListView，这个被很多人使用的项目实际有不少 bug，推荐使用 android-Ultra-Pull-to-Refresh<br><a href="https://github.com/johannilsson/android-pulltorefresh" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<h3 id="3-android-Ultra-Pull-to-Refresh"><a href="#3-android-Ultra-Pull-to-Refresh" class="headerlink" title="3.android-Ultra-Pull-to-Refresh"></a>3.android-Ultra-Pull-to-Refresh</h3><blockquote>
-<p>下拉刷新，第一个项目已经停止维护了，并且使用起来相对复杂，定制性也差。这个是替代和改良方案。这个继承于 ViewGroup 可以包含任何 View。功能甚至比 SwipeRefreshLayout 强大。使用起来非常简单。良好的设计，如果你想定制自己的 UI 样式，非常简单，就像给 ListView 加一个 Header View 那么简单。支持<code>API LEVEL &gt;= 8</code><br><a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/android-Ultra-Pull-to-Refresh.gif" alt="截图效果"></p>
-<h3 id="4-Android-PullToRefreshRecyclerView"><a href="#4-Android-PullToRefreshRecyclerView" class="headerlink" title="4.Android-PullToRefreshRecyclerView"></a>4.Android-PullToRefreshRecyclerView</h3><blockquote>
-<p>支持下拉刷新的RecyclerView，同时支持滑动到底部自动加载数据、给RecyclerView添加Header。并且不更改原有RecyclerView的逻辑。<br><a href="https://github.com/HomHomLin/Android-PullToRefreshRecyclerView" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/screenshot.gif" alt="截图效果"></p>
-<h3 id="5-DragSortListView"><a href="#5-DragSortListView" class="headerlink" title="5.DragSortListView"></a>5.DragSortListView</h3><blockquote>
-<p>拖动排序的 ListView，同时支持 ListView 滑动 item 删除，各个 Item 高度不一、单选、复选、<code>CursorAdapter</code>做为适配器、拖动背景变化等。<br><a href="https://github.com/bauerca/drag-sort-listview" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<h3 id="6-SwipeListView"><a href="#6-SwipeListView" class="headerlink" title="6.SwipeListView"></a>6.SwipeListView</h3><blockquote>
-<p>支持定义 ListView 左右滑动事件，支持左右滑动位移，支持定义动画时间<br><a href="https://github.com/47deg/android-swipelistview" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<h3 id="6-SwipeListView-1"><a href="#6-SwipeListView-1" class="headerlink" title="6.SwipeListView"></a>6.SwipeListView</h3><blockquote>
-<p>支持定义 ListView 左右滑动事件，支持左右滑动位移，支持定义动画时间<br><a href="https://github.com/47deg/android-swipelistview" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<h2 id="第二部分-个性化控件-View"><a href="#第二部分-个性化控件-View" class="headerlink" title="第二部分 个性化控件(View)"></a>第二部分 个性化控件(View)</h2><blockquote>
-<p>主要包括那些不错的开发库，包括依赖注入框架、图片缓存、网络请求、数据库 ORM 建模、Android 公共库、Android 高版本向低版本兼容、多媒体相关及其他。</p>
-</blockquote>
-<h2 id="一、依赖注入-DI"><a href="#一、依赖注入-DI" class="headerlink" title="一、依赖注入 DI"></a>一、依赖注入 DI</h2><h3 id="1-AndroidAnnotations-Code-Diet"><a href="#1-AndroidAnnotations-Code-Diet" class="headerlink" title="1.AndroidAnnotations(Code Diet)"></a>1.AndroidAnnotations(Code Diet)</h3><blockquote>
-<p>android 快速开发框架<br>特点：(1) 依赖注入：包括 view，extras，系统服务，资源等等<br>(2) 简单的线程模型，通过 annotation 表示方法运行在 ui 线程还是后台线程<br>(3) 事件绑定：通过 annotation 表示 view 的响应事件，不用在写内部类<br>(4) REST 客户端：定义客户端接口，自动生成 REST 请求的实现<br>(5) 没有你想象的复杂：AndroidAnnotations 只是在在编译时生成相应子类<br>(6) 不影响应用性能：仅 50kb，在编译时完成，不会对运行时有性能影响。<br>其他：与 roboguice 的比较：roboguice 通过运行时读取 annotations 进行反射，所以可能影响应用性能，而 AndroidAnnotations 在编译时生成子类，所以对性能没有影响。<br><a href="https://github.com/excilys/androidannotations" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<h3 id="2-butterknife"><a href="#2-butterknife" class="headerlink" title="2.butterknife"></a>2.butterknife</h3><blockquote>
-<p>利用 annotation 帮你快速完成 View 的初始化，减少代码<br><a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<h2 id="二、图片缓存"><a href="#二、图片缓存" class="headerlink" title="二、图片缓存"></a>二、图片缓存</h2><h3 id="1-Android-Universal-Image-Loader"><a href="#1-Android-Universal-Image-Loader" class="headerlink" title="1.Android-Universal-Image-Loader"></a>1.Android-Universal-Image-Loader</h3><blockquote>
-<p>图片缓存，目前使用最广泛的图片缓存，支持主流图片缓存的绝大多数特性。<br><a href="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-<h2 id="二、网络请求"><a href="#二、网络请求" class="headerlink" title="二、网络请求"></a>二、网络请求</h2><h3 id="1-Asynchronous-Http-Client-for-Android"><a href="#1-Asynchronous-Http-Client-for-Android" class="headerlink" title="1.Asynchronous Http Client for Android"></a>1.Asynchronous Http Client for Android</h3><blockquote>
-<p>Android 异步 Http 请求<br>特点：(1) 在匿名回调中处理请求结果<br>(2) 在 UI 线程外进行 http 请求<br>(3) 文件断点上传<br>(4) 智能重试<br>(5) 默认 gzip 压缩<br>(6) 支持解析成 Json 格式<br>(7) 可将 Cookies 持久化到 SharedPreferences<br><a href="https://github.com/loopj/android-async-http" target="_blank" rel="external">项目地址</a></p>
-</blockquote>
-
+        <h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
+<li>GridView布局</li>
+<li>gridview_item布局</li>
+<li>遍历手机中的所有的图片，展示在GridView上</li>
+<li>优化GridView</li>
+<li>ListView 重写Adapter方法getView的性能优化问题</li>
+<li>从SDCard中一个文件夹中读取图片，展示在GridView上</li>
+</ul>
+<a id="more"></a>
+<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%9B%BE%E7%89%87%E5%88%97.jpg" alt="图片示例"></p>
+<h3 id="1-GridView布局"><a href="#1-GridView布局" class="headerlink" title="1.GridView布局"></a>1.GridView布局</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;GridView</span><br><span class="line">  android:id=&quot;@+id/gridView&quot;</span><br><span class="line">  android:layout_width=&quot;match_parent&quot;</span><br><span class="line">  android:layout_height=&quot;match_parent&quot;</span><br><span class="line">  android:layout_above=&quot;@+id/showallphoto_bottom_layout&quot;</span><br><span class="line">  android:layout_below=&quot;@+id/top_title_bar&quot;</span><br><span class="line">  android:background=&quot;#FFFFFF&quot;</span><br><span class="line">  android:layout_centerInParent=&quot;true&quot;</span><br><span class="line">  android:layout_marginTop=&quot;2dp&quot;</span><br><span class="line">  android:horizontalSpacing=&quot;10dp&quot;</span><br><span class="line">  android:verticalSpacing=&quot;10dp&quot;</span><br><span class="line">  android:numColumns=&quot;4&quot; &gt;</span><br><span class="line">&lt;/GridView&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-gridview-item布局"><a href="#2-gridview-item布局" class="headerlink" title="2.gridview_item布局"></a>2.gridview_item布局</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">要显示ListView条目的布局</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">view = View.inflate(getApplicationContex(),R.layout.imagefilelist_item, null);</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line"></span><br><span class="line"> android:layout_width=&quot;match_parent&quot;</span><br><span class="line"> android:layout_height=&quot;match_parent&quot; &gt;</span><br><span class="line"></span><br><span class="line">&lt;ImageView</span><br><span class="line">  android:id=&quot;@+id/imageview&quot;</span><br><span class="line">  android:layout_width=&quot;68dp&quot;</span><br><span class="line">  android:layout_height=&quot;68dp&quot;</span><br><span class="line">  android:scaleType=&quot;centerCrop&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;CheckBox</span><br><span class="line">  android:id=&quot;@+id/checkbox&quot;</span><br><span class="line">  android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">  android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">  android:layout_alignParentTop=&quot;true&quot;</span><br><span class="line">  android:background=&quot;@layout/checkbox_item&quot;</span><br><span class="line">  android:layout_alignRight=&quot;@+id/imageview&quot; /&gt;</span><br><span class="line">  </span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-遍历手机中的所有的图片，展示在GridView上"><a href="#3-遍历手机中的所有的图片，展示在GridView上" class="headerlink" title="3.遍历手机中的所有的图片，展示在GridView上"></a>3.遍历手机中的所有的图片，展示在GridView上</h3>
       
     </div>
     
@@ -319,13 +317,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></p>
+        <p><span>本文标题:</span><a href="/2016-07-26-Android-thirteen.html">图片列----GridView的运用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
-        <p><span>发布时间:</span>2016年06月13日 - 14时34分</p>
-        <p><span>最后更新:</span>2016年06月23日 - 11时32分</p>
+        <p><span>发布时间:</span>2016年07月26日 - 17时08分</p>
+        <p><span>最后更新:</span>2016年07月26日 - 19时41分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016-06-13-Android-one.html" title="Android开源项目分类汇总">http://Stephenhuashao.github.io/2016-06-13-Android-one.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-06-13-Android-one.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016-07-26-Android-thirteen.html" title="图片列----GridView的运用">http://Stephenhuashao.github.io/2016-07-26-Android-thirteen.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-07-26-Android-thirteen.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -338,18 +336,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2016-06-13-Android-two.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          断点续传下载
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016-04-27-androidComponent.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">android四大组件</div>
+    <a href="/2016-07-19-Android-twelve.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网格视图GridView功能和用法理解</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -360,7 +349,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一部分-个性化控件-View"><span class="toc-number">1.1.</span> <span class="toc-text">第一部分 个性化控件(View)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、ListView"><span class="toc-number">1.2.</span> <span class="toc-text">一、ListView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-android-pulltorefresh"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.android-pulltorefresh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-android-pulltorefresh-listview"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.android-pulltorefresh-listview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-android-Ultra-Pull-to-Refresh"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.android-Ultra-Pull-to-Refresh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Android-PullToRefreshRecyclerView"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.Android-PullToRefreshRecyclerView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-DragSortListView"><span class="toc-number">1.2.5.</span> <span class="toc-text">5.DragSortListView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-SwipeListView"><span class="toc-number">1.2.6.</span> <span class="toc-text">6.SwipeListView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-SwipeListView-1"><span class="toc-number">1.2.7.</span> <span class="toc-text">6.SwipeListView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二部分-个性化控件-View"><span class="toc-number">1.3.</span> <span class="toc-text">第二部分 个性化控件(View)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、依赖注入-DI"><span class="toc-number">1.4.</span> <span class="toc-text">一、依赖注入 DI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-AndroidAnnotations-Code-Diet"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.AndroidAnnotations(Code Diet)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-butterknife"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.butterknife</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、图片缓存"><span class="toc-number">1.5.</span> <span class="toc-text">二、图片缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Android-Universal-Image-Loader"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.Android-Universal-Image-Loader</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、网络请求"><span class="toc-number">1.6.</span> <span class="toc-text">二、网络请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Asynchronous-Http-Client-for-Android"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.Asynchronous Http Client for Android</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到以下知识点的详见"><span class="toc-number">1.</span> <span class="toc-text">遇到以下知识点的详见</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-GridView布局"><span class="toc-number">1.1.</span> <span class="toc-text">1.GridView布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-gridview-item布局"><span class="toc-number">1.2.</span> <span class="toc-text">2.gridview_item布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-遍历手机中的所有的图片，展示在GridView上"><span class="toc-number">1.3.</span> <span class="toc-text">3.遍历手机中的所有的图片，展示在GridView上</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -422,7 +411,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="/2016-06-13-Android-one.html" data-title="Android开源项目分类汇总" data-url="http://Stephenhuashao.github.io/2016-06-13-Android-one.html"></div>
+    <div class="ds-thread" data-thread-key="/2016-07-26-Android-thirteen.html" data-title="图片列----GridView的运用" data-url="http://Stephenhuashao.github.io/2016-07-26-Android-thirteen.html"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -445,13 +434,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016-06-13-Android-two.html" title="上一篇: 断点续传下载">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016-04-27-androidComponent.html" title="下一篇: android四大组件">
+            <a href="/2016-07-19-Android-twelve.html" title="下一篇: 网格视图GridView功能和用法理解">
                 <i class="fa fa-angle-right"></i>
             </a>
         
