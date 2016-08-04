@@ -3,48 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>网格视图GridView功能和用法理解 | Stephen HuaShao&#39;s Blog</title>
+  <title>nineteen | Stephen HuaShao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网格视图GridViewGridView和ListView的唯一区别
-
-
-GridView
-ListView
-
-
-
-
-ListView只显示一列
-GridView可以显示多列">
+  <meta name="description" content="难者不会，会者不难;世上无难事只怕有心人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网格视图GridView功能和用法理解">
-<meta property="og:url" content="http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html">
+<meta property="og:title" content="nineteen">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-08-04-Android-nineteen.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
-<meta property="og:description" content="网格视图GridViewGridView和ListView的唯一区别
-
-
-GridView
-ListView
-
-
-
-
-ListView只显示一列
-GridView可以显示多列">
-<meta property="og:updated_time" content="2016-07-19T02:09:51.894Z">
+<meta property="og:description" content="难者不会，会者不难;世上无难事只怕有心人">
+<meta property="og:updated_time" content="2016-08-04T07:05:21.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网格视图GridView功能和用法理解">
-<meta name="twitter:description" content="网格视图GridViewGridView和ListView的唯一区别
-
-
-GridView
-ListView
-
-
-
-
-ListView只显示一列
-GridView可以显示多列">
+<meta name="twitter:title" content="nineteen">
+<meta name="twitter:description" content="难者不会，会者不难;世上无难事只怕有心人">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -253,11 +223,11 @@ GridView可以显示多列">
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Android-twelve" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-nineteen" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-07-19-Android-twelve.html" class="article-date">
-      <time datetime="2016-07-19T00:47:16.000Z" itemprop="datePublished">2016-07-19</time>
+      <a href="/2016-08-04-Android-nineteen.html" class="article-date">
+      <time datetime="2016-08-04T07:05:21.000Z" itemprop="datePublished">2016-08-04</time>
 </a>
     </div>
   
@@ -270,7 +240,7 @@ GridView可以显示多列">
         
   
     <h1 class="article-title" itemprop="name">
-      网格视图GridView功能和用法理解
+      nineteen
     </h1>
   
 
@@ -278,16 +248,8 @@ GridView可以显示多列">
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -295,64 +257,7 @@ GridView可以显示多列">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="网格视图GridView"><a href="#网格视图GridView" class="headerlink" title="网格视图GridView"></a>网格视图GridView</h2><h4 id="GridView和ListView的唯一区别"><a href="#GridView和ListView的唯一区别" class="headerlink" title="GridView和ListView的唯一区别"></a>GridView和ListView的唯一区别</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">GridView</th>
-<th style="text-align:right">ListView</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">ListView只显示一列</td>
-<td style="text-align:right">GridView可以显示多列</td>
-</tr>
-</tbody>
-</table>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GridView用于在界面上按行、列分布的方式来显示多个组件。</span><br><span class="line">GridView和ListView有共同的父类：AbsListView，</span><br><span class="line">因此GridView和ListView具有很高的相似性，它们都是列表项。</span><br><span class="line">GridView和ListView的唯一区别在于：ListView只显示一列，而GridView可以显示多列。从这个角度来看，ListView相当于一种特殊的GridView，如果让GridView只显示一列，那么该GridView就变成了ListView。</span><br><span class="line"></span><br><span class="line">与ListView类似的是，GridView也需要通过Adapter来提供显示的数据：我们可以采用之前介绍的4种方式的任意一种来创建Adapter。不管使用哪种方式，GridView和ListView的用法是基本一致的。</span><br></pre></td></tr></table></figure>
-<h4 id="GridView常用的XML属性"><a href="#GridView常用的XML属性" class="headerlink" title="GridView常用的XML属性"></a>GridView常用的XML属性</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">XML属性</th>
-<th>相关方法</th>
-<th style="text-align:right">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">android:columnWidth</td>
-<td>setColumnWidth(int)</td>
-<td style="text-align:right">设置列的宽度</td>
-</tr>
-<tr>
-<td style="text-align:left">android:gravity</td>
-<td>setGravity(int)</td>
-<td style="text-align:right">组件对齐方式</td>
-</tr>
-<tr>
-<td style="text-align:left">android:horizontalSpacing</td>
-<td>setHorizontalSpacing(int)</td>
-<td style="text-align:right">水平方向每个单元格的间距</td>
-</tr>
-<tr>
-<td style="text-align:left">android:verticalSpacing</td>
-<td>setVerticalSpacing(int)</td>
-<td style="text-align:right">垂直方向每个单元格的间距</td>
-</tr>
-<tr>
-<td style="text-align:left">android:numColumns</td>
-<td>setNumColumns(int)</td>
-<td style="text-align:right">设置列数</td>
-</tr>
-<tr>
-<td style="text-align:left">android:stretchMode</td>
-<td>setStretchMode(int)</td>
-<td style="text-align:right">设置拉伸模式</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:stretchMode：设置拉伸模式，</span><br><span class="line">可选值如下： none：不拉伸；</span><br><span class="line">spacingWidth：拉伸元素间的间隔空隙 </span><br><span class="line">columnWidth：仅仅拉伸表格元素自身 </span><br><span class="line">spacingWidthUniform：既拉元素间距又拉伸他们之间的间隔空袭</span><br></pre></td></tr></table></figure>
+        
       
     </div>
     
@@ -360,13 +265,13 @@ GridView可以显示多列">
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a></p>
+        <p><span>本文标题:</span><a href="/2016-08-04-Android-nineteen.html">nineteen</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
-        <p><span>发布时间:</span>2016年07月19日 - 08时47分</p>
-        <p><span>最后更新:</span>2016年07月19日 - 10时09分</p>
+        <p><span>发布时间:</span>2016年08月04日 - 15时05分</p>
+        <p><span>最后更新:</span>2016年08月04日 - 15时05分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016-07-19-Android-twelve.html" title="网格视图GridView功能和用法理解">http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016-08-04-Android-nineteen.html" title="nineteen">http://Stephenhuashao.github.io/2016-08-04-Android-nineteen.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-08-04-Android-nineteen.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -379,18 +284,9 @@ GridView可以显示多列">
 
 <nav id="article-nav">
   
-    <a href="/2016-07-26-Android-thirteen.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          图片列----GridView的运用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016-07-15-javathree.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java基础个人理解整理笔记源码(3)</div>
+    <a href="/2016-08-03-Android-eighteen.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Json解析详解</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -401,7 +297,7 @@ GridView可以显示多列">
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#网格视图GridView"><span class="toc-number">1.</span> <span class="toc-text">网格视图GridView</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GridView和ListView的唯一区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">GridView和ListView的唯一区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GridView常用的XML属性"><span class="toc-number">1.0.2.</span> <span class="toc-text">GridView常用的XML属性</span></a></li></ol></li></ol></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -463,7 +359,7 @@ GridView可以显示多列">
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="/2016-07-19-Android-twelve.html" data-title="网格视图GridView功能和用法理解" data-url="http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html"></div>
+    <div class="ds-thread" data-thread-key="/2016-08-04-Android-nineteen.html" data-title="nineteen" data-url="http://Stephenhuashao.github.io/2016-08-04-Android-nineteen.html"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -486,13 +382,11 @@ GridView可以显示多列">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016-07-26-Android-thirteen.html" title="上一篇: 图片列----GridView的运用">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016-07-15-javathree.html" title="下一篇: Java基础个人理解整理笔记源码(3)">
+            <a href="/2016-08-03-Android-eighteen.html" title="下一篇: Json解析详解">
                 <i class="fa fa-angle-right"></i>
             </a>
         
