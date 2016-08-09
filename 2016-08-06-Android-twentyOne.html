@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: 术业专攻 | Stephen HuaShao&#39;s Blog</title>
+  <title>android四大组件(二) | Stephen HuaShao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="难者不会，会者不难;世上无难事只怕有心人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Stephen HuaShao's Blog">
-<meta property="og:url" content="http://Stephenhuashao.github.io/categories/术业专攻/index.html">
+  <meta name="description" content="遇到以下知识点的详见
+学会自定义广播
+有序广播和无序广播
+常用广播接收者（开机启动、短信接受）的使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android四大组件(二)">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-08-06-Android-twentyOne.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
-<meta property="og:description" content="难者不会，会者不难;世上无难事只怕有心人">
+<meta property="og:description" content="遇到以下知识点的详见
+学会自定义广播
+有序广播和无序广播
+常用广播接收者（开机启动、短信接受）的使用">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/BroadcastReceiver.png">
+<meta property="og:updated_time" content="2016-08-09T06:50:07.273Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stephen HuaShao's Blog">
-<meta name="twitter:description" content="难者不会，会者不难;世上无难事只怕有心人">
+<meta name="twitter:title" content="android四大组件(二)">
+<meta name="twitter:description" content="遇到以下知识点的详见
+学会自定义广播
+有序广播和无序广播
+常用广播接收者（开机启动、短信接受）的使用">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/BroadcastReceiver.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -36,10 +48,10 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
-          isCategory: true,
+          isCategory: false,
           open_in_new: false
       }
   </script>
@@ -222,377 +234,232 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Android-twentyOne" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-08-06-Android-twentyOne.html" class="archive-article-date">
-      <time datetime="2016-08-06T06:28:43.000Z" itemprop="datePublished">08-06</time>
+    <div class="article-meta">
+      <a href="/2016-08-06-Android-twentyOne.html" class="article-date">
+      <time datetime="2016-08-06T06:28:43.000Z" itemprop="datePublished">2016-08-06</time>
 </a>
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-08-06-Android-twentyOne.html">android四大组件(二)</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android四大组件(二)
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-四大组件/">Android 四大组件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
+<li>学会自定义广播</li>
+<li>有序广播和无序广播</li>
+<li>常用广播接收者（开机启动、短信接受）的使用<a id="more"></a>
+</li>
+</ul>
+<h2 id="android的四大组件"><a href="#android的四大组件" class="headerlink" title="android的四大组件"></a>android的四大组件</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">android四大组件(一)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="http://www.wangsong520.com/2016-04-27-androidComponent.html" target="_blank" rel="external">http://www.wangsong520.com/2016-04-27-androidComponent.html</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="什么是广播"><a href="#什么是广播" class="headerlink" title="什么是广播"></a>什么是广播</h2><pre><code>在Android系统中，广播(Broadcast)是一种运用在应用程序之间传递消息的机制，
+广播接收者（BroadcastReceiver）是用来过滤、接受并响应广播的一类组件。
+通过广播接收者可以监听系统中的广播的消息，在不同组件之间进行通信。
+</code></pre><h2 id="什么是广播接收者"><a href="#什么是广播接收者" class="headerlink" title="什么是广播接收者"></a>什么是广播接收者</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在现实生活中，大多数人都会听广播。例如，出租车司机会收听实时路况的广播，</span><br><span class="line">来关注路面堵路情况。同样，在Android系统中内置了很多系统级别的广播，例如，手机开发完成后会发送一条广播，</span><br><span class="line">电池电量不足时也会发送一条广播等。</span><br><span class="line"></span><br><span class="line">为了监听这些广播事件，Android中提供了一个BroadcasttReceiver组件，该组件可以监听来自系统或者应用程序的广播。</span><br><span class="line"></span><br><span class="line">下面通过一个图例来展示广播的发送与接受过程</span><br><span class="line"></span><br><span class="line">这些广播接受者只需要在清单文件或者代码中进行注册并指定要接受的广播事件，</span><br><span class="line">然后创建一个类继承自 BroadcasttReceiver类 ，重写onReceive()方法，在方法中进行处理即可。</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/BroadcastReceiver.png" alt="广播接收者"></p>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016-08-06-Android-twentyOne.html">android四大组件(二)</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
+        <p><span>发布时间:</span>2016年08月06日 - 14时28分</p>
+        <p><span>最后更新:</span>2016年08月09日 - 14时50分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016-08-06-Android-twentyOne.html" title="android四大组件(二)">http://Stephenhuashao.github.io/2016-08-06-Android-twentyOne.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-08-06-Android-twentyOne.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016-08-05-Android-twenty.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">段子手APP---AFinal框架(三)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-08-05-Android-twenty.html" class="archive-article-date">
-      <time datetime="2016-08-05T00:49:59.000Z" itemprop="datePublished">08-05</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-08-05-Android-twenty.html">段子手APP---AFinal框架(三)</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到以下知识点的详见"><span class="toc-number">1.</span> <span class="toc-text">遇到以下知识点的详见</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#android的四大组件"><span class="toc-number">2.</span> <span class="toc-text">android的四大组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是广播"><span class="toc-number">3.</span> <span class="toc-text">什么是广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是广播接收者"><span class="toc-number">4.</span> <span class="toc-text">什么是广播接收者</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="/2016-08-06-Android-twentyOne.html" data-title="android四大组件(二)" data-url="http://Stephenhuashao.github.io/2016-08-06-Android-twentyOne.html"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wangsong520"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016-08-05-Android-twenty.html" title="下一篇: 段子手APP---AFinal框架(三)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016-08-06-Android-twentyOne.html">android四大组件(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-05-Android-twenty.html">段子手APP---AFinal框架(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-04-Android-nineteen.html">XML解析详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-03-Android-eighteen.html">Json解析详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-01-Android-seventeen.html">Jackson 框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-29-Android-sixteen.html">段子手APP---AFinal框架(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-28-Android-fifteen.html">段子手APP---AFinal框架(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-27-Android-fourteen.html">Afinal框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-26-Android-thirteen.html">图片列----GridView的运用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-15-javathree.html">Java基础个人理解整理笔记源码(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-14-javatwo.html">Java基础个人理解整理笔记源码(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-13-java.html">Java基础个人理解整理笔记源码(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-12-Android-eleven.html">android 实现多图片滑动(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-11-Android-ten.html">android 实现多图片滑动(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-08-Android-nine.html">Android控件布局属性、标签属性总结全解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-07-Android-eight.html">android 图片放大缩小、拖动、居中。居中适配屏幕大小实现(单图)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-24-Android-six.html">反编译Android APK及防止APK程序被反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-19-dinner-party.html">团队聚餐</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-18-share.html">团队大家庭</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-17-desktop.html">Windows7也可以想成苹果Mac清爽</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Afinal框架/">Android Afinal框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源APP开发/">开源APP开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-08-04-Android-nineteen.html" class="archive-article-date">
-      <time datetime="2016-08-04T07:05:21.000Z" itemprop="datePublished">08-04</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-08-04-Android-nineteen.html">XML解析详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-XML解析/">Android XML解析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-08-03-Android-eighteen.html" class="archive-article-date">
-      <time datetime="2016-08-03T01:30:54.000Z" itemprop="datePublished">08-03</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-08-03-Android-eighteen.html">Json解析详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Json解析/">Android Json解析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-08-01-Android-seventeen.html" class="archive-article-date">
-      <time datetime="2016-08-01T00:41:04.000Z" itemprop="datePublished">08-01</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-08-01-Android-seventeen.html">Jackson 框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Jackson框架/">Android Jackson框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源APP开发/">开源APP开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-07-29-Android-sixteen.html" class="archive-article-date">
-      <time datetime="2016-07-29T06:36:36.000Z" itemprop="datePublished">07-29</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-07-29-Android-sixteen.html">段子手APP---AFinal框架(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Afinal框架/">Android Afinal框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源APP开发/">开源APP开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-07-28-Android-fifteen.html" class="archive-article-date">
-      <time datetime="2016-07-28T08:10:43.000Z" itemprop="datePublished">07-28</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-07-28-Android-fifteen.html">段子手APP---AFinal框架(一)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Afinal框架/">Android Afinal框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源APP开发/">开源APP开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-07-27-Android-fourteen.html" class="archive-article-date">
-      <time datetime="2016-07-27T11:05:31.000Z" itemprop="datePublished">07-27</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-07-27-Android-fourteen.html">Afinal框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Afinal框架/">Android Afinal框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-07-26-Android-thirteen.html" class="archive-article-date">
-      <time datetime="2016-07-26T09:08:49.000Z" itemprop="datePublished">07-26</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-07-26-Android-thirteen.html">图片列----GridView的运用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GridView/">GridView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016-07-19-Android-twelve.html" class="archive-article-date">
-      <time datetime="2016-07-19T00:47:16.000Z" itemprop="datePublished">07-19</time>
-</a>
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/术业专攻/page/2/">2</a><a class="page-number" href="/categories/术业专攻/page/3/">3</a><a class="extend next" rel="next" href="/categories/术业专攻/page/2/">Next &raquo;</a>
-    </nav>
-  
-
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
@@ -663,17 +530,6 @@
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
