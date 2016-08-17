@@ -147,7 +147,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-Afinal框架/" style="font-size: 17.5px;">Android Afinal框架</a> <a href="/tags/Android-Jackson框架/" style="font-size: 10px;">Android Jackson框架</a> <a href="/tags/Android-Json解析/" style="font-size: 10px;">Android Json解析</a> <a href="/tags/Android-XML解析/" style="font-size: 10px;">Android XML解析</a> <a href="/tags/Android-四大组件/" style="font-size: 15px;">Android 四大组件</a> <a href="/tags/Android-多级联动/" style="font-size: 10px;">Android 多级联动</a> <a href="/tags/Android单图手势缩放功能/" style="font-size: 10px;">Android单图手势缩放功能</a> <a href="/tags/Android多图实现图片轮播/" style="font-size: 12.5px;">Android多图实现图片轮播</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Android控件布局属性全解/" style="font-size: 10px;">Android控件布局属性全解</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/GridView/" style="font-size: 10px;">GridView</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/java基础/" style="font-size: 15px;">java基础</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/开源APP开发/" style="font-size: 17.5px;">开源APP开发</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/自学Java基础个人理解整理/" style="font-size: 15px;">自学Java基础个人理解整理</a> <a href="/tags/自学android/" style="font-size: 20px;">自学android</a> <a href="/tags/自学android进阶之旅/" style="font-size: 17.5px;">自学android进阶之旅</a>
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-Afinal框架/" style="font-size: 16.67px;">Android Afinal框架</a> <a href="/tags/Android-Jackson框架/" style="font-size: 10px;">Android Jackson框架</a> <a href="/tags/Android-Json解析/" style="font-size: 10px;">Android Json解析</a> <a href="/tags/Android-XML解析/" style="font-size: 10px;">Android XML解析</a> <a href="/tags/Android-四大组件/" style="font-size: 16.67px;">Android 四大组件</a> <a href="/tags/Android-多级联动/" style="font-size: 10px;">Android 多级联动</a> <a href="/tags/Android-高级编程/" style="font-size: 10px;">Android 高级编程</a> <a href="/tags/Android单图手势缩放功能/" style="font-size: 10px;">Android单图手势缩放功能</a> <a href="/tags/Android多图实现图片轮播/" style="font-size: 13.33px;">Android多图实现图片轮播</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Android控件布局属性全解/" style="font-size: 10px;">Android控件布局属性全解</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/GridView/" style="font-size: 13.33px;">GridView</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/开源APP开发/" style="font-size: 16.67px;">开源APP开发</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/自学Java基础个人理解整理/" style="font-size: 16.67px;">自学Java基础个人理解整理</a> <a href="/tags/自学android/" style="font-size: 20px;">自学android</a> <a href="/tags/自学android进阶之旅/" style="font-size: 16.67px;">自学android进阶之旅</a>
                     </div>
                 </section>
                 
@@ -226,6 +226,284 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Android-eighteen" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-08-03-Android-eighteen.html" class="article-date">
+      <time datetime="2016-08-03T01:30:54.000Z" itemprop="datePublished">2016-08-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-08-03-Android-eighteen.html">Json解析详解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
+<li>JSON的定义以及什么是JSON(上篇文章有介绍)</li>
+<li>JSON Vs XML</li>
+<li>Android的JSON解析部分都在包org.json下，主要有以下几个类</li>
+<li>安卓解析 json 4种格式 全解析
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Json解析/">Android Json解析</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016-08-03-Android-eighteen.html#more">花姑娘 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android-seventeen" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-08-01-Android-seventeen.html" class="article-date">
+      <time datetime="2016-08-01T00:41:04.000Z" itemprop="datePublished">2016-08-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-08-01-Android-seventeen.html">Jackson 框架</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
+<li>什么是JSON(JavaScript Object Notation) </li>
+<li>JSON-lib框架，转换JSON、XML不再困难</li>
+<li>Jackson 框架，轻易转换JSON</li>
+<li>HTTP协议详解
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Jackson框架/">Android Jackson框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源APP开发/">开源APP开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016-08-01-Android-seventeen.html#more">花姑娘 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android-sixteen" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-07-29-Android-sixteen.html" class="article-date">
+      <time datetime="2016-07-29T06:36:36.000Z" itemprop="datePublished">2016-07-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-07-29-Android-sixteen.html">段子手APP---AFinal框架(二)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
+<li>一、Http协议获取接口并解析Json数据–得到返回结果</li>
+<li>二、实现请求参数<h2 id="段子手APP–Afinal框架用法"><a href="#段子手APP–Afinal框架用法" class="headerlink" title="段子手APP–Afinal框架用法"></a>段子手APP–Afinal框架用法</h2></li>
+<li>项目的前期搭建、网络请求封装是怎样实现的</li>
+<li>上篇博文中已经做了铺垫，下面咱们就可以用前面介绍过的内容开始做一个小项目了，正所谓麻雀虽小，五脏俱全，这在里我会尽量的将前期的项目搭建做的相对实用一些，以便后期可以有效的实现团队协作和项目维护。一开始可能会看起来麻烦些，可能会觉得还不如直接用简单的方式去实现来的方便，磨刀不误砍柴工嘛，要想后期开发效率高一些，前期就不要图省事了。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Afinal框架/">Android Afinal框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源APP开发/">开源APP开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016-07-29-Android-sixteen.html#more">花姑娘 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android-fifteen" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016-07-28-Android-fifteen.html" class="article-date">
+      <time datetime="2016-07-28T08:10:43.000Z" itemprop="datePublished">2016-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016-07-28-Android-fifteen.html">段子手APP---AFinal框架(一)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="段子手APP–Afinal框架用法"><a href="#段子手APP–Afinal框架用法" class="headerlink" title="段子手APP–Afinal框架用法"></a>段子手APP–Afinal框架用法</h2><ul>
+<li>Afinal简介—上篇文章内容</li>
+<li>Afinal应用用法—本项目中用到的几个功能<br><strong>接着末尾上篇文章Android开发实战：</strong>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/Android基础/">Android基础</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Afinal框架/">Android Afinal框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开源APP开发/">开源APP开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016-07-28-Android-fifteen.html#more">花姑娘 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Android-fourteen" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -313,7 +591,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016-07-26-Android-thirteen.html">图片列----GridView的运用</a>
+      <a class="article-title" href="/2016-07-26-Android-thirteen.html">图片列----GridView的运用(一)</a>
     </h1>
   
 
@@ -652,284 +930,9 @@
 
 
   
-    <article id="post-Android-eleven" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016-07-12-Android-eleven.html" class="article-date">
-      <time datetime="2016-07-12T09:50:47.000Z" itemprop="datePublished">2016-07-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-07-12-Android-eleven.html">android 实现多图片滑动(下)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
-<li>在MyAdapter中自定义setdata方法</li>
-<li>如何解决Android下ViewPager和PagerAdapter中调用notifyDataSetChanged失效的问题 。</li>
-<li>常见的几种Adapter
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android多图实现图片轮播/">Android多图实现图片轮播</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android进阶之旅/">自学android进阶之旅</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016-07-12-Android-eleven.html#more">花姑娘 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-ten" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016-07-11-Android-ten.html" class="article-date">
-      <time datetime="2016-07-11T13:08:46.000Z" itemprop="datePublished">2016-07-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-07-11-Android-ten.html">android 实现多图片滑动(上)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
-<li>ViewPager+PhotoView实现图片轮播和手势缩放功能</li>
-<li>PhotoView 图片浏览缩放控件</li>
-<li>从SDCard路径获取所有的图片资源</li>
-<li>通过<code>清除按钮</code>来进行<code>android 删除SD卡或者手机的缓存图片和目录</code></li>
-<li>通过<code>清除按钮</code>来进行来更新<code>viewpager更新数据</code>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android多图实现图片轮播/">Android多图实现图片轮播</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android进阶之旅/">自学android进阶之旅</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016-07-11-Android-ten.html#more">花姑娘 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-nine" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016-07-08-Android-nine.html" class="article-date">
-      <time datetime="2016-07-08T07:24:04.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-07-08-Android-nine.html">Android控件布局属性、标签属性总结全解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="Android功能强大，UI界面华丽，但是众多的布局属性就害苦了开发者，现在总结下：Android控件布局属性、标签属性总结全解"><a href="#Android功能强大，UI界面华丽，但是众多的布局属性就害苦了开发者，现在总结下：Android控件布局属性、标签属性总结全解" class="headerlink" title="Android功能强大，UI界面华丽，但是众多的布局属性就害苦了开发者，现在总结下：Android控件布局属性、标签属性总结全解"></a>Android功能强大，UI界面华丽，但是众多的布局属性就害苦了开发者，现在总结下：Android控件布局属性、标签属性总结全解</h2><h3 id="Android控件布局属性、标签属性总结全解"><a href="#Android控件布局属性、标签属性总结全解" class="headerlink" title="Android控件布局属性、标签属性总结全解"></a>Android控件布局属性、标签属性总结全解</h3>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a><a class="article-category-link" href="/categories/术业专攻/温故而知新/">温故而知新</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android控件布局属性全解/">Android控件布局属性全解</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android进阶之旅/">自学android进阶之旅</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016-07-08-Android-nine.html#more">花姑娘 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android-eight" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016-07-07-Android-eight.html" class="article-date">
-      <time datetime="2016-07-07T09:44:07.000Z" itemprop="datePublished">2016-07-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016-07-07-Android-eight.html">android 图片放大缩小、拖动、居中。居中适配屏幕大小实现(单图)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h3><ul>
-<li>图片放大缩小、拖动、居中实现多点触控和居中适配屏幕大小</li>
-<li>清除文件</li>
-<li>BringToFront（）的使用
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android单图手势缩放功能/">Android单图手势缩放功能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android进阶之旅/">自学android进阶之旅</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016-07-07-Android-eight.html#more">花姑娘 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
