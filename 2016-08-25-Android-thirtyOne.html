@@ -9,9 +9,9 @@
 
 以下是自己菜鸟看书提炼理解出来的个人整理 
 大家也可以进入上面的”java编程思想”的链接，自己也整理出来了java编程思想在线网页版
-第四章 初始化和清除
-第五章 隐藏实施过程
-第六章 类再生">
+第四章 控制执行流程
+第五章 初始化和清除
+第六章 隐藏实施过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java编程思想(二)">
 <meta property="og:url" content="http://Stephenhuashao.github.io/2016-08-25-Android-thirtyOne.html">
@@ -20,21 +20,19 @@
 
 以下是自己菜鸟看书提炼理解出来的个人整理 
 大家也可以进入上面的”java编程思想”的链接，自己也整理出来了java编程思想在线网页版
-第四章 初始化和清除
-第五章 隐藏实施过程
-第六章 类再生">
-<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3.jpg">
-<meta property="og:updated_time" content="2016-09-09T02:23:32.700Z">
+第四章 控制执行流程
+第五章 初始化和清除
+第六章 隐藏实施过程">
+<meta property="og:updated_time" content="2016-09-09T09:31:39.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java编程思想(二)">
 <meta name="twitter:description" content="java编程思想准备重新阅读java编程思想。这本书目标至少看5遍，这本书读五遍能有五遍的收获
 
 以下是自己菜鸟看书提炼理解出来的个人整理 
 大家也可以进入上面的”java编程思想”的链接，自己也整理出来了java编程思想在线网页版
-第四章 初始化和清除
-第五章 隐藏实施过程
-第六章 类再生">
-<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3.jpg">
+第四章 控制执行流程
+第五章 初始化和清除
+第六章 隐藏实施过程">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -285,12 +283,14 @@
 <ul>
 <li>以下是自己菜鸟看书提炼理解出来的个人整理 </li>
 <li>大家也可以进入上面的”java编程思想”的链接，自己也整理出来了java编程思想在线网页版</li>
-<li>第四章 初始化和清除</li>
-<li>第五章 隐藏实施过程</li>
-<li>第六章 类再生<a id="more"></a>
-<h2 id="java编程思想-二"><a href="#java编程思想-二" class="headerlink" title="java编程思想(二)"></a>java编程思想(二)</h2><img src="http://7xvdgk.com1.z0.glb.clouddn.com/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3.jpg" alt=""></li>
+<li>第四章 控制执行流程</li>
+<li>第五章 初始化和清除</li>
+<li>第六章 隐藏实施过程<a id="more"></a>
+<h2 id="第五章-初始化和清除"><a href="#第五章-初始化和清除" class="headerlink" title="第五章 初始化和清除"></a>第五章 初始化和清除</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">书上原文：</span><br><span class="line"></span><br><span class="line">“随着计算机的进步，‘不安全’的程序设计已成为造成编程代价高昂的罪魁祸首之一。”</span><br><span class="line">“初始化”和“清除”是这些安全问题的其中两个。许多C程序的错误都是由于程序员忘记初始化一个变量造成的。对于现成的库，若用户</span><br><span class="line">不知道如何初始化库的一个组件，就往往会出现这一类的错误。清除是另一个特殊的问题，因为用完一个元素后，由于不再关心，</span><br><span class="line">所以很容易把它忘记。这样一来，那个元素占用的资源会一直保留下去，极易产生资源（主要是内存）用尽的后果。C++为我们</span><br><span class="line">引入了“构建器”的概念。这是一种特殊的方法，在一个对象创建之后自动调用。Java也沿用了这个概念，但新增了自己</span><br><span class="line">的“垃圾收集器”，能在资源不再需要的时候自动释放它们。本章将讨论初始化和清除的问题，以及Java如何提供它们的支持。</span><br><span class="line"></span><br><span class="line">提炼理解：</span><br><span class="line">上述提到的<span class="string">"构造器"</span>其实顾名思义，----构造方法的概念。</span><br><span class="line">构造方法就是与类同名的那个方法，无返回类型，在类初始化的时候调用。它的作用是可以用来初始化。</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-
+<h3 id="4-1-用构建器自动初始化"><a href="#4-1-用构建器自动初始化" class="headerlink" title="4.1 用构建器自动初始化"></a>4.1 用构建器自动初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">书上原文：</span><br><span class="line"></span><br><span class="line">对于方法的创建，可将其想象成为自己写的每个类都调用一次initialize()。这个名字提醒我们在使用对象之前，应首先进行这样</span><br><span class="line">的调用。但不幸的是，这也意味着用户必须记住调用方法。在Java中，由于提供了名为“构建器”的一种特殊方法，所以类的设计</span><br><span class="line">者可担保每个对象都会得到正确的初始化。若某个类有一个构建器，那么在创建对象时，Java会自动调用那个构建器——甚至在用</span><br><span class="line">户毫不知觉的情况下。所以说这是可以担保的！接着的一个问题是如何命名这个方法。存在两方面的问题。第一个是我们使用的任何</span><br><span class="line">名字都可能与打算为某个类成员使用的名字冲突。第二是由于编译器的责任是调用构建器，所以它必须知道要调用是哪个方法。C++</span><br><span class="line">采取的方案看来是最简单的，且更有逻辑性，所以也在Java里得到了应用：构建器的名字与类名相同。这样一来，可保证象这样的</span><br><span class="line">一个方法会在初始化期间自动调用。</span><br><span class="line"></span><br><span class="line">提炼理解：</span><br><span class="line">核心点就是把握：</span><br><span class="line">构建器的名字与类名相同。这样一来，可保证象这样的一个方法会在初始化期间自动调用。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rock</span> </span>&#123;</span><br><span class="line">  Rock(<span class="keyword">int</span> i) &#123;</span><br><span class="line">    System.out.println(</span><br><span class="line">      <span class="string">"Creating Rock number "</span> + i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleConstructor</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = </span><br><span class="line"><span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">      <span class="keyword">new</span> Rock(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -301,7 +301,7 @@
         <p><span>本文标题:</span><a href="/2016-08-25-Android-thirtyOne.html">java编程思想(二)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
         <p><span>发布时间:</span>2016年08月25日 - 08时51分</p>
-        <p><span>最后更新:</span>2016年09月09日 - 10时23分</p>
+        <p><span>最后更新:</span>2016年09月09日 - 17时31分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016-08-25-Android-thirtyOne.html" title="java编程思想(二)">http://Stephenhuashao.github.io/2016-08-25-Android-thirtyOne.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-08-25-Android-thirtyOne.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -339,7 +339,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java编程思想"><span class="toc-number">1.</span> <span class="toc-text">java编程思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java编程思想-二"><span class="toc-number">2.</span> <span class="toc-text">java编程思想(二)</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java编程思想"><span class="toc-number">1.</span> <span class="toc-text">java编程思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第五章-初始化和清除"><span class="toc-number">2.</span> <span class="toc-text">第五章 初始化和清除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-用构建器自动初始化"><span class="toc-number">2.1.</span> <span class="toc-text">4.1 用构建器自动初始化</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
