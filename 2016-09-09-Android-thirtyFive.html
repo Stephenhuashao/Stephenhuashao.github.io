@@ -3,37 +3,41 @@
 <head>
   <meta charset="utf-8">
   
-  <title>android四大组件(一) | Stephen HuaShao&#39;s Blog</title>
+  <title>java编程思想(六) | Stephen HuaShao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android开发四大组件
-一、Activity详解
-二、Service详解
-三、Broadcast Receiver详解
-四、Content Provider详解
-intent的详解（额外加一个重要组件）">
+  <meta name="description" content="java编程思想
+准备重新阅读java编程思想。这本书目标至少看5遍，这本书读五遍能有五遍的收获
+
+
+以下是自己菜鸟看书提炼理解出来的个人整理 
+大家也可以进入上面的”java编程思想”的链接，自己也整理出来了java编程思想在线网页版
+第十六章 设计范式
+第十七章 项目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="android四大组件(一)">
-<meta property="og:url" content="http://Stephenhuashao.github.io/2016-04-27-androidComponent.html">
+<meta property="og:title" content="java编程思想(六)">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2016-09-09-Android-thirtyFive.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
-<meta property="og:description" content="Android开发四大组件
-一、Activity详解
-二、Service详解
-三、Broadcast Receiver详解
-四、Content Provider详解
-intent的详解（额外加一个重要组件）">
-<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/android-activity.jpg">
-<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/activity%E5%9B%BE.png">
-<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%AE%9E%E4%BE%8B%E5%9B%BE.png">
-<meta property="og:updated_time" content="2016-08-06T06:38:06.012Z">
+<meta property="og:description" content="java编程思想
+准备重新阅读java编程思想。这本书目标至少看5遍，这本书读五遍能有五遍的收获
+
+
+以下是自己菜鸟看书提炼理解出来的个人整理 
+大家也可以进入上面的”java编程思想”的链接，自己也整理出来了java编程思想在线网页版
+第十六章 设计范式
+第十七章 项目">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3.jpg">
+<meta property="og:updated_time" content="2016-09-09T02:02:32.814Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="android四大组件(一)">
-<meta name="twitter:description" content="Android开发四大组件
-一、Activity详解
-二、Service详解
-三、Broadcast Receiver详解
-四、Content Provider详解
-intent的详解（额外加一个重要组件）">
-<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/android-activity.jpg">
+<meta name="twitter:title" content="java编程思想(六)">
+<meta name="twitter:description" content="java编程思想
+准备重新阅读java编程思想。这本书目标至少看5遍，这本书读五遍能有五遍的收获
+
+
+以下是自己菜鸟看书提炼理解出来的个人整理 
+大家也可以进入上面的”java编程思想”的链接，自己也整理出来了java编程思想在线网页版
+第十六章 设计范式
+第十七章 项目">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3.jpg">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -242,11 +246,11 @@ intent的详解（额外加一个重要组件）">
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-androidComponent" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-thirtyFive" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-04-27-androidComponent.html" class="article-date">
-      <time datetime="2016-04-27T02:21:15.000Z" itemprop="datePublished">2016-04-27</time>
+      <a href="/2016-09-09-Android-thirtyFive.html" class="article-date">
+      <time datetime="2016-09-09T01:56:06.000Z" itemprop="datePublished">2016-09-09</time>
 </a>
     </div>
   
@@ -259,7 +263,7 @@ intent的详解（额外加一个重要组件）">
         
   
     <h1 class="article-title" itemprop="name">
-      android四大组件(一)
+      java编程思想(六)
     </h1>
   
 
@@ -267,14 +271,10 @@ intent的详解（额外加一个重要组件）">
       
       <div class="article-info article-info-post">
         
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
-    </div>
-
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-四大组件/">Android 四大组件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java编程思想/">java编程思想</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典IT必看书籍/">经典IT必看书籍</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学Java基础个人理解整理/">自学Java基础个人理解整理</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -284,64 +284,16 @@ intent的详解（额外加一个重要组件）">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Android开发四大组件"><a href="#Android开发四大组件" class="headerlink" title="Android开发四大组件"></a>Android开发四大组件</h2><ul>
-<li>一、Activity详解</li>
-<li>二、Service详解</li>
-<li>三、Broadcast Receiver详解</li>
-<li>四、Content Provider详解</li>
-<li>intent的详解（额外加一个重要组件）<a id="more"></a>
-<h2 id="一、Activity详解"><a href="#一、Activity详解" class="headerlink" title="一、Activity详解"></a>一、Activity详解</h2><h3 id="Activity的启动顺序图解："><a href="#Activity的启动顺序图解：" class="headerlink" title="Activity的启动顺序图解："></a>Activity的启动顺序图解：</h3><img src="http://7xvdgk.com1.z0.glb.clouddn.com/android-activity.jpg" alt=" Activity启动顺序！"></li>
+        <h2 id="java编程思想"><a href="#java编程思想" class="headerlink" title="java编程思想"></a>java编程思想</h2><blockquote>
+<p>准备重新阅读<a href="https://wangsong520.gitbooks.io/java/content/" target="_blank" rel="external">java编程思想</a>。这本书目标至少看5遍，这本书读五遍能有五遍的收获</p>
+</blockquote>
+<ul>
+<li>以下是自己菜鸟看书提炼理解出来的个人整理 </li>
+<li>大家也可以进入上面的”java编程思想”的链接，自己也整理出来了java编程思想在线网页版</li>
+<li>第十六章 设计范式</li>
+<li>第十七章 项目<a id="more"></a>
+<h2 id="java编程思想-六"><a href="#java编程思想-六" class="headerlink" title="java编程思想(六)"></a>java编程思想(六)</h2><img src="http://7xvdgk.com1.z0.glb.clouddn.com/java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3.jpg" alt=""></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">一个Activity的启动顺序：</span><br><span class="line"></span><br><span class="line">onCreate()——&gt;onStart()——&gt;onResume()</span><br><span class="line"></span><br><span class="line">当另一个Activity启动时:</span><br><span class="line">第一个<span class="function">Activity <span class="title">onPause</span><span class="params">()</span>——&gt;第二个Activity    <span class="title">onCreate</span><span class="params">()</span>——&gt;&gt;<span class="title">onStart</span><span class="params">()</span>——&gt;<span class="title">onResume</span><span class="params">()</span> </span><br><span class="line">——&gt;第一个Activity   <span class="title">onStop</span><span class="params">()</span></span><br><span class="line"></span><br><span class="line">当返回到第一个Activity时：</span><br><span class="line">第二个Activity <span class="title">onPause</span><span class="params">()</span> ——&gt; 第一个Activity　<span class="title">onRestart</span><span class="params">()</span>——&gt;&gt;<span class="title">onStart</span><span class="params">()</span>——&gt;<span class="title">onResume</span><span class="params">()</span> </span><br><span class="line">——&gt;第二个Activity   <span class="title">onStop</span><span class="params">()</span>——&gt;<span class="title">onDestroy</span><span class="params">()</span></span><br><span class="line"></span><br><span class="line">一个Activity的销毁顺序:</span><br><span class="line">（情况一）<span class="title">onPause</span><span class="params">()</span>——&gt;`&lt;Process Killed&gt;` </span><br><span class="line">（情况二）<span class="title">onPause</span><span class="params">()</span>——&gt;<span class="title">onStop</span><span class="params">()</span>——&gt;`&lt;Process Killed&gt;`</span><br><span class="line">（情况三）<span class="title">onPause</span><span class="params">()</span>——&gt;<span class="title">onStop</span><span class="params">()</span>——&gt;`<span class="title">onDestroy</span><span class="params">()</span>`</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/activity%E5%9B%BE.png" alt="activity图"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">一、onCreate ：当活动第一次启动的时候，触发该方法，可以  在此时完成活动的初始化工作。 </span><br><span class="line">onCreate 方法有一个参数，该参数可以为空（ <span class="keyword">null</span> ），也可以是之前调用 onSaveInstanceState （）方法保存的状态信息。</span><br><span class="line"></span><br><span class="line">二、onStart ：该方法的触发表示所属活动将被展现给用户。</span><br><span class="line">  </span><br><span class="line">三、onResume ：当一个活动和用户发生交互的时候，触发该方 法。</span><br><span class="line"></span><br><span class="line">四、onPause ：当一个正在前台运行的活动因为其他的活动需要前台运行而转入后台运行的时候，触发该方法。这时候需要将活动的状态持久化，比如正在编辑的数据库记录等。</span><br><span class="line"></span><br><span class="line">五、onStop ： 当一个活动不再需要展示给用户的时候，触发该方法。如果内存紧张，系统会直接结束这个活动，而不会触发 onStop 方法。 所以保存状态信息是应该在onPause时做，而不是onStop时做。活动如果没有在前台运行，都将被停止或者Linux管理进程为了给新的活动预留足 够的存储空间而随时结束这些活动。因此对于开发者来说，在设计应用程序的时候，必须时刻牢记这一原则。在一些情况下，onPause方法或许是活动触发的 最后的方法，因此开发者需要在这个时候保存需要保存的信息。</span><br><span class="line"></span><br><span class="line">六、onRestart ：当处于停止状态的活动需要再次展现给用户的时候，触发该方法。</span><br><span class="line"></span><br><span class="line">七、onDestroy ：当活动销毁的时候，触发该方法。和 onStop 方法一样，如果内存紧张，系统会直接结束这个活动而不会触发该方法。</span><br><span class="line"></span><br><span class="line">    onSaveInstanceState ：系统调用该方法，允许活动保存之前的状态，比如说在一串字符串中的光标所处的位置等。 </span><br><span class="line"></span><br><span class="line">通常情况下，开发者不需要重写覆盖该方法，在默认的实现中，已经提供了自动保存活动所涉及到的用户界面组件的所有状态信息。</span><br></pre></td></tr></table></figure>
-<p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/%E5%AE%9E%E4%BE%8B%E5%9B%BE.png" alt="举例图"></p>
-<pre><code class="java"><span class="comment">//onCreata方法与onDestroy对应</span>
-[<span class="number">1</span>]onCreata方法 ----当Activity第一次启动的时候调用
-[<span class="number">2</span>]onDestroy方法----当Activity销毁的时候调用
-
-<span class="comment">//onStart方法与onStop方法对应</span>
-[<span class="number">3</span>]onStart方法----当Activity界面变成可视的时候调用
-[<span class="number">4</span>]onStop方法----当Activity界面不可见的时候调用
-
-<span class="comment">//onResume方法与onPause方法对应</span>
-[<span class="number">5</span>]onResume方法----当界面的按钮可以被点击了或者可以获取了焦点的时候调用
-[<span class="number">6</span>]onPause方法---当界面的按钮不可以被点击了或者失去了焦点的时候调用 
-
-[<span class="number">7</span>]onRestart方法---当界面重新启动的时候调用
-</code></pre>
-<h3 id="Activity的四种启动模式"><a href="#Activity的四种启动模式" class="headerlink" title="Activity的四种启动模式"></a>Activity的四种启动模式</h3><pre><code class="java">启动模式是针对Activity说的。
-
-在清单文件中activity进行配置：
-启动模式属性(四种)： android:launchMode=<span class="string">" stander/singletop/singletask/singleinstance"</span>
-
-stander：（系统默认）
-当通过这种模式来启动Activity时,　Android总会为目标 Activity创建一个新的实例,并将该Activity添加到当前Task栈中。这种方式不会启动新的Task,只是将新的 Activity添加到原有的Task中。　
-
-singletop：
-singletop 单一顶部模式 在activity的配置文件中设置android:launchMode=<span class="string">"singleTop"</span>
-如果任务栈的栈顶存在这个要开启的activity，不会重新的创建activity，而是复用已经存在的activity。保证栈顶如果存在，不会重复创建。
-
-      应用场景：浏览器的书签
-
-
-singletask:
-singetask 单一任务栈，在当前任务栈里面只能有一个实例存在
-当开启activity的时候，就去检查在任务栈里面是否有实例已经存在，如果有实例存在就复用这个已经存在的activity，并且把这个activity上面的所有的别的activity都清空，复用这个已经存在的activity。保证整个任务栈里面只有一个实例存在
-
-     应用场景：浏览器的activity
-
-如果一个activity的创建需要占用大量的系统资源（cpu，内存）一般配置这个activity为singletask的启动模式。
-
-
-singleinstance:
-singleInstance启动模式非常特殊， activity会运行在自己的任务栈里面，并且这个任务栈里面只有一个实例存在
-如果你要保证一个activity在整个手机操作系统里面只有一个实例存在，使用singleInstance
-
- 应用场景： 来电页面 
-           有道词典
-</code></pre>
-<p>　　</p>
 
       
     </div>
@@ -350,13 +302,13 @@ singleInstance启动模式非常特殊， activity会运行在自己的任务栈
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016-04-27-androidComponent.html">android四大组件(一)</a></p>
+        <p><span>本文标题:</span><a href="/2016-09-09-Android-thirtyFive.html">java编程思想(六)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
-        <p><span>发布时间:</span>2016年04月27日 - 10时21分</p>
-        <p><span>最后更新:</span>2016年08月06日 - 14时38分</p>
+        <p><span>发布时间:</span>2016年09月09日 - 09时56分</p>
+        <p><span>最后更新:</span>2016年09月09日 - 10时02分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016-04-27-androidComponent.html" title="android四大组件(一)">http://Stephenhuashao.github.io/2016-04-27-androidComponent.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-04-27-androidComponent.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016-09-09-Android-thirtyFive.html" title="java编程思想(六)">http://Stephenhuashao.github.io/2016-09-09-Android-thirtyFive.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-09-09-Android-thirtyFive.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -369,18 +321,9 @@ singleInstance启动模式非常特殊， activity会运行在自己的任务栈
 
 <nav id="article-nav">
   
-    <a href="/2016-06-13-Android-one.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Android开源项目分类汇总
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016-04-13-if-you.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">如果只做你力所能及的事，你就没有办法进步</div>
+    <a href="/2016-09-09-Android-thirtyFour.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java编程思想(五)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -391,7 +334,7 @@ singleInstance启动模式非常特殊， activity会运行在自己的任务栈
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android开发四大组件"><span class="toc-number">1.</span> <span class="toc-text">Android开发四大组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Activity详解"><span class="toc-number">2.</span> <span class="toc-text">一、Activity详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity的启动顺序图解："><span class="toc-number">2.1.</span> <span class="toc-text">Activity的启动顺序图解：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity的四种启动模式"><span class="toc-number">2.2.</span> <span class="toc-text">Activity的四种启动模式</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java编程思想"><span class="toc-number">1.</span> <span class="toc-text">java编程思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java编程思想-六"><span class="toc-number">2.</span> <span class="toc-text">java编程思想(六)</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -453,7 +396,7 @@ singleInstance启动模式非常特殊， activity会运行在自己的任务栈
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="/2016-04-27-androidComponent.html" data-title="android四大组件(一)" data-url="http://Stephenhuashao.github.io/2016-04-27-androidComponent.html"></div>
+    <div class="ds-thread" data-thread-key="/2016-09-09-Android-thirtyFive.html" data-title="java编程思想(六)" data-url="http://Stephenhuashao.github.io/2016-09-09-Android-thirtyFive.html"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -476,13 +419,11 @@ singleInstance启动模式非常特殊， activity会运行在自己的任务栈
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016-06-13-Android-one.html" title="上一篇: Android开源项目分类汇总">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016-04-13-if-you.html" title="下一篇: 如果只做你力所能及的事，你就没有办法进步">
+            <a href="/2016-09-09-Android-thirtyFour.html" title="下一篇: java编程思想(五)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
