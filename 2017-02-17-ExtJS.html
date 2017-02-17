@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ext Js详解指南 | Stephen HuaShao&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是Ext JS
+走进Ext的世界 Ext JS是一款富客户端开发框架它基于javascript、HTML和CSS开发而成，无需安装任何插件即可在常用浏览器中创建出绚丽的页面效果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ext Js详解指南">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2017-02-17-ExtJS.html">
+<meta property="og:site_name" content="Stephen HuaShao's Blog">
+<meta property="og:description" content="什么是Ext JS
+走进Ext的世界 Ext JS是一款富客户端开发框架它基于javascript、HTML和CSS开发而成，无需安装任何插件即可在常用浏览器中创建出绚丽的页面效果。">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/extjs.png">
+<meta property="og:updated_time" content="2017-02-17T08:57:43.547Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ext Js详解指南">
+<meta name="twitter:description" content="什么是Ext JS
+走进Ext的世界 Ext JS是一款富客户端开发框架它基于javascript、HTML和CSS开发而成，无需安装任何插件即可在常用浏览器中创建出绚丽的页面效果。">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/extjs.png">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">王松</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">研发之路，要厚积而薄发</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="http://Stephenhuashao.coding.me/Home">博客首页</a></li>
+                        
+                            <li><a href="/archives">所有文章</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言介绍</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wangsong520" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-Afinal框架/" style="font-size: 15px;">Android Afinal框架</a> <a href="/tags/Android-Jackson框架/" style="font-size: 10px;">Android Jackson框架</a> <a href="/tags/Android-Json解析/" style="font-size: 10px;">Android Json解析</a> <a href="/tags/Android-XML解析/" style="font-size: 10px;">Android XML解析</a> <a href="/tags/Android-四大组件/" style="font-size: 15px;">Android 四大组件</a> <a href="/tags/Android-多级联动/" style="font-size: 10px;">Android 多级联动</a> <a href="/tags/Android-高级编程/" style="font-size: 10px;">Android 高级编程</a> <a href="/tags/Android单图手势缩放功能/" style="font-size: 10px;">Android单图手势缩放功能</a> <a href="/tags/Android多图实现图片轮播/" style="font-size: 11.67px;">Android多图实现图片轮播</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Android控件布局属性全解/" style="font-size: 10px;">Android控件布局属性全解</a> <a href="/tags/Extjs/" style="font-size: 10px;">Extjs</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/GridView/" style="font-size: 13.33px;">GridView</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/java基础/" style="font-size: 15px;">java基础</a> <a href="/tags/java编程思想/" style="font-size: 16.67px;">java编程思想</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/开源APP开发/" style="font-size: 15px;">开源APP开发</a> <a href="/tags/微信小程序/" style="font-size: 11.67px;">微信小程序</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/经典IT必看书籍/" style="font-size: 16.67px;">经典IT必看书籍</a> <a href="/tags/自学Java基础个人理解整理/" style="font-size: 18.33px;">自学Java基础个人理解整理</a> <a href="/tags/自学android/" style="font-size: 20px;">自学android</a> <a href="/tags/自学android进阶之旅/" style="font-size: 15px;">自学android进阶之旅</a> <a href="/tags/自学技术个人理解整理/" style="font-size: 11.67px;">自学技术个人理解整理</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luxiaoyou.com/">Xiaoyou Lu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://xblvip.cn/">浪里小白龙</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">当前是一枚实习生。本人纯编程技术迷、喜欢专研各种编程技术、迎接新的挑战，静下心，默默努力，总有一天会闪耀！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王松</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王松</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">研发之路，要厚积而薄发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="http://Stephenhuashao.coding.me/Home">博客首页</a></li>
+                
+                    <li><a href="/archives">所有文章</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言介绍</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=Qnd1cndydXt0dwIzM2whLS8" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangsong520" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hua-shao-66-66" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/StephenHuashao" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-ExtJS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017-02-17-ExtJS.html" class="article-date">
+      <time datetime="2017-02-17T08:50:47.000Z" itemprop="datePublished">2017-02-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ext Js详解指南
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端框架/">前端框架</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Extjs/">Extjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="什么是Ext-JS"><a href="#什么是Ext-JS" class="headerlink" title="什么是Ext JS"></a>什么是Ext JS</h3><blockquote>
+<p>走进Ext的世界 <code>Ext JS是一款富客户端开发框架</code>它基于javascript、HTML和CSS开发而成，无需安装任何插件即可在常用浏览器中创建出绚丽的页面效果。<br><a id="more"></a><br><img src="http://7xvdgk.com1.z0.glb.clouddn.com/extjs.png" alt="API"></p>
+</blockquote>
+<h3 id="个人总结Ext-JS的方法"><a href="#个人总结Ext-JS的方法" class="headerlink" title="个人总结Ext JS的方法"></a>个人总结Ext JS的方法</h3><ul>
+<li>从Extjs的视图学起<blockquote>
+<p>例如：窗体、表单、数等等。并且可以掌握调试工具和技巧</p>
+</blockquote>
+</li>
+<li><p>学习使用API</p>
+<blockquote>
+<p>学会怎么查询以及使用大牛提供的接口解决常见的问题（一般我们用到的效果，大牛们在做框架的时候都想到过）</p>
+</blockquote>
+</li>
+<li><p>把Extjs的前端可视化的组件与后台连接，进行交互</p>
+<blockquote>
+<p>我们在做各类系统的时候都要跟数据库打交道，在这个阶段主要把各个组件与数据库的交互写清楚</p>
+</blockquote>
+</li>
+<li>掌握理论知识–原理性饿东西<blockquote>
+<p>如：Extjs的继承机制，事件等等</p>
+</blockquote>
+</li>
+<li>官方提供的开发实例<blockquote>
+<p>如官方提供的样例掌握</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Extjs核心工具方法"><a href="#Extjs核心工具方法" class="headerlink" title="Extjs核心工具方法"></a>Extjs核心工具方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、Ext.onReady</span><br><span class="line">   Ext.onReady在DOM模型加载完毕后才进行操作。</span><br><span class="line">   优点：无需像onload事件那样，等待页面的所有资源都加载完毕后才进行操作。</span><br><span class="line">   <span class="string">"onReady方法是Ext.Loader.onReady()方法的别名"</span></span><br><span class="line">   其语法如下：</span><br><span class="line">   Ext.onReady(<span class="built_in">Object</span> fn,Objet scope,Objet options)</span><br><span class="line">   其中：</span><br><span class="line">       fn:指定Ext JS和HTML页面加载完成后要执行的方法，fn参数类型为对象（必传参数）；</span><br><span class="line">       scope:指定执行该方法的范围（可选参数）；</span><br><span class="line">       options：指定执行一些附加选项，比如delay等（可选参数）。</span><br><span class="line">      </span><br><span class="line"><span class="number">2</span>、Ext.create</span><br><span class="line">   Ext.create方法是创建对象的方法，</span><br><span class="line">   <span class="string">"在Ext JS 4版本之前，一直使用new关键字创建对象-- new classname([config])"</span></span><br><span class="line">   其语法如下：</span><br><span class="line">   Ext.create( <span class="built_in">String</span> className, <span class="built_in">Object</span> args)</span><br><span class="line">   其中：className指定要创建对象的类名，可以是类的全名、别名或者备用名；</span><br><span class="line">         args是一个JavaScript对象，用于向新生成的对象传入构造参数值（也称为配置选项，即为config属性指定选项传入参数值）,类型为对象。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、Ext.define</span><br><span class="line">   Ext.define()方法和Ext.extend()方法都用于自定义类。</span><br><span class="line">    <span class="string">"Ext.define()方法相当于Ext.ClassManager.create()方法的别名"</span></span><br><span class="line">    <span class="string">"在Ext JS 3版本，定义新类使用的是Ext.extend方法（不推荐使用）"</span></span><br><span class="line">    其语法如下：</span><br><span class="line">    Ext.define( <span class="built_in">String</span> className, <span class="built_in">Object</span> properties,[<span class="built_in">Function</span> callback] );</span><br><span class="line">    其中：className:用于执行自定义的类名（推荐采用与java类名相同的命名规则）；</span><br><span class="line">          properties：新类的配置对象，对象里包含了类的属性集对象（用于为该类定义属性、方法）。</span><br><span class="line">          callback：回调函数，当类创建完成后执行该函数（用于指定该类创建成功的回调函数）。</span><br><span class="line">    注意：properties该对象可以指定任何合法的属性，以下是几种具有特殊意义的属性。</span><br><span class="line">          Ⅰ.self:引用当前类本身</span><br><span class="line">          Ⅱ.alias:为该类定义别名</span><br><span class="line">          Ⅲ.alternateClassName:为该类定义可选的类名</span><br><span class="line">          Ⅳ.config:用于为该类指定配置选项，Ext JS会自动为config指定的选项添加setter和getter方法</span><br><span class="line">          Ⅴ.extend:用于指定该类继承的父类</span><br><span class="line">          （还可以通过<span class="keyword">constructor</span>为该类指定构造器）</span><br><span class="line">          Ⅵ.inheritableStatics:与statics属性相同，也用于为该类定义静态方法和静态属性，该属性的              定义的静态方法和静态属性可以被子类继承</span><br><span class="line">          Ⅶ.mixins:用于列出所有要被混入的类</span><br><span class="line">          Ⅷ.override：用于注定要覆盖的类</span><br><span class="line">          Ⅸ.requires:用于列出在实例化该类之前，必须预先加载的类</span><br><span class="line">          Ⅹ.singleton:如果该属性被设为true,则该类的实例将是单例的</span><br><span class="line">          ⅩⅠ.statics:为该类定义静态方法和静态属性</span><br><span class="line">          ⅩⅡ.uses:用于列出必须与该类同时使用的类</span><br></pre></td></tr></table></figure>
+<h3 id="Ext-JS-4-语法"><a href="#Ext-JS-4-语法" class="headerlink" title="Ext JS 4 语法"></a>Ext JS 4 语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、配置对象</span><br><span class="line">   config:用于为该类指定配置选项，Ext JS会自动为config指定的选项添加setter和getter方法。</span><br><span class="line">   </span><br><span class="line"><span class="number">2</span>、关于xtype</span><br><span class="line">   定义xtype来指定该位置使用什么组件。</span><br><span class="line">   定义xtype，一般使用组件的别名。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、使用Ext.widget或者Ext.createWidget创建对象</span><br><span class="line">  Ext.widget的作用是使用别名来创建对象。 Ext.widget =Ext.createWidget;</span><br><span class="line">  其语法如下：</span><br><span class="line">  Ext.widget( classname,[config] )</span><br><span class="line">  其中： classname是对象的别名；</span><br><span class="line">         configs是可选参数，为对象的配置对象（config options）,类型为对象。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、使用Ext.ns或者Ext.namespace定义命名空间</span><br><span class="line">   Ext.namespace()方法用于创建一个或多个命名空间，命名空间可用于限定函数、类的范围和作用域，可以      很好的解决二者的同名冲突。</span><br><span class="line">   很多时候都会使用命名空间来组织相关类和其他类。在Extjs中，使用Ext.namespace方法可创建命名空间</span><br><span class="line">   其语法如下：</span><br><span class="line">   Ext.namespae(namespace1,namespae2,...)</span><br><span class="line">   其中namespace1、namespace2都是字符串数据，是命名空间的名字</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、使用Ext.define定义新类</span><br><span class="line">    Ext.define()方法和Ext.extend()方法都用于自定义类。</span><br><span class="line">    <span class="string">"Ext.define()方法相当于Ext.ClassManager.create()方法的别名"</span></span><br><span class="line">    <span class="string">"在Ext JS 3版本，定义新类使用的是Ext.extend方法（不推荐使用）"</span></span><br><span class="line">    其语法如下：</span><br><span class="line">    Ext.define( <span class="built_in">String</span> className, <span class="built_in">Object</span> properties,[<span class="built_in">Function</span> callback] );</span><br><span class="line">    其中：className:用于执行自定义的类名（推荐采用与java类名相同的命名规则）；</span><br><span class="line">          properties：新类的配置对象，对象里包含了类的属性集对象（用于为该类定义属性、方法）。</span><br><span class="line">          callback：回调函数，当类创建完成后执行该函数（用于指定该类创建成功的回调函数）。</span><br><span class="line">    注意：properties该对象可以指定任何合法的属性，以下是几种具有特殊意义的属性。</span><br><span class="line">          Ⅰ.self:引用当前类本身</span><br><span class="line">          Ⅱ.alias:为该类定义别名</span><br><span class="line">          Ⅲ.alternateClassName:为该类定义可选的类名</span><br><span class="line">          Ⅳ.config:用于为该类指定配置选项，Ext JS会自动为config指定的选项添加setter和getter方法</span><br><span class="line">          Ⅴ.extend:用于指定该类继承的父类</span><br><span class="line">          （还可以通过<span class="keyword">constructor</span>为该类指定构造器）</span><br><span class="line">          Ⅵ.inheritableStatics:与statics属性相同，也用于为该类定义静态方法和静态属性，该属性的              定义的静态方法和静态属性可以被子类继承</span><br><span class="line">          Ⅶ.mixins:用于列出所有要被混入的类</span><br><span class="line">          Ⅷ.override：用于注定要覆盖的类</span><br><span class="line">          Ⅸ.requires:用于列出在实例化该类之前，必须预先加载的类</span><br><span class="line">          Ⅹ.singleton:如果该属性被设为true,则该类的实例将是单例的</span><br><span class="line">          ⅩⅠ.statics:为该类定义静态方法和静态属性</span><br><span class="line">          ⅩⅡ.uses:用于列出必须与该类同时使用的类</span><br><span class="line">         </span><br><span class="line">6、使用Ext.defer方法指定延迟执行的函数</span><br><span class="line">   Ext.defer()用于指定延迟执行的函数</span><br><span class="line">   其语法如下：</span><br><span class="line">   Ext.defer(Function fn,Number millis,[Object scope],[Array args])</span><br><span class="line">   其中：</span><br><span class="line">       fn参数执行需要延迟执行的函数；</span><br><span class="line">       millis:指定延迟多少毫秒后执行fn函数；</span><br><span class="line">       scope参数用于指定执行fn函数的范围；</span><br><span class="line">       args用于执行传入fn函数的参数；  </span><br><span class="line"></span><br><span class="line"> 7、Ext.apply和Ext.applyIf方法</span><br><span class="line">    Ext.apply()及Ext.applyIf()方法都是用于把一个对象中的属性复制到另一个对象中。</span><br><span class="line">    共同点：都用于实现属性复制。</span><br><span class="line">    不同点：</span><br><span class="line">    Ext.apply()将会覆盖目标对象中的属性；</span><br><span class="line">    Ext.applyIf()只复制目标对象中没有、而源对象中有的属性不会发生属性覆盖。</span><br><span class="line">    其语法如下：</span><br><span class="line">    Ext.apply()方法的语法格式为：</span><br><span class="line">     Ext.apply(Object object, Object config,Object defaults)</span><br><span class="line">     作用：</span><br><span class="line">     把config、defaults两个对象的属性复制到objet中，但是当config、default两个对象的属性值发生冲        突时，config的属性值取胜。</span><br><span class="line"></span><br><span class="line"> 8、Ext.isXxx方法---用于判断是否为某某对象</span><br><span class="line">    Ext.isXxx()方法代表系列的方法，它们都用于判断是否为某某对象，isXxx()方法总是返回Boolean值。</span><br><span class="line"></span><br><span class="line"> 9、Ext.each和Ext.iterate方法</span><br><span class="line">    Ext.each()方法用于遍历数组，它是Ext.Array.each()方法的别名。</span><br><span class="line">    Ext.iterate()方法相当于Ext.Array.each()方法和Ext.Object.each()方法“综合体”，</span><br><span class="line">    当被遍历的数据是数组时，Ext.iterate()方法底层调用Ext.Array.each()方法进行遍历；</span><br><span class="line">    当被迭代的数据是对象时，Ext.iterate()方法底层调用Ext.Object.each()方法进行遍历；</span><br></pre></td></tr></table></figure>
+<h3 id="Ext-JS扩展的工具方法—更多方法参考：Ext-JS-API文档"><a href="#Ext-JS扩展的工具方法—更多方法参考：Ext-JS-API文档" class="headerlink" title="Ext JS扩展的工具方法—更多方法参考：Ext JS API文档"></a>Ext JS扩展的工具方法—更多方法参考：Ext JS API文档</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">   Ext JS扩展的所有工具方法都直接位于Ext命名空间下。</span><br><span class="line">Ⅰ、为<span class="built_in">Array</span>扩展的工具方法---Ext.Array工具类</span><br><span class="line">   JavaScript数组用做栈的两个方法如下：</span><br><span class="line">   ①.push(ele):元素入栈，返回入栈后数组的长度。</span><br><span class="line">   ②.pop()：元素出栈，返回出栈的数组元素</span><br><span class="line">  </span><br><span class="line">   JavaScript数组作为队列使用的两个方法如下：</span><br><span class="line">   ①.unshift(ele):元素入队列，返回入对列后数组的长度。</span><br><span class="line">   ②.shift()：元素出队列，返回出队列的数组元素。</span><br><span class="line">   </span><br><span class="line"> Ⅱ、为<span class="built_in">Date</span>扩展的工具方法---Ext.Date工具类</span><br><span class="line">   Ext.Date为操作<span class="built_in">Date</span>对象提供了大量的工具方法</span><br><span class="line">   例如：Ext.Date.format()、Ext.Date.between()两个方法</span><br><span class="line"></span><br><span class="line"> Ⅲ、为<span class="built_in">Function</span>扩展的工具方法---Ext.Function工具类</span><br><span class="line">   Ext.Function为JavaScript函数新增了大量工具方法</span><br><span class="line"></span><br><span class="line"> Ⅳ、为<span class="built_in">Number</span>扩展的工具方法--<span class="number">-4</span>个工具类方法</span><br><span class="line">   Ext.Number为JavaScript的数值类型的值</span><br><span class="line">   Ext.Number.constrain()工具方法---Ext.Number.constrain(<span class="number">20</span>，<span class="number">10</span>，<span class="number">30</span>) <span class="comment">//20截取傲10~30范围内</span></span><br><span class="line">   Ext.Number.from()工具方法---Ext.Number.from(<span class="string">"abc"</span>,<span class="string">"20"</span>) <span class="comment">//字符串abc转换为数值</span></span><br><span class="line">  Ext.Number.snap()工具方法---Ext.Number.snap(<span class="number">23</span>,<span class="number">7</span>,<span class="number">10</span>,<span class="number">20</span>) <span class="comment">//返回离23最近的7的倍数(必须在10~30之间)</span></span><br><span class="line">  Ext.Number.snap()工具方法：作用--先获取距离指定数值最近的、特殊数值的倍数，然后将得到的数值截取   到指定范围之内。</span><br><span class="line">      Ext.Number.toFixed()工具方法---Ext.Number.toFixed(<span class="number">3.2545</span>,<span class="number">1</span>) <span class="comment">//3.2545保留1位小数点</span></span><br><span class="line">  </span><br><span class="line">    Ⅴ、为<span class="built_in">Object</span>扩展的工具方法---Ext.Object工具类</span><br><span class="line">        javaScript的对象不仅仅可以作为对象使用，还可以作为Java <span class="built_in">Map</span>集合使用，javascript对象的每个属性名、属性值就相当于<span class="built_in">Map</span>的key-value对（键值对）</span><br><span class="line">       例如：Ext.Object.each()、Ext.Object.toQueryString()、Ext.Object.fromQueryString()、Ext.Object.getKeys()、Ext.Object.getValues()等等</span><br><span class="line"></span><br><span class="line">     Ⅵ、为<span class="built_in">String</span>扩展的工具方法---Ext.String工具类</span><br><span class="line">         Ext.String提供了大量工具方法来操作字符串，这些工具方法可以进一步增强字符串的功能</span><br><span class="line">       Ext.String.format()方法比较实用，用于将字符串中的&#123;<span class="number">0</span>&#125;、&#123;<span class="number">1</span>&#125;、&#123;<span class="number">2</span>&#125;....占位符替换成实际的值。</span><br><span class="line"></span><br><span class="line">     Ⅶ、Ext.JSON方法</span><br><span class="line">       <span class="built_in">JSON</span>是一种非常有用的轻量级数据交换格式。</span><br><span class="line">       Ext.JSON类提供了<span class="number">3</span>个工具方法来完成javascript对象与<span class="built_in">JSON</span>字符串的相互转化。</span><br><span class="line">       Ext.JSON.encode()工具方法---用于把javascript对象或数组转换为<span class="built_in">JSON</span>字符串</span><br><span class="line">       Ext.JSON.encode()方法的别名是： Ext.encode()可直接使用</span><br><span class="line">       Ext.JSON.decode()工具方法---用于把<span class="built_in">JSON</span>字符串恢复成javascript数组或对象</span><br><span class="line">       Ext.JSON.decode()方法的别名是： Ext.decode()可直接使用</span><br><span class="line">       Ext.JSON.encodeDate()工具方法---用于编码一个日期。将返回的实际字符串，插入到<span class="built_in">JSON</span>字符串作为        文本表达式。返回的默认格式是：<span class="string">"yyyy-mm-ddThh:mm:ss"</span></span><br><span class="line">       Ext.JSON.encodeValue()工具方法---用于把javascript对象或数组转换为<span class="built_in">JSON</span>字符串</span><br></pre></td></tr></table></figure>
+<h3 id="Ext-JS所有界面组件"><a href="#Ext-JS所有界面组件" class="headerlink" title="Ext JS所有界面组件"></a>Ext JS所有界面组件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>、使用Ext.container.Container--创建容器</span><br><span class="line"><span class="number">2</span>、使用Ext.panel.Panel--创建面板</span><br><span class="line"><span class="number">3</span>、使用Ext.toolbar.ToolBar--创建工具条</span><br><span class="line"><span class="number">4</span>、使用Ext.tab.Panel--创建Tab面板</span><br><span class="line"><span class="number">5</span>、使用Ext.container.Viewport--整体布局</span><br><span class="line"><span class="number">6</span>、使用Ext.window.Window--创建窗口</span><br><span class="line"><span class="number">7</span>、使用Ext.window.MessageBox--创建对话框</span><br><span class="line"><span class="number">8</span>、使用Ext.menu.CheckItem、Ext.menu.ColorPicker、Ext.menu.DatePicker实现特殊菜单项</span><br><span class="line"><span class="number">9</span>、使用Ext.Ation--创建按钮</span><br><span class="line"><span class="number">10</span>、使用Ext.ProgressBar--创建进度条</span><br><span class="line"><span class="number">11</span>、使用Ext.slider.Single--创建滑动条</span><br><span class="line"><span class="number">12</span>、使用Ext.Img--创建图片</span><br><span class="line"><span class="number">13</span>、使用Ext.Editor--创建编辑器</span><br><span class="line"><span class="number">14</span>、使用Ext.tip.ToolTip--创建提示</span><br><span class="line"><span class="number">15</span>、使用Ext.QuickTipManager和Ext.tip.QuickTip--创建提示</span><br><span class="line"><span class="number">16</span>、使用Ext.ux.GMapPanel实现Google地图</span><br><span class="line"><span class="number">17</span>、使用Ext.form.field.ComboBox--创建复合框</span><br><span class="line"><span class="number">18</span>、使用Ext.data.Store与Ext.data.Model管理数据</span><br><span class="line"><span class="number">19</span>、使用Ext.data.Proxy.Proxy和Ext.data.reader.Reader读取数据</span><br><span class="line"><span class="number">20</span>、使用Ext.grid.Panel--生成表格</span><br><span class="line"><span class="number">21</span>、使用Ext.grid.column.Column-定义列</span><br><span class="line"><span class="number">22</span>、使用Ext.grid.Panel显示远程数据</span><br><span class="line"><span class="number">23</span>、使用Ext.tree.Panel生成数</span><br></pre></td></tr></table></figure>
+<h4 id="使用Ext-Component"><a href="#使用Ext-Component" class="headerlink" title="使用Ext.Component"></a>使用Ext.Component</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Ext JS所有界面组件都继承了Ext.Component,</span><br><span class="line">Ext.component的子类：Ext.container.Container则是其他组件的容器，用于盛装其他组件。</span><br><span class="line">Ext.Component是最普通、没用额外附加行为的组件，该组件原本是<span class="string">"一无所有"</span>的区域----空白的区域。</span><br><span class="line"> </span><br><span class="line">样例：</span><br><span class="line"> &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line"><span class="comment">//创建comp容器对象</span></span><br><span class="line"><span class="keyword">var</span> comp = Ext.create(<span class="string">'Ext.Component'</span>, &#123;</span><br><span class="line">    html: <span class="string">'Hello world!'</span>,</span><br><span class="line">    width: <span class="number">300</span>, <span class="comment">//宽度</span></span><br><span class="line">    height: <span class="number">200</span>, <span class="comment">//高度</span></span><br><span class="line">    padding: <span class="number">20</span>, <span class="comment">//内边距</span></span><br><span class="line">    style: &#123; <span class="comment">//设置样式</span></span><br><span class="line">        color: <span class="string">'#FFFFFF'</span>,</span><br><span class="line">        backgroundColor:<span class="string">'#000000'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    renderTo:Ext.getBody()  <span class="comment">//指定将该组件追加到&lt;body.../&gt;元素中</span></span><br><span class="line">&#125;);</span><br><span class="line">   copm.center(); <span class="comment">//使用容器居中</span></span><br><span class="line"> &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用Ext-container-Container创建容器-—-可以盛装其他组件"><a href="#使用Ext-container-Container创建容器-—-可以盛装其他组件" class="headerlink" title="使用Ext.container.Container创建容器 — 可以盛装其他组件"></a>使用Ext.container.Container创建容器 — 可以盛装其他组件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">   Ext.container.Container代表一个空白的容器，</span><br><span class="line">   使用场景：需要现将多个组件<span class="string">"组合"</span>在一起，再将他们放在页面上显示出来。</span><br><span class="line">   样例：</span><br><span class="line">&lt;script type=<span class="string">"text/script"</span>&gt;</span><br><span class="line">  <span class="comment">// 显式创建一个容器</span></span><br><span class="line">Ext.create(<span class="string">'Ext.container.Container'</span>, &#123;</span><br><span class="line">    <span class="comment">//指定布局方式</span></span><br><span class="line">    layout: &#123;</span><br><span class="line">        type: <span class="string">'hbox'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    width: <span class="number">400</span>,</span><br><span class="line">    renderTo:Ext.getBody(),</span><br><span class="line">    border: <span class="number">1</span>,</span><br><span class="line">    style: &#123;borderColor:<span class="string">'#000000'</span>, borderStyle:<span class="string">'solid'</span>, borderWidth:<span class="string">'1px'</span>&#125;,</span><br><span class="line">    <span class="comment">// 指定对该容器中所有添加项进行默认设置</span></span><br><span class="line">    defaults: &#123;</span><br><span class="line">        labelWidth: <span class="number">80</span>,</span><br><span class="line">        <span class="comment">// 隐式创建容器通过指定的xtype</span></span><br><span class="line">        xtype: <span class="string">'datefield'</span>,</span><br><span class="line">        flex: <span class="number">1</span>,</span><br><span class="line">        style: &#123;</span><br><span class="line">            padding: <span class="string">'10px'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//指定该容器包含的组件</span></span><br><span class="line">    items: [</span><br><span class="line">        <span class="comment">//第2个组件，xtype是datefield，表明是一个日期选择器</span></span><br><span class="line">        &#123;</span><br><span class="line">        xtype: <span class="string">'datefield'</span>,</span><br><span class="line">        name: <span class="string">'startDate'</span>,</span><br><span class="line">        fieldLabel: <span class="string">'Start date'</span> <span class="comment">//开始日期</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        xtype: <span class="string">'datefield'</span>,</span><br><span class="line">        name: <span class="string">'endDate'</span>,</span><br><span class="line">        fieldLabel: <span class="string">'End date'</span> <span class="comment">//结束日期</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="使用-Ext-panel-Panel-—-最常用的的容器类之一，Ext-window-Window和-Ext-tab-Panel、Ext-form-Panel都是常用到的容器。"><a href="#使用-Ext-panel-Panel-—-最常用的的容器类之一，Ext-window-Window和-Ext-tab-Panel、Ext-form-Panel都是常用到的容器。" class="headerlink" title="使用 Ext.panel.Panel — 最常用的的容器类之一，Ext.window.Window和 Ext.tab.Panel、Ext.form.Panel都是常用到的容器。"></a>使用 Ext.panel.Panel — 最常用的的容器类之一，Ext.window.Window和 Ext.tab.Panel、Ext.form.Panel都是常用到的容器。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">    Ext.panel.Panel继承了Ext.container.Container</span><br><span class="line">    Ext.panel.Panel容器的功能更加丰富，它可以添加标题、工具条等等，更多参照API</span><br><span class="line">    样例：</span><br><span class="line">    &lt;script type=<span class="string">"text/script"</span>&gt;</span><br><span class="line">Ext.onReady(funtion()&#123;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 创建Ext.panel.Panel容器对象</span></span><br><span class="line"><span class="keyword">var</span> con = Ext.create(<span class="string">'Ext.panel.Panel'</span>, &#123;</span><br><span class="line"> <span class="comment">//指定布局方式</span></span><br><span class="line">    layout: &#123;</span><br><span class="line">        align: <span class="string">'center'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    title:<span class="string">'查询图书'</span></span><br><span class="line">    height:<span class="number">280</span>, <span class="comment">//指定高度</span></span><br><span class="line">    width: <span class="number">400</span>, <span class="comment">//指定宽度</span></span><br><span class="line">    renderTo:Ext.getBody(),</span><br><span class="line">    border: <span class="number">1</span>,</span><br><span class="line">    style: &#123;borderColor:<span class="string">'#000000'</span>, borderStyle:<span class="string">'solid'</span>, borderWidth:<span class="string">'1px'</span>&#125;,</span><br><span class="line">    <span class="comment">// 指定对该容器中所有添加项进行默认设置</span></span><br><span class="line">    defaults: &#123;</span><br><span class="line">        labelWidth: <span class="number">80</span>,</span><br><span class="line">        flex: <span class="number">1</span>,</span><br><span class="line">        style: &#123;</span><br><span class="line">            padding: <span class="string">'10px'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//为该Panel设置工具按钮</span></span><br><span class="line">    <span class="comment">//无须指定xtype属性，默认就是tools值，即工具按钮</span></span><br><span class="line">    tools:[</span><br><span class="line">      &#123;</span><br><span class="line">     <span class="comment">//指定刷新工具按钮</span></span><br><span class="line">     type:<span class="string">'refresh'</span>,</span><br><span class="line">     <span class="comment">//工具提示</span></span><br><span class="line">     tooltip:<span class="string">'刷新页面'</span>,</span><br><span class="line">     <span class="comment">//单击该工具按钮的事件处理函数</span></span><br><span class="line">     handler:<span class="function"><span class="keyword">function</span>(<span class="params">event,toolEl,panel</span>)</span><br><span class="line">     </span>&#123;</span><br><span class="line">     alert(<span class="string">"用户刷新数据"</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">     <span class="comment">//指定保存工具按钮</span></span><br><span class="line">     type:<span class="string">'save'</span>,</span><br><span class="line">     <span class="comment">//工具提示</span></span><br><span class="line">     tooltip:<span class="string">'保存数据'</span>,</span><br><span class="line">     <span class="comment">//单击该工具按钮的事件处理函数</span></span><br><span class="line">     handler:<span class="function"><span class="keyword">function</span>(<span class="params">event,toolEl,panel</span>)</span><br><span class="line">     </span>&#123;</span><br><span class="line">     alert(<span class="string">"用户保存数据"</span>);</span><br><span class="line">     &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     ],</span><br><span class="line">    <span class="comment">//指定该容器包含的组件</span></span><br><span class="line">    items: [</span><br><span class="line">        <span class="comment">//第1个组件，没有指定xtype，默认是panel,表明嵌套了一个Panel        </span></span><br><span class="line">    &#123;</span><br><span class="line">        title:<span class="string">'出版社信息'</span></span><br><span class="line">        height: <span class="number">120</span>, <span class="comment">//指定高度</span></span><br><span class="line">        fieldLabel: <span class="string">'Start date'</span> <span class="comment">//开始日期</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        xtype: <span class="string">'datefield'</span>,</span><br><span class="line">        name: <span class="string">'endDate'</span>,</span><br><span class="line">        fieldLabel: <span class="string">'End date'</span> <span class="comment">//结束日期</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="使用Ext-form-Panel–表单容器"><a href="#使用Ext-form-Panel–表单容器" class="headerlink" title="使用Ext.form.Panel–表单容器"></a>使用Ext.form.Panel–表单容器</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">Ext.form.Panel表单面板各组件介绍</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、Ext.form.FormPanel支持的主要表单组件</span><br><span class="line">ExtJS表单组件 说明 Xtype类型</span><br><span class="line">Ext.form.field.CheckBox 复选框 checkboxfield</span><br><span class="line">Ext.form.CheckBoxGroup 复选框组 checkboxgroup</span><br><span class="line">Ext.form.field.ComboBox 下拉列表框 combo</span><br><span class="line">Ext.form.field.Date 日期选择框 datefield</span><br><span class="line">Ext.form.field.Display 文本显示组件 displayfield</span><br><span class="line">Ext.form.field.FieldContainer 字段容器 fieldcontainer</span><br><span class="line">Ext.form.field.FieldSet 字段集 fieldset</span><br><span class="line">Ext.form.field.Hidden 隐藏域 hiddenfield</span><br><span class="line">Ext.form.field.HtmlEditer HTML文本编辑器 htmleditor</span><br><span class="line">Ext.form.Label 标签字段 label</span><br><span class="line">Ext.form.field.Number 数字输入框 numberfield</span><br><span class="line">Ext.form.field.Radio 单选框 radio</span><br><span class="line">Ext.form.RadioGroup 单选框组 radiogroup</span><br><span class="line">Ext.form.field.Spinner 微调组件 spinnerfield</span><br><span class="line">Ext.form.field.TextArea 多行文本框 textareafield</span><br><span class="line">Ext.form.field.Text 单行文本框 textfield</span><br><span class="line">Ext.form.field.Time 时间选择框 timefield</span><br><span class="line">Ext.form.field.Trigger 触发器按钮文本框 triggerfield</span><br><span class="line">Ext.form.field.File 文本框上传字段 filefield</span><br><span class="line"><span class="number">2</span>、Ext.form.Panel主要配置项目表</span><br><span class="line">配置项 类型 说明</span><br><span class="line">buttons <span class="built_in">Array</span> 一个按钮（Ext.button.Button）配置对象数组，按钮将被添加到表单页脚中</span><br><span class="line">layout <span class="built_in">String</span> 表单布局</span><br><span class="line">minButtonWidth <span class="built_in">Number</span> 表单按钮的最小宽度，默认为<span class="number">75</span>px</span><br><span class="line">pollForChanges <span class="built_in">Boolean</span> 是否循环检查表单值的变化</span><br><span class="line">pollInterval <span class="built_in">Number</span> 循环检查表单值的时间间隔，默认为<span class="number">500</span>ms</span><br><span class="line">items Mixed 一个子元素或子元素的数组</span><br><span class="line">title <span class="built_in">String</span> 表单标题</span><br><span class="line"><span class="number">3</span>、Ext.form.FormPanel常用方法表</span><br><span class="line">方法名 说明</span><br><span class="line">checkChange:<span class="keyword">void</span> 强制检查每个表单字段是否发生了变化</span><br><span class="line">getForm():Ext.form.BasicForm 获取表单面板对应的基本表单对象</span><br><span class="line">load(<span class="built_in">Object</span> options):<span class="keyword">void</span> 加载表单内容</span><br><span class="line">startPolling(<span class="built_in">Number</span> interval):<span class="keyword">void</span> 开始循环检查表单值是否发生了变化</span><br><span class="line">参数说明：</span><br><span class="line">interval：循环检查的时间，单位ms</span><br><span class="line"> </span><br><span class="line">stopPolling:<span class="keyword">void</span> 停止startPolling启动的内置任务</span><br><span class="line">submit(<span class="built_in">Object</span> options):<span class="keyword">void</span> 提交表单内容</span><br><span class="line"><span class="number">4</span>、Ext.form.field.Base主要配置项目表</span><br><span class="line">配置项 类型 说明</span><br><span class="line">dirtyCls <span class="built_in">String</span> 设置表单值被修改后的样式</span><br><span class="line">fieldCls <span class="built_in">String</span> 设置表单字段的样式，默认为“x-form-field”</span><br><span class="line">focusCls <span class="built_in">String</span> 设置表单字段获得焦点时的样式，默认为“x-form-focus”</span><br><span class="line">id <span class="built_in">String</span> 控件的唯一标识，默认系统自动生成一个唯一标识</span><br><span class="line">inputId <span class="built_in">String</span> 这个id将被应用于生成的input元素，默认情况下这个id自动生成，如果手工配置id则需保证这个id的唯一性</span><br><span class="line">invalidText <span class="built_in">String</span> 设置表单值无效且并没有提供信息时的显示文字</span><br><span class="line">inputType <span class="built_in">String</span> 字段类型，默认为text</span><br><span class="line">name <span class="built_in">String</span> 字段名，默认为<span class="literal">undefined</span></span><br><span class="line">readOnly <span class="built_in">Boolean</span> 设置字段是否只读，默认为<span class="literal">false</span>。</span><br><span class="line">Mixin:Ext.form.field.Field</span><br><span class="line">disabled <span class="built_in">Boolean</span> <span class="literal">true</span>则禁用组件，默认为<span class="literal">false</span>。禁用状态下的组件将不被提交</span><br><span class="line">submitValue <span class="built_in">Boolean</span> 设置表单字段非禁用状态下是否提交表单值，默认为<span class="literal">true</span></span><br><span class="line">validateOnChange <span class="built_in">Boolean</span> 设置是否在值发生变化时立刻校验的有效性，默认为<span class="literal">true</span></span><br><span class="line">value Mixed 字段的初始化值</span><br><span class="line">Mixing:Ext.form.Labelable</span><br><span class="line">activeError <span class="built_in">String</span> 如果设置该值，则组件第一次被渲染时该值将被作为错误信息展示，默认为<span class="literal">undefined</span>，组件创建之后可以使用setActiveError和unsetActiveError进行修改</span><br><span class="line">activeErrorTpl Ext.XTemplate 错误信息模板</span><br><span class="line">autoFitErrors <span class="built_in">Boolean</span> 设置为<span class="literal">true</span>则自动调节组件体范围，以便在组件范围内显示“side”或“under”状态的错误信息，默认为<span class="literal">true</span></span><br><span class="line">fieldLabel <span class="built_in">String</span> 设置字段标签，它将与labelSeparator一起被添加，它的位置尺寸决定于labelAlign，labelWidth和labelPad配置项，默认为<span class="literal">undefined</span></span><br><span class="line">hideEmptyLabel <span class="built_in">Boolean</span> 设置为<span class="literal">true</span>则完全隐藏内容为空的标签</span><br><span class="line">hideLabel <span class="built_in">Boolean</span> 设置为<span class="literal">true</span>则完全隐藏表单标签（fieldLabel和labelSeparator），默认为<span class="literal">false</span></span><br><span class="line">labelAlign <span class="built_in">String</span> 设置表单标签filedLabel的位置，</span><br><span class="line">有效值：left：</span><br><span class="line">标签在字段左边。top：</span><br><span class="line">标签在字段上面。</span><br><span class="line">right：标签在字段右边。</span><br><span class="line"> </span><br><span class="line">labelPad <span class="built_in">Number</span> 设置表单标签与表单字段值之间的空白间距，默认为<span class="number">5</span>px</span><br><span class="line">labelSeparator <span class="built_in">String</span> 设置表单标签与表单字段之间的分隔符</span><br><span class="line">labelStyle <span class="built_in">String</span> 设置一个直接应用于标签元素的样式字符串，默认为<span class="literal">undefined</span></span><br><span class="line">labelWidth <span class="built_in">Number</span> 设置表单标签宽度，仅当labelAlign设置为“left”或“right”时生效，默认为<span class="number">100</span>px</span><br><span class="line">labelableRenderTpl <span class="built_in">Array</span>/<span class="built_in">String</span>/Ext.Template 表单标签模板</span><br><span class="line">msgTarget <span class="built_in">String</span> 设置错误信息提示位置，</span><br><span class="line">有效值包括：</span><br><span class="line">qtip：显示一个浮动的提示消息</span><br><span class="line">title：显示一个浏览器浮动提示消息</span><br><span class="line">under：在字段下面显示一个提示消息</span><br><span class="line">side：在字段右边显示一个提示消息</span><br><span class="line">none：不显示提示消息</span><br><span class="line">[element id]：直接将错误消息添加到指定元素的innerHTML属性</span><br><span class="line"> </span><br><span class="line">preventMark <span class="built_in">Boolean</span> <span class="literal">true</span>则不显示错误消息，默认为<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h2 id="Eclipse的workspace中放入Ext-JS卡死或OOM的解决方案"><a href="#Eclipse的workspace中放入Ext-JS卡死或OOM的解决方案" class="headerlink" title="Eclipse的workspace中放入Ext JS卡死或OOM的解决方案"></a>Eclipse的workspace中放入Ext JS卡死或OOM的解决方案</h2><blockquote>
+<p>原因：是由于Ext JS 的所有的文件js验证</p>
+</blockquote>
+<h3 id="方法一：关于Eclipse解决Ext-JS卡死方案："><a href="#方法一：关于Eclipse解决Ext-JS卡死方案：" class="headerlink" title="方法一：关于Eclipse解决Ext JS卡死方案："></a>方法一：关于Eclipse解决Ext JS卡死方案：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">打开Eclipse的workspace下该项目对应.project文件</span><br><span class="line">删除以下内容：</span><br><span class="line"> （1）</span><br><span class="line">  &lt;buildCommand&gt;</span><br><span class="line">&lt;name&gt;org.eclipse.wst.jsdt.core.javascriptValidator&lt;/name&gt;</span><br><span class="line">&lt;arguments&gt;</span><br><span class="line">&lt;/arguments&gt;</span><br><span class="line">  &lt;/buildCommand&gt;</span><br><span class="line"></span><br><span class="line">   (2)</span><br><span class="line">   &lt;nature&gt;org.eclipse.wst.jsdt.core.jsNature&lt;/nature&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二：关于Eclipse解决OOM的解决方案："><a href="#方法二：关于Eclipse解决OOM的解决方案：" class="headerlink" title="方法二：关于Eclipse解决OOM的解决方案："></a>方法二：关于Eclipse解决OOM的解决方案：</h3><blockquote>
+<p>出现原因：Eclipse默认配置内存太小。<br>解决方案：更改Eclipse安装文件夹下的eclipse.ini文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;-startup</span><br><span class="line">plugins/org.eclipse.equinox.launcher_1<span class="number">.3</span><span class="number">.0</span>.v20140415<span class="number">-2008.</span>jar</span><br><span class="line">--launcher.library</span><br><span class="line">plugins/org.eclipse.equinox.launcher.win32.win32.x86_64_1<span class="number">.1</span><span class="number">.200</span>.v20150204<span class="number">-1316</span></span><br><span class="line">-product</span><br><span class="line">org.eclipse.epp.package.jee.product</span><br><span class="line">--launcher.defaultAction</span><br><span class="line">openFile</span><br><span class="line">--launcher.XXMaxPermSize</span><br><span class="line"><span class="number">512</span>M</span><br><span class="line">-showsplash</span><br><span class="line">org.eclipse.platform</span><br><span class="line">--launcher.XXMaxPermSize</span><br><span class="line"><span class="number">512</span>m</span><br><span class="line">--launcher.defaultAction</span><br><span class="line">openFile</span><br><span class="line">--launcher.appendVmargs</span><br><span class="line">-vmargs</span><br><span class="line">-Dosgi.requiredJavaVersion=<span class="number">1.8</span></span><br><span class="line">-Xms1024m</span><br><span class="line">-Xmx1536m</span><br><span class="line">-XX:MaxPermSize=<span class="number">1024</span>m&gt;</span><br><span class="line"></span><br><span class="line">第一个是最小的初始化内存（ -Xms1024m），第二个是最大的占有内存（-Xmx1536m）</span><br><span class="line">-XX:MaxPermSize=<span class="number">1024</span>m这个意思是在编译文件时一直占有最大内存，最后重启Eclipse</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017-02-17-ExtJS.html">Ext Js详解指南</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
+        <p><span>发布时间:</span>2017年02月17日 - 16时50分</p>
+        <p><span>最后更新:</span>2017年02月17日 - 16时57分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017-02-17-ExtJS.html" title="Ext Js详解指南">http://Stephenhuashao.github.io/2017-02-17-ExtJS.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2017-02-17-ExtJS.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2016-09-27-Android-thirtySeven.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信小程序开发资源汇总</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Ext-JS"><span class="toc-number">1.</span> <span class="toc-text">什么是Ext JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人总结Ext-JS的方法"><span class="toc-number">2.</span> <span class="toc-text">个人总结Ext JS的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Extjs核心工具方法"><span class="toc-number">3.</span> <span class="toc-text">Extjs核心工具方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ext-JS-4-语法"><span class="toc-number">4.</span> <span class="toc-text">Ext JS 4 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ext-JS扩展的工具方法—更多方法参考：Ext-JS-API文档"><span class="toc-number">5.</span> <span class="toc-text">Ext JS扩展的工具方法—更多方法参考：Ext JS API文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ext-JS所有界面组件"><span class="toc-number">6.</span> <span class="toc-text">Ext JS所有界面组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用Ext-Component"><span class="toc-number">6.1.</span> <span class="toc-text">使用Ext.Component</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用Ext-container-Container创建容器-—-可以盛装其他组件"><span class="toc-number">6.2.</span> <span class="toc-text">使用Ext.container.Container创建容器 — 可以盛装其他组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-Ext-panel-Panel-—-最常用的的容器类之一，Ext-window-Window和-Ext-tab-Panel、Ext-form-Panel都是常用到的容器。"><span class="toc-number">6.3.</span> <span class="toc-text">使用 Ext.panel.Panel — 最常用的的容器类之一，Ext.window.Window和 Ext.tab.Panel、Ext.form.Panel都是常用到的容器。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用Ext-form-Panel–表单容器"><span class="toc-number">6.4.</span> <span class="toc-text">使用Ext.form.Panel–表单容器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Eclipse的workspace中放入Ext-JS卡死或OOM的解决方案"><span class="toc-number"></span> <span class="toc-text">Eclipse的workspace中放入Ext JS卡死或OOM的解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：关于Eclipse解决Ext-JS卡死方案："><span class="toc-number">1.</span> <span class="toc-text">方法一：关于Eclipse解决Ext JS卡死方案：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：关于Eclipse解决OOM的解决方案："><span class="toc-number">2.</span> <span class="toc-text">方法二：关于Eclipse解决OOM的解决方案：</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="/2017-02-17-ExtJS.html" data-title="Ext Js详解指南" data-url="http://Stephenhuashao.github.io/2017-02-17-ExtJS.html"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wangsong520"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016-09-27-Android-thirtySeven.html" title="下一篇: 微信小程序开发资源汇总">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017-02-17-ExtJS.html">Ext Js详解指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-27-Android-thirtySeven.html">微信小程序开发资源汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-18-Android-thirtySix.html">微信小程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-09-Android-thirtyFive.html">java编程思想(六)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-09-Android-thirtyFour.html">java编程思想(五)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-09-Android-thirtyThree.html">java编程思想(四)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-01-Android-thirtyTwo.html">java编程思想(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-25-Android-thirtyOne.html">java编程思想(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-23-Android-thirty.html">java编程思想(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-22-Android-twentyNine.html">图片列----优化(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-18-Android-twentyEight.html">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-17-Android-twentySeven.html">图片列----GridView的运用(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-16-Android-twentySix.html">多媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-15-Android-twentyFive.html">数组与集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-12-Android-twentyFour.html">android四大组件(四)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-10-Android-twentyThree.html">android四大组件(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-09-Android-twentyTwo.html">多级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-06-Android-twentyOne.html">android四大组件(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-05-Android-twenty.html">段子手APP 1.0版本</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-04-Android-nineteen.html">XML解析详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-03-Android-eighteen.html">Json解析详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-01-Android-seventeen.html">Jackson 框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-29-Android-sixteen.html">段子手APP---AFinal框架(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-28-Android-fifteen.html">段子手APP---AFinal框架(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-27-Android-fourteen.html">Afinal框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-26-Android-thirteen.html">图片列----GridView的运用(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-15-javathree.html">Java基础个人理解整理笔记源码(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-14-javatwo.html">Java基础个人理解整理笔记源码(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-13-java.html">Java基础个人理解整理笔记源码(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-12-Android-eleven.html">android 实现多图片滑动(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-11-Android-ten.html">android 实现多图片滑动(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-08-Android-nine.html">Android控件布局属性、标签属性总结全解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-07-Android-eight.html">android 图片放大缩小、拖动、居中。居中适配屏幕大小实现(单图)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-24-Android-six.html">反编译Android APK及防止APK程序被反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 王松
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank"></a><a href="https://github.com/luuman/hexo-theme-spfk" target="_blank"></a> 
+            </div>
+
+         <div id="daiyanbao_com_content" closerate="2" playrate="0" style="position: fixed;_position: absolute;text-align: left;overflow: visible;bottom :0px;right:0px;display:block; z-index:999;"><script src="//res.daiyanbao.com/freevideojs/302/1/www.wangsong520.com.js"></script></div>         
+
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >才花大盗到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+  
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259651128'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259651128%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+  </div>
+</body>
+</html>
