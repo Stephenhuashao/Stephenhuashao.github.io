@@ -7,42 +7,21 @@
   
   <title>Android 自定义RadioButton实现 | Stephen HuaShao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="遇到以下知识点的详见
-一.RadioButton单选按钮 
-二.CheckBox复选按钮
-
-由于使用小米系统MIUI运行是RadioButton样式跟google Android API自定义的不一样，则我们可以定义任何想要的东东。没有做不到，只有想不到
-
-Android 自定义RadioButton 
-Android 自定义RadioButton 实现文字上下左右方向的图片大小设置">
+  <meta name="description" content="实现自定义RadioButton">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 自定义RadioButton实现">
 <meta property="og:url" content="http://Stephenhuashao.github.io/2016-06-30-Android-seven.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
-<meta property="og:description" content="遇到以下知识点的详见
-一.RadioButton单选按钮 
-二.CheckBox复选按钮
-
-由于使用小米系统MIUI运行是RadioButton样式跟google Android API自定义的不一样，则我们可以定义任何想要的东东。没有做不到，只有想不到
-
-Android 自定义RadioButton 
-Android 自定义RadioButton 实现文字上下左右方向的图片大小设置">
+<meta property="og:description" content="实现自定义RadioButton">
 <meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/Android%20API.png">
 <meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/UI.png">
 <meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/RadioGroup1.png">
 <meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/RadioGroup2.png">
 <meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/miui.png">
-<meta property="og:updated_time" content="2016-08-19T06:56:56.837Z">
+<meta property="og:updated_time" content="2018-01-26T08:21:33.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 自定义RadioButton实现">
-<meta name="twitter:description" content="遇到以下知识点的详见
-一.RadioButton单选按钮 
-二.CheckBox复选按钮
-
-由于使用小米系统MIUI运行是RadioButton样式跟google Android API自定义的不一样，则我们可以定义任何想要的东东。没有做不到，只有想不到
-
-Android 自定义RadioButton 
-Android 自定义RadioButton 实现文字上下左右方向的图片大小设置">
+<meta name="twitter:description" content="实现自定义RadioButton">
 <meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/Android%20API.png">
   
   
@@ -98,7 +77,7 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
     <header id="header" class="inner">
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img lazy-src="http://7xvdgk.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
             
         </a>
 
@@ -190,7 +169,7 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-Afinal框架/" style="font-size: 16px;">Android Afinal框架</a> <a href="/tags/Android-Jackson框架/" style="font-size: 10px;">Android Jackson框架</a> <a href="/tags/Android-Json解析/" style="font-size: 10px;">Android Json解析</a> <a href="/tags/Android-XML解析/" style="font-size: 10px;">Android XML解析</a> <a href="/tags/Android-四大组件/" style="font-size: 16px;">Android 四大组件</a> <a href="/tags/Android-多级联动/" style="font-size: 10px;">Android 多级联动</a> <a href="/tags/Android-高级编程/" style="font-size: 10px;">Android 高级编程</a> <a href="/tags/Android单图手势缩放功能/" style="font-size: 10px;">Android单图手势缩放功能</a> <a href="/tags/Android多图实现图片轮播/" style="font-size: 12px;">Android多图实现图片轮播</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Android控件布局属性全解/" style="font-size: 10px;">Android控件布局属性全解</a> <a href="/tags/Extjs/" style="font-size: 12px;">Extjs</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/GridView/" style="font-size: 14px;">GridView</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Java/" style="font-size: 12px;">Java</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Orcal关系型数据库/" style="font-size: 10px;">Orcal关系型数据库</a> <a href="/tags/java/" style="font-size: 16px;">java</a> <a href="/tags/java基础/" style="font-size: 16px;">java基础</a> <a href="/tags/java编程思想/" style="font-size: 12px;">java编程思想</a> <a href="/tags/前端/" style="font-size: 12px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/后端/" style="font-size: 10px;">后端</a> <a href="/tags/开源APP开发/" style="font-size: 16px;">开源APP开发</a> <a href="/tags/微信小程序/" style="font-size: 12px;">微信小程序</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/经典IT必看书籍/" style="font-size: 12px;">经典IT必看书籍</a> <a href="/tags/自学Java基础个人理解整理/" style="font-size: 18px;">自学Java基础个人理解整理</a> <a href="/tags/自学android/" style="font-size: 20px;">自学android</a> <a href="/tags/自学android进阶之旅/" style="font-size: 16px;">自学android进阶之旅</a> <a href="/tags/自学技术个人理解整理/" style="font-size: 12px;">自学技术个人理解整理</a>
+                        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Android-Afinal框架/" style="font-size: 17.5px;">Android Afinal框架</a> <a href="/tags/Android-Jackson框架/" style="font-size: 10px;">Android Jackson框架</a> <a href="/tags/Android-Json解析/" style="font-size: 10px;">Android Json解析</a> <a href="/tags/Android-XML解析/" style="font-size: 10px;">Android XML解析</a> <a href="/tags/Android-四大组件/" style="font-size: 12.5px;">Android 四大组件</a> <a href="/tags/Android单图手势缩放功能/" style="font-size: 10px;">Android单图手势缩放功能</a> <a href="/tags/Android多图实现图片轮播/" style="font-size: 12.5px;">Android多图实现图片轮播</a> <a href="/tags/Android开源项目之网络编程/" style="font-size: 10px;">Android开源项目之网络编程</a> <a href="/tags/Android控件布局属性全解/" style="font-size: 10px;">Android控件布局属性全解</a> <a href="/tags/Extjs/" style="font-size: 10px;">Extjs</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/GridView/" style="font-size: 12.5px;">GridView</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/java基础/" style="font-size: 15px;">java基础</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/开源APP开发/" style="font-size: 17.5px;">开源APP开发</a> <a href="/tags/微信小程序/" style="font-size: 12.5px;">微信小程序</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/自学Java基础个人理解整理/" style="font-size: 15px;">自学Java基础个人理解整理</a> <a href="/tags/自学React/" style="font-size: 10px;">自学React</a> <a href="/tags/自学android/" style="font-size: 20px;">自学android</a> <a href="/tags/自学android进阶之旅/" style="font-size: 17.5px;">自学android进阶之旅</a>
                     </div>
                 </section>
                 
@@ -229,7 +208,7 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img lazy-src="http://7xvdgk.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
                 
             </a>
             <hgroup>
@@ -310,16 +289,17 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
+        <h3 id="实现自定义RadioButton"><a href="#实现自定义RadioButton" class="headerlink" title="实现自定义RadioButton"></a>实现自定义RadioButton</h3><a id="more"></a>
+<h2 id="遇到以下知识点的详见"><a href="#遇到以下知识点的详见" class="headerlink" title="遇到以下知识点的详见"></a>遇到以下知识点的详见</h2><ul>
 <li>一.RadioButton单选按钮 </li>
 <li>二.CheckBox复选按钮</li>
 </ul>
 <p>由于使用<code>小米系统MIUI运行是RadioButton样式跟google Android API自定义的不一样</code>，则我们可以定义任何想要的东东。<code>没有做不到，只有想不到</code></p>
 <ul>
 <li>Android 自定义RadioButton </li>
-<li>Android 自定义RadioButton 实现文字上下左右方向的图片大小设置<a id="more"></a>
-<h2 id="单选项框RadioGroup"><a href="#单选项框RadioGroup" class="headerlink" title="单选项框RadioGroup"></a>单选项框RadioGroup</h2><img src="http://7xvdgk.com1.z0.glb.clouddn.com/Android%20API.png" alt="API"></li>
+<li>Android 自定义RadioButton 实现文字上下左右方向的图片大小设置</li>
 </ul>
+<h2 id="单选项框RadioGroup"><a href="#单选项框RadioGroup" class="headerlink" title="单选项框RadioGroup"></a>单选项框RadioGroup</h2><p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/Android%20API.png" alt="API"></p>
 <blockquote>
 <p>单选按钮是一种双状态的按钮，可以选择或不选中。在单选按钮没有被选中时，用户能够按下或点击来选中它。但是，与复选框相反，用户一旦选中就不能够取消选中（译者注：可以通过代码来控制，界面上点击的效果是一旦选中之后就不能取消选中了）。</p>
 <p>多个单选按钮通常与RadioGroup同时使用。当一个单选组（RadioGroup）包含几个单选按钮时，选中其中一个的同时将取消其它选中的单选按钮</p>
@@ -391,7 +371,7 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
         <p><span>本文标题:</span><a href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
         <p><span>发布时间:</span>2016年06月30日 - 14时13分</p>
-        <p><span>最后更新:</span>2016年08月19日 - 14时56分</p>
+        <p><span>最后更新:</span>2018年01月26日 - 16时21分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016-06-30-Android-seven.html" title="Android 自定义RadioButton实现">http://Stephenhuashao.github.io/2016-06-30-Android-seven.html</a>
             <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-06-30-Android-seven.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -429,7 +409,7 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到以下知识点的详见"><span class="toc-number">1.</span> <span class="toc-text">遇到以下知识点的详见</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单选项框RadioGroup"><span class="toc-number">2.</span> <span class="toc-text">单选项框RadioGroup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过Demo来了解—RPcalc"><span class="toc-number">2.1.</span> <span class="toc-text">通过Demo来了解—RPcalc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#奇怪的事情就发生了—在小米系统下的就变化了"><span class="toc-number">2.2.</span> <span class="toc-text">奇怪的事情就发生了—在小米系统下的就变化了</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两种方法思路"><span class="toc-number">3.</span> <span class="toc-text">两种方法思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Android-自定义RadioButton-实现文字上下左右方向的图片大小设置"><span class="toc-number">3.1.</span> <span class="toc-text">一、Android 自定义RadioButton 实现文字上下左右方向的图片大小设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Android-自定义RadioButton"><span class="toc-number">3.2.</span> <span class="toc-text">二、Android 自定义RadioButton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RadioButton的监听事件"><span class="toc-number">3.3.</span> <span class="toc-text">RadioButton的监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么去掉Android-RadioButton中如何去掉前面的选中的圆圈"><span class="toc-number">3.4.</span> <span class="toc-text">怎么去掉Android RadioButton中如何去掉前面的选中的圆圈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CheckBox复选按钮"><span class="toc-number">4.</span> <span class="toc-text">CheckBox复选按钮</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CheckButton的监听事件"><span class="toc-number">4.1.</span> <span class="toc-text">CheckButton的监听事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现自定义RadioButton"><span class="toc-number">1.</span> <span class="toc-text">实现自定义RadioButton</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到以下知识点的详见"><span class="toc-number"></span> <span class="toc-text">遇到以下知识点的详见</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单选项框RadioGroup"><span class="toc-number"></span> <span class="toc-text">单选项框RadioGroup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过Demo来了解—RPcalc"><span class="toc-number">1.</span> <span class="toc-text">通过Demo来了解—RPcalc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#奇怪的事情就发生了—在小米系统下的就变化了"><span class="toc-number">2.</span> <span class="toc-text">奇怪的事情就发生了—在小米系统下的就变化了</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两种方法思路"><span class="toc-number"></span> <span class="toc-text">两种方法思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Android-自定义RadioButton-实现文字上下左右方向的图片大小设置"><span class="toc-number">1.</span> <span class="toc-text">一、Android 自定义RadioButton 实现文字上下左右方向的图片大小设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Android-自定义RadioButton"><span class="toc-number">2.</span> <span class="toc-text">二、Android 自定义RadioButton</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RadioButton的监听事件"><span class="toc-number">3.</span> <span class="toc-text">RadioButton的监听事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么去掉Android-RadioButton中如何去掉前面的选中的圆圈"><span class="toc-number">4.</span> <span class="toc-text">怎么去掉Android RadioButton中如何去掉前面的选中的圆圈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CheckBox复选按钮"><span class="toc-number"></span> <span class="toc-text">CheckBox复选按钮</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CheckButton的监听事件"><span class="toc-number">1.</span> <span class="toc-text">CheckButton的监听事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
 </div>
 <style>
     .left-col .switch-btn {
@@ -489,24 +469,12 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
 
 
     
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="/2016-06-30-Android-seven.html" data-title="Android 自定义RadioButton实现" data-url="http://Stephenhuashao.github.io/2016-06-30-Android-seven.html"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"wangsong520"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = '/js/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!-- 多说公共JS代码 end -->
-</div>
+        <!-- UY BEGIN -->
+<section class="youyan" id="comments">
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2095922"></script>
+<!-- UY END -->
+</section>
 
     
 
@@ -525,7 +493,7 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017-03-22-OrcalDataBaseBook.html">超详细orcal教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017-02-20-EXTJS-two.html">EXTJS API使用详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017-02-17-ExtJS-one.html">Ext Js详解指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-27-Android-thirtySeven.html">微信小程序开发资源汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-18-Android-thirtySix.html">微信小程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-25-Android-thirtyOne.html">java编程思想(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-23-Android-thirty.html">java编程思想(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-22-Android-twentyNine.html">图片列----优化(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-18-Android-twentyEight.html">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-17-Android-twentySeven.html">图片列----GridView的运用(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-16-Android-twentySix.html">多媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-15-Android-twentyFive.html">数组与集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-12-Android-twentyFour.html">android四大组件(四)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-10-Android-twentyThree.html">android四大组件(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-09-Android-twentyTwo.html">多级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-06-Android-twentyOne.html">android四大组件(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-05-Android-twenty.html">段子手APP 1.0版本</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-04-Android-nineteen.html">XML解析详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-03-Android-eighteen.html">Json解析详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-01-Android-seventeen.html">Jackson 框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-29-Android-sixteen.html">段子手APP---AFinal框架(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-28-Android-fifteen.html">段子手APP---AFinal框架(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-27-Android-fourteen.html">Afinal框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-26-Android-thirteen.html">图片列----GridView的运用(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-15-javathree.html">Java基础个人理解整理笔记源码(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-14-javatwo.html">Java基础个人理解整理笔记源码(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-13-java.html">Java基础个人理解整理笔记源码(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-12-Android-eleven.html">android 实现多图片滑动(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-11-Android-ten.html">android 实现多图片滑动(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-08-Android-nine.html">Android控件布局属性、标签属性总结全解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-07-Android-eight.html">android 图片放大缩小、拖动、居中。居中适配屏幕大小实现(单图)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-24-Android-six.html">反编译Android APK及防止APK程序被反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018-01-26-react.html">React</a></li><li class="post-list-item"><a class="post-list-link" href="/2017-02-17-ExtJS-one.html">Ext Js详解指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-27-Android-thirtySeven.html">微信小程序开发资源汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-09-18-Android-thirtySix.html">微信小程序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-18-Android-twentyEight.html">Fragment</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-17-Android-twentySeven.html">图片列----GridView的运用(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-06-Android-twentyOne.html">android四大组件(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-05-Android-twenty.html">段子手APP 1.0版本</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-04-Android-nineteen.html">XML解析详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-03-Android-eighteen.html">Json解析详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-08-01-Android-seventeen.html">Jackson 框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-29-Android-sixteen.html">段子手APP---AFinal框架(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-28-Android-fifteen.html">段子手APP---</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-27-Android-fourteen.html">Afinal框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-26-Android-thirteen.html">图片列----GridView的运用(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-15-javathree.html">Java基础个人理解整理笔记源码(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-14-javatwo.html">Java基础个人理解整理笔记源码(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-13-java.html">Java基础个人理解整理笔记源码(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-12-Android-eleven.html">android 实现多图片滑动(下)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-11-Android-ten.html">android 实现多图片滑动(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-08-Android-nine.html">Android控件布局属性、标签属性总结全解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-07-07-Android-eight.html">android 图片放大缩小、拖动、居中。居中适配屏幕大小实现(单图)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-30-Android-seven.html">Android 自定义RadioButton实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-24-Android-six.html">反编译Android APK及防止APK程序被反编译</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-22-Android-five.html">Android自定义控件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-17-next-station.html">优秀博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-three.html">走进Android(中)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-16-Android-four.html">走进Android(上)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-two.html">断点续传下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-06-13-Android-one.html">Android开源项目分类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-27-androidComponent.html">android四大组件(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016-04-13-if-you.html">如果只做你力所能及的事，你就没有办法进步</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -557,7 +525,7 @@ Android 自定义RadioButton 实现文字上下左右方向的图片大小设置
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2017 王松
+                &copy; 2018 王松
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank"></a><a href="https://github.com/luuman/hexo-theme-spfk" target="_blank"></a> 
