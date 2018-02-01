@@ -5,18 +5,21 @@
   <meta name="baidu-site-verification" content="MoWlqzV5BA" />
   <meta name="360-site-verification" content="6174c7b8c4ab8b3b7a553f87859327a8" />
   
-  <title>网格视图GridView功能和用法理解 | Stephen HuaShao&#39;s Blog</title>
+  <title>springboot | Stephen HuaShao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网格视图GridView">
+  <meta name="description" content="springboot入门">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网格视图GridView功能和用法理解">
-<meta property="og:url" content="http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html">
+<meta property="og:title" content="springboot">
+<meta property="og:url" content="http://Stephenhuashao.github.io/2018-02-01-springboot.html">
 <meta property="og:site_name" content="Stephen HuaShao's Blog">
-<meta property="og:description" content="网格视图GridView">
-<meta property="og:updated_time" content="2018-01-26T08:13:06.565Z">
+<meta property="og:description" content="springboot入门">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/springboot1.png">
+<meta property="og:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/springboot2.png">
+<meta property="og:updated_time" content="2018-02-01T14:50:17.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网格视图GridView功能和用法理解">
-<meta name="twitter:description" content="网格视图GridView">
+<meta name="twitter:title" content="springboot">
+<meta name="twitter:description" content="springboot入门">
+<meta name="twitter:image" content="http://7xvdgk.com1.z0.glb.clouddn.com/springboot1.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -241,11 +244,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Android-twelve" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-springboot" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016-07-19-Android-twelve.html" class="article-date">
-      <time datetime="2016-07-19T00:47:16.000Z" itemprop="datePublished">2016-07-19</time>
+      <a href="/2018-02-01-springboot.html" class="article-date">
+      <time datetime="2018-02-01T14:10:20.000Z" itemprop="datePublished">2018-02-01</time>
 </a>
     </div>
   
@@ -258,7 +261,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      网格视图GridView功能和用法理解
+      springboot
     </h1>
   
 
@@ -267,13 +270,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/术业专攻/">术业专攻</a>
+    <a class="article-category-link" href="/categories/spring框架/">spring框架</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自学android/">自学android</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-boot/">spring boot</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -283,64 +286,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="网格视图GridView"><a href="#网格视图GridView" class="headerlink" title="网格视图GridView"></a>网格视图GridView</h3><a id="more"></a>
-<h2 id="网格视图GridView-1"><a href="#网格视图GridView-1" class="headerlink" title="网格视图GridView"></a>网格视图GridView</h2><h4 id="GridView和ListView的唯一区别"><a href="#GridView和ListView的唯一区别" class="headerlink" title="GridView和ListView的唯一区别"></a>GridView和ListView的唯一区别</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">GridView</th>
-<th style="text-align:right">ListView</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">ListView只显示一列</td>
-<td style="text-align:right">GridView可以显示多列</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GridView用于在界面上按行、列分布的方式来显示多个组件。</span><br><span class="line">GridView和ListView有共同的父类：AbsListView，</span><br><span class="line">因此GridView和ListView具有很高的相似性，它们都是列表项。</span><br><span class="line">GridView和ListView的唯一区别在于：ListView只显示一列，而GridView可以显示多列。从这个角度来看，ListView相当于一种特殊的GridView，如果让GridView只显示一列，那么该GridView就变成了ListView。</span><br><span class="line"></span><br><span class="line">与ListView类似的是，GridView也需要通过Adapter来提供显示的数据：我们可以采用之前介绍的4种方式的任意一种来创建Adapter。不管使用哪种方式，GridView和ListView的用法是基本一致的。</span><br></pre></td></tr></table></figure>
-<h4 id="GridView常用的XML属性"><a href="#GridView常用的XML属性" class="headerlink" title="GridView常用的XML属性"></a>GridView常用的XML属性</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">XML属性</th>
-<th>相关方法</th>
-<th style="text-align:right">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">android:columnWidth</td>
-<td>setColumnWidth(int)</td>
-<td style="text-align:right">设置列的宽度</td>
-</tr>
-<tr>
-<td style="text-align:left">android:gravity</td>
-<td>setGravity(int)</td>
-<td style="text-align:right">组件对齐方式</td>
-</tr>
-<tr>
-<td style="text-align:left">android:horizontalSpacing</td>
-<td>setHorizontalSpacing(int)</td>
-<td style="text-align:right">水平方向每个单元格的间距</td>
-</tr>
-<tr>
-<td style="text-align:left">android:verticalSpacing</td>
-<td>setVerticalSpacing(int)</td>
-<td style="text-align:right">垂直方向每个单元格的间距</td>
-</tr>
-<tr>
-<td style="text-align:left">android:numColumns</td>
-<td>setNumColumns(int)</td>
-<td style="text-align:right">设置列数</td>
-</tr>
-<tr>
-<td style="text-align:left">android:stretchMode</td>
-<td>setStretchMode(int)</td>
-<td style="text-align:right">设置拉伸模式</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">android:stretchMode：设置拉伸模式，</span><br><span class="line">可选值如下： none：不拉伸；</span><br><span class="line">spacingWidth：拉伸元素间的间隔空隙 </span><br><span class="line">columnWidth：仅仅拉伸表格元素自身 </span><br><span class="line">spacingWidthUniform：既拉元素间距又拉伸他们之间的间隔空袭</span><br></pre></td></tr></table></figure>
+        <h3 id="springboot入门"><a href="#springboot入门" class="headerlink" title="springboot入门"></a>springboot入门</h3><a id="more"></a>
+<h2 id="spring的发展"><a href="#spring的发展" class="headerlink" title="spring的发展"></a>spring的发展</h2><h3 id="Spring1-x-时代"><a href="#Spring1-x-时代" class="headerlink" title="Spring1.x 时代"></a>Spring1.x 时代</h3><blockquote>
+<p>在Spring1.x时代，都是通过xml文件配置bean，随着项目的不断扩大，需要将xml配置分放到不同的配置文件中，需要频繁的在java类和xml配置文件中切换。</p>
+</blockquote>
+<h3 id="Spring2-x时代"><a href="#Spring2-x时代" class="headerlink" title="Spring2.x时代"></a>Spring2.x时代</h3><blockquote>
+<p>随着JDK 1.5带来的注解支持，Spring2.x可以使用注解对Bean进行申明和注入，大大的减少了xml配置文件，同时也大大简化了项目的开发。<br>那么，问题来了，究竟是应该使用xml还是注解呢？</p>
+<blockquote>
+<p>最佳实践：<br>1、应用的基本配置用xml，比如：数据源、资源文件等；<br>2、业务开发用注解，比如：Service中注入bean等；</p>
+</blockquote>
+</blockquote>
+<h3 id="Spring3-x到Spring4-x"><a href="#Spring3-x到Spring4-x" class="headerlink" title="Spring3.x到Spring4.x"></a>Spring3.x到Spring4.x</h3><blockquote>
+<p>从Spring3.x开始提供了Java配置方式，使用Java配置方式可以更好的理解你配置的Bean，现在我们就处于这个时代，并且Spring4.x和Spring boot都推荐使用java配置的方式。</p>
+</blockquote>
+<h3 id="spring5-x到来"><a href="#spring5-x到来" class="headerlink" title="spring5.x到来"></a>spring5.x到来</h3><blockquote>
+<p>JDK 8+和Java EE7+以上版本<br>Spring Framework 5.0 是自 2013年12月版本 4 发布之后 Spring Framework 的第一个主发行版。Spring Framework 项目的领导人 Juergen Hoeller 于 2016 年 7 月 28 日宣布了第一个 Spring Framework 5.0 里程碑版本(5.0 M1)。</p>
+</blockquote>
+<h2 id="Spring的Java配置方式"><a href="#Spring的Java配置方式" class="headerlink" title="Spring的Java配置方式"></a>Spring的Java配置方式</h2><h3 id="Configuration-和-Bean"><a href="#Configuration-和-Bean" class="headerlink" title="@Configuration 和 @Bean"></a>@Configuration 和 @Bean</h3><blockquote>
+<p>Spring的Java配置方式是通过 @Configuration 和 @Bean 这两个注解实现的：</p>
+<ul>
+<li>1、@Configuration 作用于类上，相当于一个xml配置文件；</li>
+<li>2、@Bean 作用于方法上，相当于xml配置中的<bean>；</bean></li>
+</ul>
+</blockquote>
+<h2 id="spring-Boot"><a href="#spring-Boot" class="headerlink" title="spring Boot"></a>spring Boot</h2><h3 id="什么是Spring-Boot"><a href="#什么是Spring-Boot" class="headerlink" title="什么是Spring Boot"></a>什么是Spring Boot</h3><p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/springboot1.png" alt="springboot"></p>
+<h3 id="4-2-Spring-Boot的优缺点"><a href="#4-2-Spring-Boot的优缺点" class="headerlink" title="4.2.Spring Boot的优缺点"></a>4.2.Spring Boot的优缺点</h3><p><img src="http://7xvdgk.com1.z0.glb.clouddn.com/springboot2.png" alt="springboot"></p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="设置spring-boot的parent"><a href="#设置spring-boot的parent" class="headerlink" title="设置spring boot的parent"></a>设置spring boot的parent</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">		&lt;version&gt;1.5.2.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/parent&gt;</span><br><span class="line"></span><br><span class="line">Spring boot的项目必须要将parent设置为spring boot的parent，该parent包含了大量默认的配置，大大简化了我们的开发。</span><br></pre></td></tr></table></figure>
+<h3 id="导入spring-boot的web支持"><a href="#导入spring-boot的web支持" class="headerlink" title="导入spring boot的web支持"></a>导入spring boot的web支持</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="添加Spring-boot的插件"><a href="#添加Spring-boot的插件" class="headerlink" title="添加Spring boot的插件"></a>添加Spring boot的插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="编写第一个Spring-Boot的应用—Hello-World"><a href="#编写第一个Spring-Boot的应用—Hello-World" class="headerlink" title="编写第一个Spring Boot的应用—Hello World"></a>编写第一个Spring Boot的应用—Hello World</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Controller</span><br><span class="line">@SpringBootApplication</span><br><span class="line">@Configuration</span><br><span class="line">public class HelloApplication &#123;</span><br><span class="line">    </span><br><span class="line">    @RequestMapping(&quot;hello&quot;)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public String hello()&#123;</span><br><span class="line">        return &quot;hello world！&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(HelloApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Notes:</span><br><span class="line">@SpringBootApplication：Spring Boot项目的核心注解，主要目的是开启自动配置。；</span><br><span class="line">@Configuration：这是一个配置Spring的配置类；</span><br><span class="line">@Controller：标明这是一个SpringMVC的Controller控制器；</span><br><span class="line">main方法：在main方法中启动一个应用，即：这个应用的入口；</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-5-启动应用"><a href="#4-3-5-启动应用" class="headerlink" title="4.3.5.启动应用"></a>4.3.5.启动应用</h3><blockquote>
+<p>在Spring Boot项目中，启动的方式有两种，一种是直接<code>run Java Application</code> 另外一种是通过Spring Boot的<code>Maven插件运行</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">看到如下信息就说明启动成功了：</span><br><span class="line"></span><br><span class="line">INFO 6188 --- [           main] c.i.springboot.demo.HelloApplication     : Started HelloApplication in 3.281 seconds (JVM running for 3.601)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="Spring-Boot的核心"><a href="#Spring-Boot的核心" class="headerlink" title="Spring Boot的核心"></a>Spring Boot的核心</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">入口类和@SpringBootApplication</span><br><span class="line">Spring Boot的项目一般都会有*Application的入口类，入口类中会有main方法，这是一个标准的Java应用程序的入口方法。</span><br><span class="line"></span><br><span class="line">@SpringBootApplication注解是Spring Boot的核心注解，它其实是一个组合注解：</span><br><span class="line">在Spring Boot项目中推荐使用@ SpringBootConfiguration替代@Configuration</span><br><span class="line"></span><br><span class="line">@EnableAutoConfiguration：启用自动配置，该注解会使Spring Boot根据项目中依赖的jar包自动配置项目的配置项：</span><br><span class="line">如：我们添加了spring-boot-starter-web的依赖，项目中也就会引入SpringMVC的依赖，Spring Boot就会自动配置tomcat和SpringMVC</span><br><span class="line"></span><br><span class="line">@ComponentScan：默认扫描@SpringBootApplication所在类的同级目录以及它的子目录。</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -348,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016-07-19-Android-twelve.html">网格视图GridView功能和用法理解</a></p>
+        <p><span>本文标题:</span><a href="/2018-02-01-springboot.html">springboot</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 王松 的个人博客">王松</a></p>
-        <p><span>发布时间:</span>2016年07月19日 - 08时47分</p>
-        <p><span>最后更新:</span>2018年01月26日 - 16时13分</p>
+        <p><span>发布时间:</span>2018年02月01日 - 22时10分</p>
+        <p><span>最后更新:</span>2018年02月01日 - 22时50分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016-07-19-Android-twelve.html" title="网格视图GridView功能和用法理解">http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html</a>
-            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2016-07-19-Android-twelve.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018-02-01-springboot.html" title="springboot">http://Stephenhuashao.github.io/2018-02-01-springboot.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://Stephenhuashao.github.io/2018-02-01-springboot.html　　作者: 王松" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -367,18 +346,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2016-07-26-Android-thirteen.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          图片列----GridView的运用(一)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016-07-15-javathree.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java基础个人理解整理笔记源码(3)</div>
+    <a href="/2018-01-26-react.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -389,7 +359,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#网格视图GridView"><span class="toc-number">1.</span> <span class="toc-text">网格视图GridView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网格视图GridView-1"><span class="toc-number"></span> <span class="toc-text">网格视图GridView</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GridView和ListView的唯一区别"><span class="toc-number">0.1.</span> <span class="toc-text">GridView和ListView的唯一区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GridView常用的XML属性"><span class="toc-number">0.2.</span> <span class="toc-text">GridView常用的XML属性</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#springboot入门"><span class="toc-number">1.</span> <span class="toc-text">springboot入门</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring的发展"><span class="toc-number"></span> <span class="toc-text">spring的发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring1-x-时代"><span class="toc-number">1.</span> <span class="toc-text">Spring1.x 时代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring2-x时代"><span class="toc-number">2.</span> <span class="toc-text">Spring2.x时代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring3-x到Spring4-x"><span class="toc-number">3.</span> <span class="toc-text">Spring3.x到Spring4.x</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring5-x到来"><span class="toc-number">4.</span> <span class="toc-text">spring5.x到来</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring的Java配置方式"><span class="toc-number"></span> <span class="toc-text">Spring的Java配置方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Configuration-和-Bean"><span class="toc-number">1.</span> <span class="toc-text">@Configuration 和 @Bean</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring-Boot"><span class="toc-number"></span> <span class="toc-text">spring Boot</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Spring-Boot"><span class="toc-number">1.</span> <span class="toc-text">什么是Spring Boot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Spring-Boot的优缺点"><span class="toc-number">2.</span> <span class="toc-text">4.2.Spring Boot的优缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门"><span class="toc-number"></span> <span class="toc-text">快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置spring-boot的parent"><span class="toc-number">1.</span> <span class="toc-text">设置spring boot的parent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入spring-boot的web支持"><span class="toc-number">2.</span> <span class="toc-text">导入spring boot的web支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加Spring-boot的插件"><span class="toc-number">3.</span> <span class="toc-text">添加Spring boot的插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写第一个Spring-Boot的应用—Hello-World"><span class="toc-number">4.</span> <span class="toc-text">编写第一个Spring Boot的应用—Hello World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-5-启动应用"><span class="toc-number">5.</span> <span class="toc-text">4.3.5.启动应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-Boot的核心"><span class="toc-number"></span> <span class="toc-text">Spring Boot的核心</span></a>
 </div>
 <style>
     .left-col .switch-btn {
@@ -442,13 +412,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016-07-26-Android-thirteen.html" title="上一篇: 图片列----GridView的运用(一)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016-07-15-javathree.html" title="下一篇: Java基础个人理解整理笔记源码(3)">
+            <a href="/2018-01-26-react.html" title="下一篇: React">
                 <i class="fa fa-angle-right"></i>
             </a>
         
